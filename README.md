@@ -15,7 +15,7 @@
 
 | Student Name | Student Email | GitHub Username |
 |    :---:     |     :---:     |     :---:       |
-| member1      |               |                 |
+| Abdullah Sharaf      |fabdullah1@mail.sfsu.edu               |abdullahsharafsfsu                 |
 | member2      |               |                 |
 | member3      |               |                 |
 | member4      |               |                 |

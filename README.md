@@ -18,9 +18,9 @@
 | Aaron Carlson      | acarlson8@mail.sfsu.edu               | ajccarlson                 |
 | Siqi Guo      | sguo4@mail.sfsu.edu              | Guo-1999                |
 | Janvi Patel      |jpatel6@mail.sfsu.edu               | pjanvi22                |
-| Vishal Ramanand Sharma     | vsharma5@mail.sfsu.edu              |vishals9711                 |
 | Samantha Saxton-Getty    | ssaxtongetty@mail.sfsu.edu              |saxgetty                |
 | Abdullah Sharaf      |fabdullah1@mail.sfsu.edu               |abdullahsharafsfsu                 |
+| Vishal Ramanand Sharma     | vsharma5@mail.sfsu.edu              |vishals9711                 |
 | Elyssa Mari Tapawan      | etapawan1@mail.sfsu.edu              | ElyssaMari                |
 
 ## NO code needs to be stored in the root of your repository. You may rename the application folder if you like to your team's application name. But all source code related to your team's application should be stored inside the application folder.

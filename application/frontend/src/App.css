@@ -1,0 +1,185 @@
+.navtext{
+  margin-top: 48px;
+  color:white;
+}
+
+a:visited {
+  color: white;
+}
+
+.nav{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0px;
+  height: 150px;
+  width: 1667px;
+  background-color: #b9a398;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 50px;
+  text-decoration: none;
+  }
+
+.homeheader{
+  margin-top: 50px;
+  margin-left: 50px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 30px;
+  border-radius: 25px;
+  border: 7px solid #b9a398;
+  width: 550px;
+  height: 100px;
+}
+
+.welcome{
+  color:#434652;
+  margin-top: 20px;
+  margin-left: 130px;
+  font-weight: 100;
+}
+
+.about{
+  color:#434652;
+  margin-top: 20px;
+  margin-left: 7px;
+  font-weight: 100;
+}
+
+.rectangle {
+  height: 7px;
+  width: 1097px;
+  margin-top: -60px;
+  margin-left: 610px;
+  background-color: #b9a398;
+}
+
+.homep{
+  color:#434652;
+  font-family: "Garamond", monospace;
+  margin-top: 100px;
+  margin-left: 55px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.homep1{
+  color:#434652;
+  font-family: "Garamond", monospace;
+  margin-top: 50px;
+  margin-left: 55px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.homep2{
+  color:#434652;
+  font-family: "Garamond", monospace;
+  margin-top: 50px;
+  margin-left: 55px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.name1{
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 40px;
+  font-weight: 100;
+  margin-left: 213px;
+  margin-bottom: 65px;
+  display:inline-block
+
+}
+
+.namelink{
+  margin-top: 100px;
+  display:inline-block;
+}
+
+.namelink2{
+  display:inline-block;
+  margin-left: 180px;
+}
+
+.namelink3{
+  display:inline-block;
+}
+
+.namelink4{
+  display:inline-block;
+  margin-left: 30px;
+}
+
+.namelink5{
+  display:inline-block;
+}
+
+.namelink6{
+  display:inline-block;
+  margin-left: -15px;
+}
+
+.namelink7{
+  display:inline-block;
+}
+
+a.name1:link {
+  color:#434652;
+  text-decoration:none;
+}
+
+a.name1:visited{
+  color:#434652;
+  text-decoration:none;
+}
+
+a.name1:hover{
+  color:#434652;
+  text-decoration:underline;
+}
+
+a.name2:link {
+  color:#434652;
+  text-decoration:none;
+}
+
+a.name2:visited{
+  color:#434652;
+  text-decoration:none;
+}
+
+a.name2:hover{
+  color:#434652;
+  text-decoration:underline;
+}
+
+a.nav:hover{
+  color:white;
+  text-decoration:underline;
+}
+
+.hello{
+  font-family: "Garamond", monospace;
+  font-size: 40px;
+  color:#434652;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.nametitle{
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: #b9a398;
+  font-weight: 100;
+  font-size: 60px;
+  margin-left: 50px;
+  margin-top: -10px;
+}
+
+.profiletext{
+  font-family: "Garamond", monospace;
+  color:#434652;
+  font-weight: 100;
+  margin-left: 50px;
+  margin-right: 700px;
+  font-size: 30px;
+  margin-top: -10px;
+}

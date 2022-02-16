@@ -1,11 +1,12 @@
 const mysql = require('mysql')
-export const connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'secret',
     database: 'CSC648'
 });
 
+module.exports = { connection }
 // connection.connect();
 
 // connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {

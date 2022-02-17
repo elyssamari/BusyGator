@@ -4,34 +4,31 @@ const About = () => {
         <div className="homeheader">
             <h1 className = "about"> About the team. </h1>
         </div>
+
         <div className="rectangle"></div>
 
         <div className="namelink">
-        <a className="name1" href="/about/Aaron">Aaron Carlson</a>
-        </div>
+        <a className="name1" href="/about/Aaron">Aaron Carlson
+        <p className ="title">Back-End Lead</p> </a>
+        
+        <a className="name1" href="/about/Abdullah">Abdullah Sharaf
+        <p className ="title">Front-End</p> </a>
 
-        <div className="namelink2">
-        <a className="name1" href="/about/Abdullah">Abdullah Sharaf</a>
-        </div>
+        <a className="name1" href="/about/Elyssa">Elyssa Mari Tapawan
+        <p className ="title">Front-End Lead</p> </a>
 
-        <div className="namelink3">
-        <a className="name1" href="/about/Elyssa">Elyssa Mari Tapawan</a>
-        </div>
+        <a className="name1" href="/about/Janvi">Janvi Patel
+        <p className ="title">Back-End</p> </a>
 
-        <div className="namelink4">
-        <a className="name1" href="/about/Janvi">Janvi Patel</a>
-        </div>
+        <a className="name1" href="/about/Samantha">Samantha Saxton-Getty
+        <p className ="title">Team Lead</p> </a>
 
-        <div className="namelink5">
-        <a className="name1" href="/about/Samantha">Samantha Saxton-Getty</a>
-        </div>
+        <a className="name1" href="/about/Siqi">Siqi Guo
+        <p className ="title">Front-End</p> </a>
 
-        <div className="namelink6">
-        <a className="name1" href="/about/Siqi">Siqi Guo</a>
-        </div>
+        <a className="name1" href="/about/Vishal">Vishal Ramanand Sharma
+        <p className ="title">Github Lead</p></a>
 
-        <div className="namelink7">
-        <a className="name1" href="/about/Vishal">Vishal Ramanand Sharma</a>
         </div>
         </>
     );

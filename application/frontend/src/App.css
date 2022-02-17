@@ -82,53 +82,37 @@ a:visited {
 
 .name1{
   font-family: "Lucida Console", "Courier New", monospace;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 100;
-  margin-left: 213px;
-  margin-bottom: 65px;
-  display:inline-block
+  margin-left: 120px;
+  margin-bottom: 55px;
+  display:inline-block;
+  height: 60px;
+  width: 420px;
+  background-color: #b9a398;
+  border-radius: 25px;
+  text-align: center;
+  padding-top: 10px;
+}
 
+.title{
+  margin-top: 5px;
+  font-size: 15px;
 }
 
 .namelink{
   margin-top: 100px;
   display:inline-block;
-}
-
-.namelink2{
-  display:inline-block;
-  margin-left: 180px;
-}
-
-.namelink3{
-  display:inline-block;
-}
-
-.namelink4{
-  display:inline-block;
-  margin-left: 30px;
-}
-
-.namelink5{
-  display:inline-block;
-}
-
-.namelink6{
-  display:inline-block;
-  margin-left: -15px;
-}
-
-.namelink7{
-  display:inline-block;
+  margin-left: auto;
 }
 
 a.name1:link {
-  color:#434652;
+  color:white;
   text-decoration:none;
 }
 
 a.name1:visited{
-  color:#434652;
+  color:white;
   text-decoration:none;
 }
 
@@ -172,14 +156,18 @@ a.nav:hover{
   font-size: 60px;
   margin-left: 50px;
   margin-top: -10px;
+  margin-bottom: 20px;
+  
 }
 
 .profiletext{
   font-family: "Garamond", monospace;
   color:#434652;
   font-weight: 100;
-  margin-left: 50px;
-  margin-right: 700px;
+  margin-left: 55px;
+  width: 850px;
   font-size: 30px;
   margin-top: -10px;
+  margin-right: 55px;
+  display: inline-block;
 }

@@ -3,8 +3,25 @@
   color:white;
 }
 
-a:visited {
+@media (max-width: 950px){
+  .navtext{
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 800px){
+  .navtext{
+    font-size: 35px;
+  }
+}
+
+a{
+  text-decoration:none;
   color: white;
+}
+a:hover{
+  color:#434652;
+  text-decoration:underline;
 }
 
 .nav{
@@ -13,11 +30,13 @@ a:visited {
   justify-content: space-evenly;
   margin-top: 0px;
   height: 150px;
-  width: 1667px;
   background-color: #b9a398;
   font-family: "Lucida Console", "Courier New", monospace;
   font-size: 50px;
   text-decoration: none;
+  cursor: pointer;
+
+
   }
 
 .homeheader{
@@ -45,9 +64,9 @@ a:visited {
   font-weight: 100;
 }
 
+
 .rectangle {
   height: 7px;
-  width: 1097px;
   margin-top: -60px;
   margin-left: 610px;
   background-color: #b9a398;
@@ -82,53 +101,53 @@ a:visited {
 
 .name1{
   font-family: "Lucida Console", "Courier New", monospace;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 100;
-  margin-left: 213px;
-  margin-bottom: 65px;
-  display:inline-block
+  margin-left: 120px;
+  margin-bottom: 55px;
+  display:inline-block;
+  height: 60px;
+  width: 420px;
+  background-color: #b9a398;
+  border-radius: 25px;
+  text-align: center;
+  padding-top: 10px;
+}
 
+img{
+  float: right;
+  margin-right: 5%;
+}
+
+@media (max-width: 950px){
+  .img{
+    float:inline-end;
+    margin-right: 5%;
+  }
+  .profiletext{
+      font-size: 20px;
+  }
+}
+
+
+.title{
+  margin-top: 2px;
+  font-size: 15px;
 }
 
 .namelink{
   margin-top: 100px;
   display:inline-block;
-}
-
-.namelink2{
-  display:inline-block;
-  margin-left: 180px;
-}
-
-.namelink3{
-  display:inline-block;
-}
-
-.namelink4{
-  display:inline-block;
-  margin-left: 30px;
-}
-
-.namelink5{
-  display:inline-block;
-}
-
-.namelink6{
-  display:inline-block;
-  margin-left: -15px;
-}
-
-.namelink7{
-  display:inline-block;
+  margin-left: auto;
 }
 
 a.name1:link {
-  color:#434652;
+  color:white;
   text-decoration:none;
 }
 
 a.name1:visited{
-  color:#434652;
+  color:white;
   text-decoration:none;
 }
 
@@ -172,14 +191,18 @@ a.nav:hover{
   font-size: 60px;
   margin-left: 50px;
   margin-top: -10px;
+  margin-bottom: 20px;
+  
 }
 
 .profiletext{
   font-family: "Garamond", monospace;
   color:#434652;
   font-weight: 100;
-  margin-left: 50px;
-  margin-right: 700px;
+  margin-left: 55px;
+  width: 60%;
   font-size: 30px;
   margin-top: -10px;
-}
+  margin-right: 55px;
+  display: inline-block;
+} 

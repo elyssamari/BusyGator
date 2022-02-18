@@ -8,7 +8,9 @@
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
 1. Server URL or IP
+   http://3.23.79.193/
 2. SSH username
+   ssh -i "CSC648_Team_4.pem" ubuntu@ec2-3-23-79-193.us-east-2.compute.amazonaws.com
 3. SSH password or key.
     <br> If a ssh key is used please upload the key to the credentials folder.
 4. Database URL or IP and port used.
@@ -17,6 +19,14 @@
 6. Database password
 7. Database name (basically the name that contains all your tables)
 8. Instructions on how to use the above information.
+   Open an SSH client.
+   Locate your private key file. The key used to launch this instance is CSC648_Team_4.pem
+   Run this command, if necessary, to ensure your key is not publicly viewable.
+   chmod 400 CSC648_Team_4.pem
+   Connect to your instance using its Public DNS:
+   ec2-3-23-79-193.us-east-2.compute.amazonaws.com
+   Example:
+   ssh -i "CSC648_Team_4.pem" ubuntu@ec2-3-23-79-193.us-east-2.compute.amazonaws.com
 
 # Most important things to Remember
 ## These values need to kept update to date throughout the semester. <br>

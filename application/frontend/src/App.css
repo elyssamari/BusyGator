@@ -3,8 +3,25 @@
   color:white;
 }
 
-a:visited {
+@media (max-width: 950px){
+  .navtext{
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 800px){
+  .navtext{
+    font-size: 35px;
+  }
+}
+
+a{
+  text-decoration:none;
   color: white;
+}
+a:hover{
+  color:#434652;
+  text-decoration:underline;
 }
 
 .nav{
@@ -13,11 +30,13 @@ a:visited {
   justify-content: space-evenly;
   margin-top: 0px;
   height: 150px;
-  width: 1667px;
   background-color: #b9a398;
   font-family: "Lucida Console", "Courier New", monospace;
   font-size: 50px;
   text-decoration: none;
+  cursor: pointer;
+
+
   }
 
 .homeheader{
@@ -45,9 +64,9 @@ a:visited {
   font-weight: 100;
 }
 
+
 .rectangle {
   height: 7px;
-  width: 1097px;
   margin-top: -60px;
   margin-left: 610px;
   background-color: #b9a398;
@@ -95,8 +114,24 @@ a:visited {
   padding-top: 10px;
 }
 
+img{
+  float: right;
+  margin-right: 5%;
+}
+
+@media (max-width: 950px){
+  .img{
+    float:inline-end;
+    margin-right: 5%;
+  }
+  .profiletext{
+      font-size: 20px;
+  }
+}
+
+
 .title{
-  margin-top: 5px;
+  margin-top: 2px;
   font-size: 15px;
 }
 
@@ -165,9 +200,9 @@ a.nav:hover{
   color:#434652;
   font-weight: 100;
   margin-left: 55px;
-  width: 850px;
+  width: 60%;
   font-size: 30px;
   margin-top: -10px;
   margin-right: 55px;
   display: inline-block;
-}
+} 

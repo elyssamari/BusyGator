@@ -40,7 +40,7 @@ const Members = () => {
         dream to go to college and learn computer science. I am very happy to be following her dream. High school also influenced my major choice 
         as I was able to take a class introducing computer programming. I am most interested in software development and design, which I plan to 
         take as a career path after college. In my free time, I love to swim, draw, read, play video games, and listen to music.`,
-        image: "/ElyssaPic.PNG",
+        image: "/ElyssaPic.png",
         alt: "Elyssa Pic" 
     },{
         name: "Janvi",
@@ -48,7 +48,7 @@ const Members = () => {
         desc: `My name Is Janvi Patel. I am a fourth year San Francisco State University student pursuing an undergraduate degree in computer 
         science. I learned a little coding in high school and which made me develop my interest in computer science. I am really enjoying web 
         development and learning new languages in computer science. In my free time I like to play games, watch movies and hang out with friends.`,
-        image: "/JanviPic.PNG",
+        image: "/JanviPic.png",
         alt: "Janvi Pic" 
     },{
         name: "Samantha",

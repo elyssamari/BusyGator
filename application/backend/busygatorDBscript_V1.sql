@@ -8,22 +8,16 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema busygatorSchema
+-- Schema DB_BusyGator
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `busygatorSchema` ;
+CREATE DATABASE IF NOT EXISTS `DB_BusyGator` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `DB_BusyGator`;
+-- -----------------------------------------------------
+-- Table `DB_BusyGator`.`user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `DB_BusyGator`.`user` ;
 
--- -----------------------------------------------------
--- Schema busygatorSchema
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `busygatorSchema` DEFAULT CHARACTER SET utf8 ;
-USE `busygatorSchema` ;
-
--- -----------------------------------------------------
--- Table `busygatorSchema`.`user`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`user` ;
-
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`user` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`user` (
   `user_id` INT(9) NOT NULL,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
@@ -36,11 +30,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`category`
+-- Table `DB_BusyGator`.`category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`category` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`category` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`category` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`category` (
   `category_id` INT(9) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(80) NOT NULL,
@@ -49,11 +43,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`location`
+-- Table `DB_BusyGator`.`location`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`location` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`location` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`location` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`location` (
   `location_id` INT(9) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`location_id`))
@@ -61,11 +55,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`product`
+-- Table `DB_BusyGator`.`product`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`product` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`product` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`product` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`product` (
   `product_id` INT(9) NOT NULL,
   `category` INT(9) NULL,
   `location` INT(9) NULL,
@@ -74,87 +68,87 @@ CREATE TABLE IF NOT EXISTS `busygatorSchema`.`product` (
   `image` VARCHAR(4096) NULL,
   `price` INT(20) NOT NULL,
   PRIMARY KEY (`product_id`),
-  UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC) VISIBLE,
-  UNIQUE INDEX `category_id_UNIQUE` (`category` ASC) VISIBLE,
-  UNIQUE INDEX `location_UNIQUE` (`location` ASC) VISIBLE,
+  UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC) ,
+  UNIQUE INDEX `category_id_UNIQUE` (`category` ASC) ,
+  UNIQUE INDEX `location_UNIQUE` (`location` ASC) ,
   CONSTRAINT `PRODUCT_CATEGORY_FK`
     FOREIGN KEY (`category`)
-    REFERENCES `busygatorSchema`.`category` (`category_id`)
+    REFERENCES `DB_BusyGator`.`category` (`category_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `PRODUCT_LOCATION_FK`
     FOREIGN KEY (`location`)
-    REFERENCES `busygatorSchema`.`location` (`location_id`)
+    REFERENCES `DB_BusyGator`.`location` (`location_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`transaction`
+-- Table `DB_BusyGator`.`transaction`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`transaction` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`transaction` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`transaction` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`transaction` (
   `transaction_id` INT(9) NOT NULL,
   `buyer` INT(9) NOT NULL,
   `seller` INT(9) NOT NULL,
   `product_id` INT(9) NOT NULL,
   `date_created` DATETIME NOT NULL,
   PRIMARY KEY (`transaction_id`),
-  INDEX `USERMATERIALFK_idx` (`buyer` ASC) VISIBLE,
-  INDEX `RENT_PRODUCT_FK_idx` (`product_id` ASC) VISIBLE,
-  INDEX `TRANSACTION_USER_SELLER_FK_idx` (`seller` ASC) VISIBLE,
+  INDEX `USERMATERIALFK_idx` (`buyer` ASC) ,
+  INDEX `RENT_PRODUCT_FK_idx` (`product_id` ASC) ,
+  INDEX `TRANSACTION_USER_SELLER_FK_idx` (`seller` ASC) ,
   CONSTRAINT `TRANSACTION_USER_BUYER_FK`
     FOREIGN KEY (`buyer`)
-    REFERENCES `busygatorSchema`.`user` (`user_id`)
+    REFERENCES `DB_BusyGator`.`user` (`user_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `TRANSACTION_PRODUCT_FK`
     FOREIGN KEY (`product_id`)
-    REFERENCES `busygatorSchema`.`product` (`product_id`)
+    REFERENCES `DB_BusyGator`.`product` (`product_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `TRANSACTION_USER_SELLER_FK`
     FOREIGN KEY (`seller`)
-    REFERENCES `busygatorSchema`.`user` (`user_id`)
+    REFERENCES `DB_BusyGator`.`user` (`user_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`post`
+-- Table `DB_BusyGator`.`post`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`post` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`post` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`post` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`post` (
   `post_id` INT(9) NOT NULL,
   `user` INT(9) NOT NULL,
   `product` INT(9) NOT NULL,
   `date_created` DATETIME NOT NULL,
   PRIMARY KEY (`post_id`),
-  INDEX `USER_POST_FK_idx` (`user` ASC) VISIBLE,
-  INDEX `PRODUCT_POST_FK_idx` (`product` ASC) VISIBLE,
+  INDEX `USER_POST_FK_idx` (`user` ASC) ,
+  INDEX `PRODUCT_POST_FK_idx` (`product` ASC) ,
   CONSTRAINT `USER_POST_FK`
     FOREIGN KEY (`user`)
-    REFERENCES `busygatorSchema`.`user` (`user_id`)
+    REFERENCES `DB_BusyGator`.`user` (`user_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `PRODUCT_POST_FK`
     FOREIGN KEY (`product`)
-    REFERENCES `busygatorSchema`.`product` (`product_id`)
+    REFERENCES `DB_BusyGator`.`product` (`product_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`administrator`
+-- Table `DB_BusyGator`.`administrator`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`administrator` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`administrator` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`administrator` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`administrator` (
   `administrator_id` INT(9) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -163,37 +157,37 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`approve`
+-- Table `DB_BusyGator`.`approve`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`approve` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`approve` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`approve` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`approve` (
   `approve_id` INT(9) NOT NULL,
   `administrator` INT(9) NOT NULL,
   `post` INT(9) NOT NULL,
   `approved` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`approve_id`),
-  INDEX `APPROVE_ADMINISTRATOR_FK_idx` (`administrator` ASC) VISIBLE,
-  INDEX `APPROVE_POST_FK_idx` (`post` ASC) VISIBLE,
+  INDEX `APPROVE_ADMINISTRATOR_FK_idx` (`administrator` ASC) ,
+  INDEX `APPROVE_POST_FK_idx` (`post` ASC) ,
   CONSTRAINT `APPROVE_ADMINISTRATOR_FK`
     FOREIGN KEY (`administrator`)
-    REFERENCES `busygatorSchema`.`administrator` (`administrator_id`)
+    REFERENCES `DB_BusyGator`.`administrator` (`administrator_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `APPROVE_POST_FK`
     FOREIGN KEY (`post`)
-    REFERENCES `busygatorSchema`.`post` (`post_id`)
+    REFERENCES `DB_BusyGator`.`post` (`post_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`message`
+-- Table `DB_BusyGator`.`message`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`message` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`message` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`message` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`message` (
   `message_id` INT(9) NOT NULL,
   `creator_id` INT(9) NOT NULL,
   `parent_message_id` INT(9) NOT NULL,
@@ -201,41 +195,41 @@ CREATE TABLE IF NOT EXISTS `busygatorSchema`.`message` (
   `message_body` VARCHAR(500) NOT NULL,
   `date_created` DATETIME NOT NULL,
   PRIMARY KEY (`message_id`),
-  INDEX `MESSAGE_USER_FK_idx` (`creator_id` ASC) VISIBLE,
-  INDEX `MESSAGE_MESSAGE_FK_idx` (`parent_message_id` ASC) VISIBLE,
+  INDEX `MESSAGE_USER_FK_idx` (`creator_id` ASC) ,
+  INDEX `MESSAGE_MESSAGE_FK_idx` (`parent_message_id` ASC) ,
   CONSTRAINT `MESSAGE_USER_FK`
     FOREIGN KEY (`creator_id`)
-    REFERENCES `busygatorSchema`.`user` (`user_id`)
+    REFERENCES `DB_BusyGator`.`user` (`user_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `MESSAGE_MESSAGE_FK`
     FOREIGN KEY (`parent_message_id`)
-    REFERENCES `busygatorSchema`.`message` (`message_id`)
+    REFERENCES `DB_BusyGator`.`message` (`message_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `busygatorSchema`.`message_recipient`
+-- Table `DB_BusyGator`.`message_recipient`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `busygatorSchema`.`message_recipient` ;
+DROP TABLE IF EXISTS `DB_BusyGator`.`message_recipient` ;
 
-CREATE TABLE IF NOT EXISTS `busygatorSchema`.`message_recipient` (
+CREATE TABLE IF NOT EXISTS `DB_BusyGator`.`message_recipient` (
   `message_recipient_id` INT(9) NOT NULL,
   `recipient_id` INT(9) NOT NULL,
   `message` INT(9) NOT NULL,
   PRIMARY KEY (`message_recipient_id`),
-  INDEX `MESSAGE_RECIPIENT_USER_FK_idx` (`recipient_id` ASC) VISIBLE,
-  INDEX `MESSAGE_RECIPIENT_MESSAGE_FK_idx` (`message` ASC) VISIBLE,
+  INDEX `MESSAGE_RECIPIENT_USER_FK_idx` (`recipient_id` ASC) ,
+  INDEX `MESSAGE_RECIPIENT_MESSAGE_FK_idx` (`message` ASC) ,
   CONSTRAINT `MESSAGE_RECIPIENT_USER_FK`
     FOREIGN KEY (`recipient_id`)
-    REFERENCES `busygatorSchema`.`user` (`user_id`)
+    REFERENCES `DB_BusyGator`.`user` (`user_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `MESSAGE_RECIPIENT_MESSAGE_FK`
     FOREIGN KEY (`message`)
-    REFERENCES `busygatorSchema`.`message` (`message_id`)
+    REFERENCES `DB_BusyGator`.`message` (`message_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

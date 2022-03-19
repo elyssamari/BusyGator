@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
     useParams
 } from "react-router-dom";
-  
+
 const Members = () => {
 
     const ABOUT_ME_DATA = [{
@@ -12,8 +12,8 @@ const Members = () => {
         towards MS in Computer Science with a concentration in AI. I have 2 years of experience in the industry with Full Stack development.
          I have an affinity towards frontend development.In my free time I like to to Hike, Photography and explore new places.`,
         image: "/VishalPic.PNG",
-        alt: "Vishal Pic" 
-    },{
+        alt: "Vishal Pic"
+    }, {
         name: "Aaron",
         fullName: "Aaron Carlson",
         desc: `Hi, my name is Aaron Carlson. I was originally pursuing a career in Actuarial Science until I was introduced to 
@@ -22,8 +22,8 @@ const Members = () => {
         things I enjoy are biking, listening to music, and gaming; with my current favorite game series being the Yakuza series and my favorite 
         band being Thank You Scientist.`,
         image: "/AaronPic.PNG",
-        alt: "Aaron Pic" 
-    },{
+        alt: "Aaron Pic"
+    }, {
         name: "Abdullah",
         fullName: "Abdullah Sharaf",
         desc: `My name is Abdullah Sharaf. I earned my associate degree in Computer Information Systems at Laney college and then transferred 
@@ -31,8 +31,8 @@ const Members = () => {
         worked as a teaching assistant at the SF Academy, helping students with classes such as Creative Computing. Also, I've always been 
         interested in web development and designing and it's the path I want to take after getting my bachelor's degree. `,
         image: "/AbdullahPic.PNG",
-        alt: "Abdullah Pic" 
-    },{
+        alt: "Abdullah Pic"
+    }, {
         name: "Elyssa",
         fullName: "Elyssa Mari Tapawan",
         desc: `Hi, my name is Elyssa Mari Tapawan. I am currently a 4th year San Francisco State University student and will be graduating this 
@@ -41,16 +41,16 @@ const Members = () => {
         as I was able to take a class introducing computer programming. I am most interested in software development and design, which I plan to 
         take as a career path after college. In my free time, I love to swim, draw, read, play video games, and listen to music.`,
         image: "/ElyssaPic.png",
-        alt: "Elyssa Pic" 
-    },{
+        alt: "Elyssa Pic"
+    }, {
         name: "Janvi",
         fullName: "Janvi Patel",
         desc: `My name Is Janvi Patel. I am a fourth year San Francisco State University student pursuing an undergraduate degree in computer 
         science. I learned a little coding in high school and which made me develop my interest in computer science. I am really enjoying web 
         development and learning new languages in computer science. In my free time I like to play games, watch movies and hang out with friends.`,
         image: "/JanviPic.png",
-        alt: "Janvi Pic" 
-    },{
+        alt: "Janvi Pic"
+    }, {
         name: "Samantha",
         fullName: "Samantha Saxton-Getty",
         desc: `My name is Samantha Saxton-Getty and I am currently attending San Francisco State University (SFSU) working to complete my Bachelors 
@@ -64,8 +64,8 @@ const Members = () => {
         with my friends, playing video games such as League of Legends, Final Fantasy, etc. with them and supporting each other through college.
         `,
         image: "/SamanthaPic.PNG",
-        alt: "Samantha Pic" 
-    },{
+        alt: "Samantha Pic"
+    }, {
         name: "Siqi",
         fullName: "Siqi Guo",
         desc: `I am currently an undergraduate in computer science at San Franciso State Univery. Because I only choose this major, focusing on 
@@ -74,24 +74,24 @@ const Members = () => {
         this field. 
         `,
         image: "/SiqiPic.PNG",
-        alt: "Siqi Pic" 
+        alt: "Siqi Pic"
     }]
 
-    let {username} = useParams();
+    let { username } = useParams();
 
-    const [currentUser,setCurrentUser] = useState({});
+    const [currentUser, setCurrentUser] = useState({});
 
-    useEffect(()=>{
-    const found = ABOUT_ME_DATA.find(data=>data.name === username);
-    setCurrentUser(found)
-    },[username]);
+    useEffect(() => {
+        const found = ABOUT_ME_DATA.find(data => data.name === username);
+        setCurrentUser(found)
+    }, [username]);
 
     return (
         <>
             <h1 className="hello"> Hello, I am </h1>
             <h1 className="nametitle">{currentUser.fullName || ""}</h1>
             <p className="profiletext">{currentUser.desc || ""}</p>
-            <img src = {currentUser.image || ""} alt = {currentUser.alt}></img>
+            <img src={currentUser.image || ""} alt={currentUser.alt}></img>
         </>
     );
 };

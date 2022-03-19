@@ -24,7 +24,7 @@ a:hover{
   text-decoration:underline;
 }
 
-.nav{
+/* .nav{
   list-style-type: none;
   display: flex;
   justify-content: space-evenly;
@@ -37,9 +37,9 @@ a:hover{
   cursor: pointer;
 
 
-  }
+  } */
 
-.homeheader{
+/* .homeheader{
   margin-top: 50px;
   margin-left: 50px;
   font-family: "Lucida Console", "Courier New", monospace;
@@ -48,7 +48,7 @@ a:hover{
   border: 7px solid #b9a398;
   width: 550px;
   height: 100px;
-}
+} */
 
 .welcome{
   color:#434652;
@@ -206,3 +206,57 @@ a.nav:hover{
   margin-right: 55px;
   display: inline-block;
 } 
+
+#subnavbar{
+  margin: 10px;
+  color: black;
+}
+
+#subnavbarbg{
+  background-color: rgb(172, 172, 172);
+}
+
+#navlink{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#searchbar{
+  width: 400px;
+}
+
+#searchbutton{
+  color:white;
+}
+
+#cardmargin{
+  margin: 10px;
+}
+
+
+#footertext{
+  color:white;
+}
+
+#login_signupcard{
+  width: 600px;
+  height: 500px;
+  margin: 0 auto; 
+  float: none; 
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+#login_signin_button{
+  width: 250px;
+  margin: 0 auto; 
+  margin-top: 25px;
+}
+
+#login_signup_text{
+  margin:20px;
+}
+
+.space{
+  margin: 2px;
+}

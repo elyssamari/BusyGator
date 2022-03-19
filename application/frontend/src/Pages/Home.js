@@ -1,15 +1,58 @@
+import { useEffect, useContext } from 'react';
+import axios from 'axios';
+import DataContext from '../DataContext/DataContext';
+
 const Home = () => {
-    return (
-        <>
-        <div className="homeheader">
-            <h1 className = "welcome"> Welcome. </h1>
+  const listings = useContext(DataContext)?.listings;
+  const setListings = useContext(DataContext)?.setListings;
+  const locations = useContext(DataContext)?.locations;
+  const setLocations = useContext(DataContext)?.setLocations;
+
+  useEffect(() => {
+    axios.get('/getListing', { params: { categoryId: "", searchText: "" } }).then(data => {
+      setListings(data.data)
+    });
+  }, [setListings]);
+
+  useEffect(() => {
+    axios.get("/getAllLocations").then(data => {
+      setLocations(data.data);
+    })
+  }, [setLocations])
+
+  function GetLocationName(locationNumber) {
+    console.log(locationNumber);
+    try {
+      return locations.find(data => data.location_id === locationNumber).name
+    }
+    catch (error) {
+
+    }
+  }
+
+  return (
+      <>
+        <div id="cardmargin" className="row row-cols-2 row-cols-md-5 g-3">
+          {listings.map((data, index) =>
+              <div className="col" key={`div_${index}`}>
+                <div className="card h-100">
+                  <img src={data.image} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Product Title: {data.title} </h5>
+                    <p className="card-text">Price: ${data.price}</p>
+                    <p className="card-text">Location: {GetLocationName(data.location)}</p>
+                    <p className="card-text">Description: {data.description}</p>
+                    <p className="card-text">In Stock</p>
+                    <div className="card text-center">
+                      <a href="/" className="btn btn-primary">Check it out!</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          )}
         </div>
-        <div className="rectangle"></div>
-        <p className="homep">Software Engineering Class SFSU </p>
-        <p className="homep1"> Spring 2022 </p>
-        <p className="homep2"> Section 3 - Team 4 </p>
-        </>
-    );
+      </>
+  );
 };
 
 export default Home;

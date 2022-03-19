@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.subNavBarButton{
+  margin: 10px;
+}
+
+.navbar-expand .navbar-nav{
+  margin: auto;
+}

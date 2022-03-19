@@ -31,10 +31,11 @@
 
    - Open an SSH client.
    - Locate your private key file. The key used to launch this instance is CSC648_Team_4.pem
-   - Run this command, if necessary, to ensure your key is not publicly viewable.
-   - chmod 400 CSC648_Team_4.pem
+   - Run this command, if necessary, to ensure your key is not publicly viewable: chmod 400 CSC648_Team_4.pem
    - Connect to your instance using its Public DNS: ec2-3-23-79-193.us-east-2.compute.amazonaws.com
    - Example: ssh -i "CSC648_Team_4.pem" ubuntu@ec2-3-23-79-193.us-east-2.compute.amazonaws.com
+   - To access the database, navigate to the backend folder with cd application/backend.
+   - Run the command sudo mysql -u root -p and paste in the password listed above.
 
 # Most important things to Remember
 ## These values need to kept update to date throughout the semester. <br>

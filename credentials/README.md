@@ -8,25 +8,34 @@
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
 1. Server URL or IP
+
    http://3.23.79.193/
 2. SSH username
+
    ssh -i "CSC648_Team_4.pem" ubuntu@ec2-3-23-79-193.us-east-2.compute.amazonaws.com
-3. SSH password or key.
-    <br> If a ssh key is used please upload the key to the credentials folder.
+3. SSH password or key
+
+    This has been uploaded to the credentials folder on Github.
 4. Database URL or IP and port used.
     <br><strong> NOTE THIS DOES NOT MEAN YOUR DATABASE NEEDS A PUBLIC FACING PORT.</strong> But knowing the IP and port number will help with SSH tunneling into the database. The default port is more than sufficient for this class.
 5. Database username
-6. Database password
-7. Database name (basically the name that contains all your tables)
-8. Instructions on how to use the above information.
-   Open an SSH client.
-   Locate your private key file. The key used to launch this instance is CSC648_Team_4.pem
-   Run this command, if necessary, to ensure your key is not publicly viewable.
-   chmod 400 CSC648_Team_4.pem
-   Connect to your instance using its Public DNS:
-   ec2-3-23-79-193.us-east-2.compute.amazonaws.com
-   Example:
-   ssh -i "CSC648_Team_4.pem" ubuntu@ec2-3-23-79-193.us-east-2.compute.amazonaws.com
+
+   root
+7. Database password
+
+   Secret123@
+9. Database name (basically the name that contains all your tables)
+
+   DB_BusyGator
+11. Instructions on how to use the above information.
+
+   - Open an SSH client.
+   - Locate your private key file. The key used to launch this instance is CSC648_Team_4.pem
+   - Run this command, if necessary, to ensure your key is not publicly viewable: chmod 400 CSC648_Team_4.pem
+   - Connect to your instance using its Public DNS: ec2-3-23-79-193.us-east-2.compute.amazonaws.com
+   - Example: ssh -i "CSC648_Team_4.pem" ubuntu@ec2-3-23-79-193.us-east-2.compute.amazonaws.com
+   - To access the database, navigate to the backend folder with cd application/backend.
+   - Run the command sudo mysql -u root -p and paste in the password listed above.
 
 # Most important things to Remember
 ## These values need to kept update to date throughout the semester. <br>

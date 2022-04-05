@@ -6,7 +6,6 @@ import DataContext from '../DataContext/DataContext';
 const NavBar = () => {
 
 
-    // const [categories, setCategories] = useState([]);
     const categories = useContext(DataContext)?.categories;
     const setCategories = useContext(DataContext)?.setCategories;
     const setListings = useContext(DataContext)?.setListings;
@@ -14,7 +13,12 @@ const NavBar = () => {
     const [searchParams, setSearchParams] = useState({ categoryId: "", searchText: "" });
     useEffect(() => {
         axios.get("/getAllCategories").then(data => {
-            setCategories(data.data);
+            setCategories([...data.data, {
+                category_id: null,
+                description: "All",
+                name: "All"
+
+            }]);
         })
     }, [setCategories]);
 
@@ -33,6 +37,11 @@ const NavBar = () => {
         }
     }
 
+    const onFormSubmit = e => {
+        e.preventDefault();
+        search();
+      }
+
 
     return (
         <>
@@ -41,19 +50,19 @@ const NavBar = () => {
                     <a className="navbar-brand" href="/">BusyGator</a>
 
                     <div className="collapse navbar-collapse">
-                        <form className="d-flex">
+                        <form className="d-flex" onSubmit={onFormSubmit}>
                             <InputGroup className="mb-3">
                                 <DropdownButton
                                     variant="outline-secondary"
                                     title={returnTitle()}
                                     id="input-group-dropdown-1"
                                 >
-                                    {categories && categories.map((category, index) => <Dropdown.Item key={index} onClick={() => setSearchParams({ ...searchParams, categoryId: category.category_id })}>{category.name}</Dropdown.Item>)}
+                                    {categories && categories.map((category, index) => <Dropdown.Item key={index} onClick={() => setSearchParams({ ...searchParams, categoryId: category.category_id || '' })}>{category.name}</Dropdown.Item>)}
                                 </DropdownButton>
                                 <FormControl aria-label="Text input with dropdown button" placeholder='Search' onChange={(e) => setSearchParams({ ...searchParams, searchText: e.target.value })} />
                             </InputGroup>
                             {/* <input id="searchbar" className="form-control me-2" type="search" placeholder="Search" aria-label="Search" /> */}
-                            <Button variant="light" onClick={search}>Search</Button>
+                            <Button variant="light" onClick={search} type="submit">Search</Button>
                             {/* <button id="searchbutton" className="btn btn-outline-success" >Search</button> */}
                         </form>
 

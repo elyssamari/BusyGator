@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:codeceptjs/recommended"
+  ],
+  "plugins": ["react", "prettier","only-warn"],
+  "env": {
+    "browser": true,
+    "jasmine": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "block-scoped-var": "error",
+    "default-param-last": "error",
+    "eqeqeq": "error",
+    "max-depth": "error",
+    "max-nested-callbacks": "error",
+    "max-statements": ["error", 60],
+    "endOfLine": 0
+  }
+}

@@ -1,9 +1,7 @@
-const Post = () => {
-    return (
-        <>
+import React from 'react';
 
-        </>
-    );
+const Post = () => {
+  return <></>;
 };
 
 export default Post;

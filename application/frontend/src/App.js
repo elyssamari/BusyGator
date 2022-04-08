@@ -1,9 +1,17 @@
+/**
+ * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+ *
+ *
+ *
+ * This File contains the App.js for the application
+ * This component controls the routing and has the main layout of the application
+ */
+
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
 import M2NavBar from './Components/M2NavBar';
 import SubNavBar from './Components/SubNavBar';
 import Footer from './Components/Footer';
-
 import Home from './Pages/Home';
 import Signup from './Pages/Signup';
 import Login from './Pages/Login';
@@ -11,11 +19,9 @@ import Post from './Pages/Post';
 import Listings from './Pages/Listings';
 import Cart from './Pages/Cart';
 import Orders from './Pages/Orders';
-import Adminlogin from './Pages/Adminlogin';
-
-import 'bootstrap/dist/css/bootstrap.min.css'
+import AdminLogin from './Pages/AdminLogin';
 import { DataProvider } from './DataContext/DataContext';
-
+import './App.css';
 
 function App() {
   return (
@@ -31,12 +37,11 @@ function App() {
           <Route path="/Listings" element={<Listings />} />
           <Route path="/Orders" element={<Orders />} />
           <Route path="/Cart" element={<Cart />} />
-          <Route path="/Adminlogin" element={<Adminlogin />} />
+          <Route path="/AdminLogin" element={<AdminLogin />} />
         </Routes>
         <Footer />
       </DataProvider>
     </BrowserRouter>
-
   );
 }
 

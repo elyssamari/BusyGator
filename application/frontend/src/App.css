@@ -219,7 +219,7 @@ a.nav:hover{
 
 #searchbar{
   height: 40px;
-  width: 700px;
+  width: 35vw;
 }
 
 #searchbutton{
@@ -238,7 +238,6 @@ margin-left: 10px;
 
 #footer{
   background-color: #212529;
-  position: absolute;
   width: 100%;
   bottom: 0;
 }

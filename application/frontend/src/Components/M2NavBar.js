@@ -89,7 +89,7 @@ const NavBar = () => {
 
         <div className="collapse navbar-collapse">
           <Form className="d-flex" onSubmit={onFormSubmit}>
-            <InputGroup>
+            <InputGroup className="flex-nowrap">
               <DropdownButton
                 id="input-group-dropdown-1"
                 variant="outline-secondary"

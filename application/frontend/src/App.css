@@ -192,7 +192,6 @@ a.nav:hover{
   margin-left: 50px;
   margin-top: -10px;
   margin-bottom: 20px;
-  
 }
 
 .profiletext{
@@ -207,43 +206,46 @@ a.nav:hover{
   display: inline-block;
 } 
 
-#subnavbar{
-  margin: 10px;
-  color: black;
-}
-
-#subnavbarbg{
-  background-color: rgb(172, 172, 172);
-}
-
 #navlink{
-  margin-right: 20px;
+  margin: auto;
+  color: white;
+  font-size: 17px ;
+}
+
+#logo{
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 #searchbar{
-  width: 400px;
+  height: 40px;
+  width: 700px;
 }
 
 #searchbutton{
-  color:white;
+margin-top: auto;
+margin-left: 10px;
 }
 
 #cardmargin{
   margin: 10px;
 }
 
-
 #footertext{
   color:white;
+  font-size: 17px;
+}
+
+#footer{
+  background-color: #212529;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
 #login_signupcard{
   width: 600px;
-  height: 500px;
   margin: 0 auto; 
-  float: none; 
-  margin-bottom: 25px;
   margin-top: 25px;
 }
 
@@ -259,4 +261,19 @@ a.nav:hover{
 
 .space{
   margin: 2px;
+}
+
+#subnavbar{
+  background-color: #232F3E;  
+  height: 50px;
+}
+
+.subNavBarButton{
+  margin-top:auto;
+  margin-bottom:auto;
+  margin: 10px;
+}
+
+#carddesc{
+  margin: 10px;
 }

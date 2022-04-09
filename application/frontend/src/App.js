@@ -16,9 +16,9 @@ import Home from './Pages/Home';
 import Signup from './Pages/Signup';
 import Login from './Pages/Login';
 import Post from './Pages/Post';
-import Listings from './Pages/Listings';
+import MyPage from './Pages/MyPage';
 import Cart from './Pages/Cart';
-import Orders from './Pages/Orders';
+import Messages from './Pages/Messages';
 import AdminLogin from './Pages/AdminLogin';
 import { DataProvider } from './DataContext/DataContext';
 import './App.css';
@@ -34,8 +34,8 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Post" element={<Post />} />
-          <Route path="/Listings" element={<Listings />} />
-          <Route path="/Orders" element={<Orders />} />
+          <Route path="/MyPage" element={<MyPage />} />
+          <Route path="/Messages" element={<Messages />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/AdminLogin" element={<AdminLogin />} />
         </Routes>

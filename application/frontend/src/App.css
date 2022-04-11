@@ -248,6 +248,35 @@ margin-left: 10px;
   margin-top: 25px;
 }
 
+#sentMessageButton{
+  width: 250px;
+  margin: 0 auto; 
+  margin-top: 25px;
+}
+
+#messagesCard{
+  width: 600px;
+  margin: 0 auto; 
+  margin-top: 25px;
+  border-width: medium;
+  margin-bottom: 25px;
+  border-radius: 10px;
+
+}
+
+#textMessage{
+  background-color: #e9ecef;
+}
+
+#homeButton{
+  width: 100px;
+  margin: 0 auto; 
+  margin-top: 25px;
+  margin-left: 10px;
+  background-color: gray;
+  border-color: gainsboro;
+}
+
 #login_signin_button{
   width: 250px;
   margin: 0 auto; 

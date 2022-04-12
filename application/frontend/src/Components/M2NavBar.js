@@ -13,10 +13,13 @@ import {
   Dropdown,
   FormControl,
   Button,
+  Navbar,
+  Form,
 } from 'react-bootstrap';
 import DataContext from '../DataContext/DataContext';
 import { getAllCategories } from '../services/categoryService';
 import { getAllListings, getListingByFilter } from '../services/listingService';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const categories = useContext(DataContext)?.categories;
@@ -27,6 +30,7 @@ const NavBar = () => {
     categoryId: null,
     searchText: null,
   });
+
   useEffect(() => {
     // This will set the categories to search from once it has been set
     getAllCategories().then((data) => {
@@ -72,116 +76,82 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            BusyGator
-          </a>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand id="logo" href="/">
+          <img
+            alt=""
+            src="/BusyGatorLogo.PNG"
+            width="140px"
+            height="60px"
+            className="d-inline-block align-top"
+          />
+        </Navbar.Brand>
 
-          <div className="collapse navbar-collapse">
-            <form className="d-flex" onSubmit={onFormSubmit}>
-              <InputGroup className="mb-3">
-                <DropdownButton
-                  variant="outline-secondary"
-                  title={returnTitle()}
-                  id="input-group-dropdown-1"
-                >
-                  {categories &&
-                    categories.map((category, index) => (
-                      <Dropdown.Item
-                        key={index}
-                        onClick={() =>
-                          setSearchParams({
-                            ...searchParams,
-                            categoryId: category.category_id || '',
-                          })
-                        }
-                      >
-                        {category.name}
-                      </Dropdown.Item>
-                    ))}
-                </DropdownButton>
-                <FormControl
-                  aria-label="Text input with dropdown button"
-                  placeholder="Search"
-                  onChange={(e) =>
-                    setSearchParams({
-                      ...searchParams,
-                      searchText: e.target.value,
-                    })
-                  }
-                />
-              </InputGroup>
-              <Button variant="light" onClick={search} type="submit">
-                Search
-              </Button>
-            </form>
+        <div className="collapse navbar-collapse">
+          <Form className="d-flex" onSubmit={onFormSubmit}>
+            <InputGroup className="flex-nowrap">
+              <DropdownButton
+                id="input-group-dropdown-1"
+                variant="outline-secondary"
+                title={returnTitle()}
+              >
+                {categories &&
+                  categories.map((category, index) => (
+                    <Dropdown.Item
+                      key={index}
+                      onClick={() =>
+                        setSearchParams({
+                          ...searchParams,
+                          categoryId: category.category_id || '',
+                        })
+                      }
+                    >
+                      {category.name}
+                    </Dropdown.Item>
+                  ))}
+              </DropdownButton>
+              <FormControl
+                id="searchbar"
+                aria-label="Text input with dropdown button"
+                placeholder="Search"
+                onChange={(e) =>
+                  setSearchParams({
+                    ...searchParams,
+                    searchText: e.target.value,
+                  })
+                }
+              />
+            </InputGroup>
+            <Button
+              id="searchbutton"
+              variant="light"
+              onClick={search}
+              type="submit"
+            >
+              Search
+            </Button>
+          </Form>
 
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a
-                  id="navlink"
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/Login"
-                >
-                  Login
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  id="navlink"
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/Signup"
-                >
-                  Sign Up
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  id="navlink"
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/Post"
-                >
-                  Post
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  id="navlink"
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/Listings"
-                >
-                  Listings
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  id="navlink"
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/Orders"
-                >
-                  Orders
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  id="navlink"
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/Cart"
-                >
-                  Cart
-                </a>
-              </li>
-            </ul>
-          </div>
+          <Link id="navlink" className="nav-link" to="/Post">
+            Post
+          </Link>
+          <Link id="navlink" className="nav-link" to="/MyPage">
+            My Page
+          </Link>
+          <Link id="navlink" className="nav-link" to="/Messages">
+            Messages
+          </Link>
+          <Link id="navlink" className="nav-link" to="/Cart">
+            Cart
+          </Link>
+          <Link id="navlink" className="nav-link" to="/Login">
+            Login
+          </Link>
+          <Link id="navlink" className="nav-link" to="/Signup">
+            Sign Up
+          </Link>
         </div>
-      </nav>
+      </Navbar>
     </>
   );
 };

@@ -8,7 +8,17 @@ VALUES
 (2, 'Shauna', 'Jones', 'shauna@gmail.com', 'heay3@683q', 0, NOW()),
 (3, 'Bryan', 'Matthew', 'bryan@gmail.com', 'jg4a9j$@#a', 0, NOW()),
 (4, 'George', 'Martin', 'george@gmail.com', 'rng9j3$^$', 0, NOW()),
-(5, 'Carly', 'Brown', 'carly@gmail.com', 'g9j4ag$#v', 0, NOW());
+(5, 'Carly', 'Brown', 'carly@gmail.com', 'g9j4ag$#v', 0, NOW()),
+(6, 'Noah', 'Williams', 'noah@gmail.com', 'K45Cy4c[H', 0, NOW()),
+(7, 'Olivia', 'Johnson', 'olivia@gmail.com', 'pNw95zV#+', 0, NOW()),
+(8, 'Emma', 'Jones', 'emma@gmail.com', 'w".6}nV-b', 0, NOW()),
+(9, 'Elijah', 'Garcia', 'elijah@gmail.com', 'H,z94>_Y8', 0, NOW()),
+(10, 'Charlotte', 'Miller', 'charlotte@gmail.com', '{y{GG~62>', 0, NOW()),
+(11, 'William', 'Davis', 'william@gmail.com', '3CRzC$"kN', 0, NOW()),
+(12, 'James', 'Rodriguez', 'james@gmail.com', '"8HCqQ*Ye', 0, NOW()),
+(13, 'Amelia', 'Wilson', 'amelia@gmail.com', '^9qh!_M?F', 0, NOW()),
+(14, 'Lucas', 'Anderson', 'lucas@gmail.com', 'YVj6)h<y]', 0, NOW()),
+(15, 'Evelyn', 'Thomas', 'evelyn@gmail.com', '&7Xm<Y%Z:', 0, NOW());
 
 INSERT INTO product (product_id, seller_id, category, location, title, description, image, image_thumbnail, price, approved, date_created) 
 VALUES

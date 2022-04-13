@@ -13,9 +13,9 @@ const port = 3001;
 const { connection } = require('./databaseConnect');
 
 
-const locationRouter = require('./Routes/location.routes');
-const listingRouter = require('./Routes/listing.routes');
-const categoryRouter = require('./Routes/category.routes');
+const locationRouter = require('./routes/location.routes');
+const listingRouter = require('./routes/listing.routes');
+const categoryRouter = require('./routes/category.routes');
 
 app.use(express.json());
 app.use(

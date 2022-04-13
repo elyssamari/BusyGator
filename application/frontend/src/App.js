@@ -3,23 +3,25 @@
  *
  *
  *
- * This File contains the App.js for the application
- * This component controls the routing and has the main layout of the application
+ * This File contains the App.js for the application.
+ * This component controls the routing and has the main layout of the application.
  */
-
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import M2NavBar from './Components/M2NavBar';
 import SubNavBar from './Components/SubNavBar';
 import Footer from './Components/Footer';
+import About from './Pages/About';
 import Home from './Pages/Home';
+import M1Home from './Pages/M1Home';
 import Signup from './Pages/Signup';
 import Login from './Pages/Login';
 import Post from './Pages/Post';
-import Listings from './Pages/Listings';
+import MyPage from './Pages/MyPage';
 import Cart from './Pages/Cart';
-import Orders from './Pages/Orders';
-import AdminLogin from './Pages/AdminLogin';
+import Messages from './Pages/Messages';
+import Members from './Pages/Members';
+import IndividualProduct from './Pages/IndividualProduct';
 import { DataProvider } from './DataContext/DataContext';
 import './App.css';
 
@@ -34,10 +36,13 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Post" element={<Post />} />
-          <Route path="/Listings" element={<Listings />} />
-          <Route path="/Orders" element={<Orders />} />
+          <Route path="/MyPage" element={<MyPage />} />
+          <Route path="/Messages" element={<Messages />} />
           <Route path="/Cart" element={<Cart />} />
-          <Route path="/AdminLogin" element={<AdminLogin />} />
+          <Route path="/IndividualProduct" element={<IndividualProduct />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/M1Home" element={<M1Home />} />
+          <Route path="/about/:username" element={<Members />} />
         </Routes>
         <Footer />
       </DataProvider>

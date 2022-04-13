@@ -1,7 +1,15 @@
+/**
+ * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+ *
+ *
+ *
+ * This File contains the page with current products.
+ */
 import React, { useEffect, useContext } from 'react';
 import DataContext from '../DataContext/DataContext';
 import { getAllListings } from '../services/listingService';
 import { getAllLocations } from '../services/locationService';
+import { Card, Col, Row, Button } from 'react-bootstrap';
 
 const Home = () => {
   const listings = useContext(DataContext)?.listings;
@@ -29,29 +37,33 @@ const Home = () => {
 
   return (
     <>
-      <div id="cardmargin" className="row row-cols-2 row-cols-md-5 g-3">
+      <Row id="cardmargin" xs={2} md={5} className="g-4">
         {listings.map((data, index) => (
-          <div className="col" key={`div_${index}`}>
-            <div className="card h-100">
-              <img src={data.image} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Product Title: {data.title} </h5>
-                <p className="card-text">Price: ${data.price}</p>
-                <p className="card-text">
+          <Col key={`div_${index}`}>
+            <Card className="card h-100">
+              <Card.Img src={data.image} className="card-img-top" alt="..." />
+              <Card.Body class="d-flex flex-column" id="carddesc">
+                <Card.Title>Product Title: {data.title} </Card.Title>
+                <Card.Text>Price: ${data.price}</Card.Text>
+                <Card.Text>
                   Location: {getLocationName(data.location)}
-                </p>
-                <p className="card-text">Description: {data.description}</p>
-                <p className="card-text">In Stock</p>
-                <div className="card text-center">
-                  <a href="/" className="btn btn-primary">
+                </Card.Text>
+                <Card.Text>Description: {data.description}</Card.Text>
+                <Card.Text>In Stock</Card.Text>
+                <Card.Text className="text-center">
+                  <Button
+                    class="mt-auto"
+                    href="/IndividualProduct"
+                    variant="outline-dark"
+                  >
                     Check it out!
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </Button>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
+      </Row>
     </>
   );
 };

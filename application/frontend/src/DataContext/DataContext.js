@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+ *
+ *
+ *
+ * This File contains the source of listings, categories, and locations mapped over the database.
+ */
 import PropTypes from 'prop-types';
 import React, { createContext, useState } from 'react';
 
@@ -7,7 +14,12 @@ function DataProvider({ children }) {
   const [listings, setListings] = useState([]);
   const [categories, setCategories] = useState([]);
   const [locations, setLocations] = useState([]);
-
+  const [searchParams, setSearchParams] = useState({
+    categoryId: null,
+    searchText: null,
+    minPrice: null,
+    maxPrice: null,
+  });
   return (
     <DataContext.Provider
       value={{
@@ -17,6 +29,8 @@ function DataProvider({ children }) {
         setCategories,
         locations,
         setLocations,
+        searchParams,
+        setSearchParams,
       }}
     >
       {children}

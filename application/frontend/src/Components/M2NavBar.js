@@ -6,7 +6,7 @@
  * This File contains the Navbar with the search functionality
  */
 
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import {
   InputGroup,
   DropdownButton,
@@ -25,11 +25,8 @@ const NavBar = () => {
   const categories = useContext(DataContext)?.categories;
   const setCategories = useContext(DataContext)?.setCategories;
   const setListings = useContext(DataContext)?.setListings;
-
-  const [searchParams, setSearchParams] = useState({
-    categoryId: null,
-    searchText: null,
-  });
+  const setSearchParams = useContext(DataContext)?.setSearchParams;
+  const searchParams = useContext(DataContext)?.searchParams;
 
   useEffect(() => {
     // This will set the categories to search from once it has been set
@@ -47,7 +44,12 @@ const NavBar = () => {
 
   function search() {
     // On Click of search button we need to call /getAllListings to get listing
-    if (searchParams.categoryId || searchParams.searchText) {
+    if (
+      searchParams.categoryId ||
+      searchParams.searchText ||
+      searchParams.min !== null ||
+      searchParams.max !== null
+    ) {
       getListingByFilter(searchParams).then((data) => {
         setListings(data.data);
       });

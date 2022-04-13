@@ -305,3 +305,7 @@ margin-left: 10px;
 #carddesc{
   margin: 10px;
 }
+
+.maxWidth100{
+  max-width: 100px;
+}

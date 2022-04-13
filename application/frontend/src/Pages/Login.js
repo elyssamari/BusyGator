@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+ *
+ *
+ *
+ * This File contains the user login to the home page.
+ */
 import React from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -25,7 +32,7 @@ const Login = () => {
           <Link to="/Login">Forgot Password?</Link>
 
           <Form.Group className="text-center">
-            <Button id="login_signin_button" href="/" variant="primary">
+            <Button id="login_signin_button" type="submit" variant="primary">
               Login
             </Button>
           </Form.Group>

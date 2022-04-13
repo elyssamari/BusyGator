@@ -2,9 +2,8 @@
  * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
  *
  *
- *
+ * This File contains the NavBar for milestone 1.
  */
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 

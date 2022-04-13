@@ -1,3 +1,4 @@
+-- COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
 -- Script name: DB_BusyGator_Inserts.sql
 -- Author:      CSC 648 Team 04
 -- Purpose:     insert sample data to test the integrity of this database system

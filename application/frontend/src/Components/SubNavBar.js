@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+ *
+ *
+ *
+ * This File contains the Navbar that navigates through the categories.
+ */
 import React, { useContext } from 'react';
 import {
   Navbar,

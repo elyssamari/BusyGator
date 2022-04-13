@@ -3,9 +3,8 @@
  *
  *
  *
- * This File contains the Navbar with the search functionality
+ * This File contains the Navbar with the search fuctionality and links to navigate through our application.
  */
-
 import React, { useEffect, useContext } from 'react';
 import {
   InputGroup,

@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+ *
+ *
+ *
+ * This File contains the messages between the seller and buyer. 
+ */
 import React from 'react';
 import { Card, Form, Button, InputGroup } from 'react-bootstrap';
 

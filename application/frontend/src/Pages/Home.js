@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+ *
+ *
+ *
+ * This File contains the page with current products.
+ */
 import React, { useEffect, useContext } from 'react';
 import DataContext from '../DataContext/DataContext';
 import { getAllListings } from '../services/listingService';
@@ -44,7 +51,11 @@ const Home = () => {
                 <Card.Text>Description: {data.description}</Card.Text>
                 <Card.Text>In Stock</Card.Text>
                 <Card.Text className="text-center">
-                  <Button class="mt-auto" href="/" variant="outline-dark">
+                  <Button
+                    class="mt-auto"
+                    href="/IndividualProduct"
+                    variant="outline-dark"
+                  >
                     Check it out!
                   </Button>
                 </Card.Text>

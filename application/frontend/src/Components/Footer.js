@@ -3,26 +3,31 @@
  *
  *
  *
- * This File contains Global footer for the application
+ * This File contains Global footer for the application.
  */
-
 import React from 'react';
-import { ModalFooter, ModalBody } from 'react-bootstrap';
+import { Row, Col, Figure } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <>
-      <ModalFooter id="footer">
-        <ModalBody>
-          <p id="footertext">
+      <Figure id="footer">
+        <Row>
+          <Col id="footertext">
             SFSU Software Engineering Project CSC 648-848, Spring 2022. For
             Demonstration Only.
-          </p>
-          <p id="footertext">
-            Software Engineering Class SFSU Spring 2022 Section 3 - Team 4
-          </p>
-        </ModalBody>
-      </ModalFooter>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col id="footertext">
+            Software Engineering Class SFSU Spring 2022 Section 3 - Team 4{' '}
+            <span className="space"></span>
+            <Link to="/About">About Us</Link>
+          </Col>
+        </Row>
+      </Figure>
     </>
   );
 };

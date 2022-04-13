@@ -1,3 +1,4 @@
+-- COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
 -- Script name: DB_BusyGator.sql
 -- Author:      CSC 648 Team 04
 -- Purpose:     this is the database model used to construct the tables in the database

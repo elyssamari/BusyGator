@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+ *
+ *
+ *
+ * This File contains the application routes.
+ */
 require('dotenv').config();
 const express = require('express');
 const app = express();

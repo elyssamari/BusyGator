@@ -1,6 +1,9 @@
 /**
  * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
- * This File contains all the constants that will be used in the project
+ * 
+ * 
+ * 
+ * This File contains all the member's descriptions and pictures.
  */
 export const ABOUT_ME_DATA = [
   {

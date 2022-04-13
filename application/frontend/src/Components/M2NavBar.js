@@ -81,7 +81,7 @@ const NavBar = () => {
         <Navbar.Brand id="logo" href="/">
           <img
             alt=""
-            src="./BusyGatorLogo.PNG"
+            src="./BusyGatorLogo.png"
             width="140px"
             height="60px"
             className="d-inline-block align-top"

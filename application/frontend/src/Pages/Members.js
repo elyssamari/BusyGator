@@ -8,6 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ABOUT_ME_DATA } from '../constants';
+import { Link } from 'react-router-dom';
 
 const Members = () => {
   let { username } = useParams();
@@ -26,14 +27,14 @@ const Members = () => {
       <p className="profiletext">{currentUser.desc || ''}</p>
       <img src={currentUser.image || ''} alt={currentUser.alt}></img>
       <br></br>
-      <a
+      <Link
         id="memberbutton"
-        href="/About"
+        to="/About"
         className="btn btn-primary btn-lg"
         role="button"
       >
         go back
-      </a>
+      </Link>
     </>
   );
 };

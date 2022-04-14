@@ -3,7 +3,7 @@
  *
  *
  *
- * This File contains the messages between the seller and buyer. 
+ * This File contains the messages between the seller and buyer.
  */
 import React from 'react';
 import { Card, Form, Button, InputGroup } from 'react-bootstrap';

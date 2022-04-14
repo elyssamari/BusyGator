@@ -6,6 +6,7 @@
  * This File contains information about the team.
  */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -19,40 +20,40 @@ const About = () => {
       </div>
 
       <div className="namelink">
-        <a className="name1" href="/about/Aaron">
+        <Link className="name1" to="/about/Aaron">
           Aaron Carlson
           <p className="title">Back-End Lead</p>{' '}
-        </a>
+        </Link>
 
-        <a className="name1" href="/about/Abdullah">
+        <Link className="name1" to="/about/Abdullah">
           Abdullah Sharaf
           <p className="title">Front-End</p>{' '}
-        </a>
+        </Link>
 
-        <a className="name1" href="/about/Elyssa">
+        <Link className="name1" to="/about/Elyssa">
           Elyssa Mari Tapawan
           <p className="title">Front-End Lead</p>{' '}
-        </a>
+        </Link>
 
-        <a className="name1" href="/about/Janvi">
+        <Link className="name1" to="/about/Janvi">
           Janvi Patel
           <p className="title">Back-End</p>{' '}
-        </a>
+        </Link>
 
-        <a className="name1" href="/about/Samantha">
+        <Link className="name1" to="/about/Samantha">
           Samantha Saxton-Getty
           <p className="title">Team Lead</p>{' '}
-        </a>
+        </Link>
 
-        <a className="name1" href="/about/Siqi">
+        <Link className="name1" to="/about/Siqi">
           Siqi Guo
           <p className="title">Front-End</p>{' '}
-        </a>
+        </Link>
 
-        <a className="name1" href="/about/Vishal">
+        <Link className="name1" to="/about/Vishal">
           Vishal Ramanand Sharma
           <p className="title">Github Lead</p>
-        </a>
+        </Link>
       </div>
     </>
   );

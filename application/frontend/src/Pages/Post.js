@@ -14,7 +14,6 @@ const Post = () => {
       <Card id="login_signupcard" className="card h-100">
         <Card.Header>New Post</Card.Header>
         <Card.Body>
-
           <Form>
             <Form.Group id="" className="mb-3">
               <Card.Text>Add image:</Card.Text>

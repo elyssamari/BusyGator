@@ -45,7 +45,7 @@ const Signup = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label className="col-sm-2 col-form-label">
+              <Form.Label className="col-sm-4 col-form-label">
                 Password*
               </Form.Label>
               <Form.Control type="password" placeholder="Password" />

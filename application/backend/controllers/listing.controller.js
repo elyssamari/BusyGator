@@ -33,7 +33,7 @@ const getListingByFilter = async (req, res) => {
     try {
         const { categoryId = "", searchText = "", min = "", max = "" } = req.query;
         if (categoryId !== "" && searchText === "") {
-            connection.query(`SELECT * from product where product.category=?`, [categoryId], (err, results) => {
+            connection.query(`SELECT * from product where product.category=${categoryId}`, (err, results) => {
                 let newResults = [];
                 for (let index = 0; index < results.length; index++) {
                     const element = results[index];
@@ -50,10 +50,12 @@ const getListingByFilter = async (req, res) => {
                 if (err) throw err
             });
         } else if (categoryId === "" && searchText !== "") {
-            connection.query(`SELECT * FROM product WHERE product.title LIKE "%?%" OR product.description LIKE "%?%";`, [searchText], (err, results) => {
+            console.log(searchText)
+            connection.query(`SELECT * FROM product WHERE product.title LIKE "%${searchText}%" OR product.description LIKE "%${searchText}%";`, (err, results) => {
                 let newResults = [];
                 for (let index = 0; index < results.length; index++) {
                     const element = results[index];
+                    console.log(returnMinMaxFilter(min, max, element))
                     if (returnMinMaxFilter(min, max, element)) {
                         const obj = {
                             ...element,
@@ -68,7 +70,7 @@ const getListingByFilter = async (req, res) => {
             });
         } else if (categoryId !== "" && searchText !== "") {
             console.log()
-            connection.query(`SELECT * FROM product WHERE product.category=? AND (product.title LIKE "%?%" OR product.description LIKE "%?%");`, [categoryId, searchText, searchText], (err, results) => {
+            connection.query(`SELECT * FROM product WHERE product.category=${categoryId} AND (product.title LIKE "%${searchText}%" OR product.description LIKE "%${searchText}%");`, (err, results) => {
                 let newResults = [];
                 for (let index = 0; index < results.length; index++) {
                     const element = results[index];

@@ -60,6 +60,11 @@ const Home = () => {
     <>
       <Row id="cardmargin">
         <Col>
+          <Card className="border-0">
+            <Card.Text class="foundText">Items Found: 24/24</Card.Text>
+          </Card>
+        </Col>
+        <Col>
           <DropdownButton
             id="dropdown-item-button"
             title={dropdownText}
@@ -85,7 +90,7 @@ const Home = () => {
           <Col key={`div_${index}`}>
             <Card className="card h-100">
               <Card.Img src={data.image} className="card-img-top" alt="..." />
-              <Card.Body class="d-flex flex-column" id="carddesc">
+              <Card.Body class="mt-auto" id="carddesc">
                 <Card.Title>Product Title: {data.title} </Card.Title>
                 <Card.Text>Price: ${data.price}</Card.Text>
                 <Card.Text>
@@ -94,11 +99,7 @@ const Home = () => {
                 <Card.Text>Description: {data.description}</Card.Text>
                 <Card.Text>In Stock</Card.Text>
                 <Card.Text className="text-center">
-                  <Button
-                    class="mt-auto"
-                    href="/IndividualProduct"
-                    variant="outline-dark"
-                  >
+                  <Button href="/IndividualProduct" variant="outline-dark">
                     Check it out!
                   </Button>
                 </Card.Text>

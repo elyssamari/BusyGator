@@ -93,7 +93,7 @@ const NavBar = () => {
             <InputGroup className="flex-nowrap">
               <DropdownButton
                 id="input-group-dropdown-1"
-                variant="outline-secondary"
+                variant="secondary"
                 title={returnTitle()}
               >
                 {categories &&
@@ -141,9 +141,6 @@ const NavBar = () => {
           </Link>
           <Link id="navlink" className="nav-link" to="/Messages">
             Messages
-          </Link>
-          <Link id="navlink" className="nav-link" to="/Cart">
-            Cart
           </Link>
           <Link id="navlink" className="nav-link" to="/Login">
             Login

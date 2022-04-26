@@ -44,10 +44,10 @@ const NavBar = () => {
   function search() {
     // On Click of search button we need to call /getAllListings to get listing
     if (
-      searchParams.categoryId ||
-      searchParams.searchText ||
-      searchParams.min !== null ||
-      searchParams.max !== null
+        searchParams.categoryId ||
+        searchParams.searchText ||
+        searchParams.min !== null ||
+        searchParams.max !== null
     ) {
       getListingByFilter(searchParams).then((data) => {
         setListings(data.data);
@@ -63,7 +63,7 @@ const NavBar = () => {
     if (searchParams.categoryId === '') return 'All';
     else {
       const found = categories.find(
-        (data) => data.category_id === searchParams.categoryId
+          (data) => data.category_id === searchParams.categoryId
       );
       if (found) return found.name;
       else return 'All';
@@ -90,69 +90,69 @@ const NavBar = () => {
           </Navbar.Brand>
         </Link>
 
-        <div className="collapse navbar-collapse">
-          <Form className="d-flex" onSubmit={onFormSubmit}>
-            <InputGroup className="flex-nowrap">
-              <DropdownButton
-                id="input-group-dropdown-1"
-                variant="secondary"
-                title={returnTitle()}
-              >
-                {categories &&
+          <div className="collapse navbar-collapse">
+            <Form className="d-flex" onSubmit={onFormSubmit}>
+              <InputGroup className="flex-nowrap">
+                <DropdownButton
+                    id="input-group-dropdown-1"
+                    variant="secondary"
+                    title={returnTitle()}
+                >
+                  {categories &&
                   categories.map((category, index) => (
-                    <Dropdown.Item
-                      key={index}
-                      onClick={() =>
+                      <Dropdown.Item
+                          key={index}
+                          onClick={() =>
+                              setSearchParams({
+                                ...searchParams,
+                                categoryId: category.category_id || '',
+                              })
+                          }
+                      >
+                        {category.name}
+                      </Dropdown.Item>
+                  ))}
+                </DropdownButton>
+                <FormControl
+                    id="searchbar"
+                    aria-label="Text input with dropdown button"
+                    placeholder="Search"
+                    onChange={(e) =>
                         setSearchParams({
                           ...searchParams,
-                          categoryId: category.category_id || '',
+                          searchText: e.target.value,
                         })
-                      }
-                    >
-                      {category.name}
-                    </Dropdown.Item>
-                  ))}
-              </DropdownButton>
-              <FormControl
-                id="searchbar"
-                aria-label="Text input with dropdown button"
-                placeholder="Search"
-                onChange={(e) =>
-                  setSearchParams({
-                    ...searchParams,
-                    searchText: e.target.value,
-                  })
-                }
-              />
-            </InputGroup>
-            <Button
-              id="searchbutton"
-              variant="light"
-              onClick={search}
-              type="submit"
-            >
-              Search
-            </Button>
-          </Form>
+                    }
+                />
+              </InputGroup>
+              <Button
+                  id="searchbutton"
+                  variant="light"
+                  onClick={search}
+                  type="submit"
+              >
+                Search
+              </Button>
+            </Form>
 
-          <Link id="navlink" className="nav-link" to="/Post">
-            Post
-          </Link>
-          <Link id="navlink" className="nav-link" to="/MyPage">
-            My Page
-          </Link>
-          <Link id="navlink" className="nav-link" to="/Messages">
-            Messages
-          </Link>
-          <Link id="navlink" className="nav-link" to="/Login">
-            Login
-          </Link>
-          <Link id="navlink" className="nav-link" to="/Signup">
-            Sign Up
-          </Link>
-        </div>
-      </Navbar>
-    </>
+            <Link id="navlink" className="nav-link" to="/Post">
+              Post
+            </Link>
+            <Link id="navlink" className="nav-link" to="/MyPage">
+              My Page
+            </Link>
+            <Link id="navlink" className="nav-link" to="/Messages">
+              Messages
+            </Link>
+            <Link id="navlink" className="nav-link" to="/Login">
+              Login
+            </Link>
+            <Link id="navlink" className="nav-link" to="/Signup">
+              Sign Up
+            </Link>
+          </div>
+        </Navbar>
+      </>
   );
 };
 

@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` BINARY(60) NOT NULL,
   `administrator` TINYINT NOT NULL DEFAULT 0,
   `date_created` DATETIME NOT NULL,
   PRIMARY KEY (`user_id`))
@@ -145,6 +145,11 @@ CREATE TABLE IF NOT EXISTS `message` (
   CONSTRAINT `MESSAGE_PRODUCT_FK`
     FOREIGN KEY (`product`)
     REFERENCES `busygatorSchema`.`product` (`product_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `MESSAGE_PRODUCT_FK`
+    FOREIGN KEY (`product`)
+    REFERENCES `product` (`product_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

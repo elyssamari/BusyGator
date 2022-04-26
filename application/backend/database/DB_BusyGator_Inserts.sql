@@ -4,21 +4,21 @@
 
 INSERT INTO user (user_id, first_name, last_name, email, password, administrator, date_created) 
 VALUES
-(1, 'Steve', 'Russel', 'steve@gmail.com', '&2=8392', 0, NOW()),
-(2, 'Shauna', 'Jones', 'shauna@gmail.com', 'heay3@683q', 0, NOW()),
-(3, 'Bryan', 'Matthew', 'bryan@gmail.com', 'jg4a9j$@#a', 0, NOW()),
-(4, 'George', 'Martin', 'george@gmail.com', 'rng9j3$^$', 0, NOW()),
-(5, 'Carly', 'Brown', 'carly@gmail.com', 'g9j4ag$#v', 0, NOW()),
-(6, 'Noah', 'Williams', 'noah@gmail.com', 'K45Cy4c[H', 0, NOW()),
-(7, 'Olivia', 'Johnson', 'olivia@gmail.com', 'pNw95zV#+', 0, NOW()),
-(8, 'Emma', 'Jones', 'emma@gmail.com', 'w".6}nV-b', 0, NOW()),
-(9, 'Elijah', 'Garcia', 'elijah@gmail.com', 'H,z94>_Y8', 0, NOW()),
-(10, 'Charlotte', 'Miller', 'charlotte@gmail.com', '{y{GG~62>', 0, NOW()),
-(11, 'William', 'Davis', 'william@gmail.com', '3CRzC$"kN', 0, NOW()),
-(12, 'James', 'Rodriguez', 'james@gmail.com', '"8HCqQ*Ye', 0, NOW()),
-(13, 'Amelia', 'Wilson', 'amelia@gmail.com', '^9qh!_M?F', 0, NOW()),
-(14, 'Lucas', 'Anderson', 'lucas@gmail.com', 'YVj6)h<y]', 0, NOW()),
-(15, 'Evelyn', 'Thomas', 'evelyn@gmail.com', '&7Xm<Y%Z:', 0, NOW());
+(1, 'Steve', 'Russel', 'steve@gmail.com', '$2a$12$Sxe.5U7k1yIBy9/crrXICOd4TXpiQO3yIUTVRcc.8ROpPgZiZ8WSW', 0, NOW()),
+(2, 'Shauna', 'Jones', 'shauna@gmail.com', '$2a$12$O6sz0sWLHorP2aIAYpZtm.loxLicuCWwpmM7jOHqSaCUerY0RiYB.', 0, NOW()),
+(3, 'Bryan', 'Matthew', 'bryan@gmail.com', '$2a$12$KX2REVZXZv5gBhM9jhnpbuP6OatWdtONnEQ56jwRsEgbQIfH1tIJq', 0, NOW()),
+(4, 'George', 'Martin', 'george@gmail.com', '$2a$12$B83FoZN5xmKmQOFw6IpPFOih1Gq3RpawPs2Iyo3aKtFTqDshUxTdu', 0, NOW()),
+(5, 'Carly', 'Brown', 'carly@gmail.com', '$2a$12$QzAImgESEq7SCMZzikfwqOBNx0.xy4gXghk84FeUfuHfUqbJTJwgO', 0, NOW()),
+(6, 'Noah', 'Williams', 'noah@gmail.com', '$2a$12$yY9/4QtfyXEbjbfQ6RD1u.GBDQLN1ZI3XkWYbjW1ogM0fYBJUpp.a', 0, NOW()),
+(7, 'Olivia', 'Johnson', 'olivia@gmail.com', '$2a$12$9SLjzSCtKBRzXrR.wzWU4.jw9WTisx51XJT6n/mMJZq5OoZOkFhFS', 0, NOW()),
+(8, 'Emma', 'Jones', 'emma@gmail.com', '$2a$12$xWr5DHYmZgPqrKPuXP4.oe/N5g3nOwLDP.wS2/OaWkag3Yc607kmO', 0, NOW()),
+(9, 'Elijah', 'Garcia', 'elijah@gmail.com', '$2a$12$LDOfcmJcZcuzROJk12QMCOf/Tzk2AbEWhIFuWwJVt8ghsKeB2XkOa', 0, NOW()),
+(10, 'Charlotte', 'Miller', 'charlotte@gmail.com', '$2a$12$lPcZ/xoufithSggafEnTgOLPvM7ZZJ8B6JFfd7i8yi1qNjr.Eqz8.', 0, NOW()),
+(11, 'William', 'Davis', 'william@gmail.com', '$2a$12$EiLdszQostobR1KIYctY5uiuVPQnJkvAqReqgPTzT5QHwVdaDwFoy', 0, NOW()),
+(12, 'James', 'Rodriguez', 'james@gmail.com', '$2a$12$6bk/0/rKs4nsg.qQj5UzEOpJkDvtEuaPu.d2.pFw9VlO0XLB.56Mi', 0, NOW()),
+(13, 'Amelia', 'Wilson', 'amelia@gmail.com', '$2a$12$tAP8HkJQn8ri5TrMzJ1jQe5pbc27LaHHuex/rUaFL67wNp.6jreea', 0, NOW()),
+(14, 'Lucas', 'Anderson', 'lucas@gmail.com', '$2a$12$Xhcs/VdyCaOjmXVjvIqs0eP.7U/J/RXONudz0i/x6yWQyo8Sf0v1K', 0, NOW()),
+(15, 'Evelyn', 'Thomas', 'evelyn@gmail.com', '$2a$12$.yCISdVGDNmL1pe9v/vpb.JlrdBLGm10LqBjLSeHgPHSKTeVOIU36', 0, NOW());
 
 INSERT INTO product (product_id, seller_id, category, location, title, description, image, image_thumbnail, price, approved, date_created) 
 VALUES
@@ -46,3 +46,16 @@ VALUES
 (22, 3, 4, 3, 'Basketball', 'Basketball', '22_basketball.jpg', '22_basketball_thumb.jpg', 19.00, 0, NOW()),
 (23, 2, 5, 5, 'Dictionary', 'Dictionary', '23_dictionary.jpg', '23_dictionary_thumb.jpg', 21.00, 0, NOW()),
 (24, 2, 5, 5, 'Encyclopedia', 'Encyclopedia', '24_encyclopedia.jpg', '24_encyclopedia_thumb.jpg', 18.00, 0, NOW());
+
+INSERT INTO message (message_id, creator_id, receiver_id, product, subject, message_body, date_created) 
+VALUES
+(1, 12, 2, 6, 'Calculator', 'Hi! I was wondering when you\'d be available to meet and exchange the calculator you listed. Thanks in advance!', NOW()),
+(2, 15, 4, 11, 'Collar', 'hey, what size dog is the collar you listed meant for? i was hoping it\'d fit my chihuahua', NOW()),
+(3, 6, 3, 13, 'Pet Food', 'when can you meet up for the pet food??? thx', NOW()),
+(4, 11, 5, 21, 'Fishing Pole', 'I am interested in purchasing the fishing pole you listed. The best time for me to meet would be next Monday at 4:00 PM. -William', NOW()),
+(5, 8, 1, 19, 'Tent', 'Hello! I\'m thinking about buying your tent. How many people does it fit?', NOW()),
+(6, 7, 2, 23, 'Dictionary', 'would oyu be willing to sell the dictionary for $10?? i need it for my class and that\'s all i got', NOW()),
+(7, 9, 3, 18, 'Sofa', 'Hi. Do you have any equipment for moving the sofa? It\'ll be a bit hard to carry it from the gymnasium to my car by hand. Thanks.', NOW()),
+(8, 13, 1, 20, 'Sleeping Bag', 'hey! are you available to meet up tomorrow to exchange the sleeping bag? thanks!', NOW()),
+(9, 10, 5, 14, 'Leash', 'can you meet up tomorrow to sell the leash? and do you have a venmo?', NOW()),
+(10, 14, 3, 8, 'Kindle', 'Hello. Do you have any other pictures of your kindle? Thank you.', NOW());

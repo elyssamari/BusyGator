@@ -66,7 +66,7 @@ const Home = () => {
 
   function getLocationName(locationNumber) {
     return (
-      locations.find((data) => data.location_id === locationNumber)?.name || ''
+        locations.find((data) => data.location_id === locationNumber)?.name || ''
     );
   }
 
@@ -136,9 +136,61 @@ const Home = () => {
               </Card.Body>
             </Card>
           </Col>
-        ))}
-      </Row>
-    </>
+          <Col>
+            <DropdownButton
+                id="dropdown-item-button"
+                title={dropdownText}
+                className="format float-right"
+            >
+              {dropDownValues.map((data, index) => (
+                  <Dropdown.Item as="button" key={index}>
+                    <div
+                        onClick={() => {
+                          setSortAsc(data.value);
+                          setDropdownText(data.name);
+                        }}
+                    >
+                      {data.name}
+                    </div>
+                  </Dropdown.Item>
+              ))}
+            </DropdownButton>
+          </Col>
+        </Row>
+        <Row id="cardmargin" xs={2} md={5} className="g-4">
+          {listings.map((data, index) => (
+              <Col key={`div_${index}`}>
+                <Card className="card h-100">
+                  <Card.Img src={data.image} className="card-img-top" alt="..." />
+                  <Card.Body class="mt-auto" id="carddesc">
+                    <Card.Title>Product Title: {data.title} </Card.Title>
+                    <Card.Text>Price: ${data.price}</Card.Text>
+                    <Card.Text>
+                      Location: {getLocationName(data.location)}
+                    </Card.Text>
+                    <Card.Text>Description: {data.description}</Card.Text>
+                    <Card.Text>Seller: {getSellerName(data.seller_id)}</Card.Text>
+                    <Card.Text>Date Listed: {getDateString(data.date_created)}</Card.Text>
+                    <Card.Text>In Stock</Card.Text>
+                    <Card.Text className="text-center">
+                      <Link to="/IndividualProduct">
+                        <Button variant="outline-dark">
+                          Check it out!
+                        </Button>
+                      </Link>
+                      <span className="button-space"></span>
+                      <Link to="/Messages">
+                        <Button variant="primary">
+                          Message Seller
+                        </Button>
+                      </Link>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+          ))}
+        </Row>
+      </>
   );
 };
 

@@ -9,6 +9,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import DataContext from '../DataContext/DataContext';
 import { getAllListings } from '../services/listingService';
 import { getAllLocations } from '../services/locationService';
+import { Link } from 'react-router-dom';
 import {
   Card,
   Col,
@@ -99,9 +100,9 @@ const Home = () => {
                 <Card.Text>Description: {data.description}</Card.Text>
                 <Card.Text>In Stock</Card.Text>
                 <Card.Text className="text-center">
-                  <Button href="/IndividualProduct" variant="outline-dark">
-                    Check it out!
-                  </Button>
+                  <Link to="/IndividualProduct">
+                    <Button variant="outline-dark">Check it out!</Button>
+                  </Link>
                 </Card.Text>
               </Card.Body>
             </Card>

@@ -338,6 +338,15 @@ margin-left: 10px;
   max-width: 100px;
 }
 
+#welcomeCard{
+  width: 600px;
+  margin: 0 auto; 
+  margin-top: 25px;
+  border-width: medium;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+
 .foundText{
   margin-top: 10px;
   margin-left: 4px;

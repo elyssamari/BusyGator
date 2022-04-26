@@ -78,15 +78,17 @@ const NavBar = () => {
   return (
     <>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand id="logo" href="/">
-          <img
-            alt=""
-            src="./BusyGatorLogo.png"
-            width="140px"
-            height="60px"
-            className="d-inline-block align-top"
-          />
-        </Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand id="logo">
+            <img
+                alt=""
+                src="./BusyGatorLogo.png"
+                width="140px"
+                height="60px"
+                className="d-inline-block align-top"
+            />
+          </Navbar.Brand>
+        </Link>
 
         <div className="collapse navbar-collapse">
           <Form className="d-flex" onSubmit={onFormSubmit}>

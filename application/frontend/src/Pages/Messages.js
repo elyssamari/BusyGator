@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import { Card, Form, Button, InputGroup } from 'react-bootstrap';
+import {Link} from "react-router-dom";
 
 const Messages = () => {
   return (
@@ -35,12 +36,16 @@ const Messages = () => {
                 rows={4}
                 placeholder="Click here to write a message"
               />
-              <Button id="sentMessageButton" href="/" variant="primary">
-                Send Message
-              </Button>
-              <Button id="homeButton" href="/" variant="primary">
-                Home
-              </Button>
+              <Link to="/">
+                <Button id="sentMessageButton" variant="primary">
+                  Send Message
+                </Button>
+              </Link>
+              <Link to="/">
+                <Button id="homeButton" variant="primary">
+                  Home
+                </Button>
+              </Link>
             </Form.Group>
           </Form>
         </Card.Body>

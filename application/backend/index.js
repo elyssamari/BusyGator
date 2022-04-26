@@ -16,6 +16,7 @@ const { connection } = require('./databaseConnect');
 const locationRouter = require('./routes/location.routes');
 const listingRouter = require('./routes/listing.routes');
 const categoryRouter = require('./routes/category.routes');
+const userRouter = require('./routes/user.routes');
 
 app.use(express.json());
 app.use(
@@ -35,6 +36,7 @@ app.use('/thumbnails/', express.static("uploads/thumbnails"));
 app.use('/location',locationRouter);
 app.use('/category',categoryRouter)
 app.use('/listing',listingRouter);
+app.use('/user',userRouter);
 
 
 // Default Route for serving Index.html

@@ -53,9 +53,11 @@ const Signup = () => {
           </Form>
 
           <Form.Group className="text-center">
-            <Button id="login_signin_button" href="/" variant="primary">
-              Sign Up
-            </Button>
+            <Link to="/">
+              <Button id="login_signin_button" variant="primary">
+                Sign Up
+              </Button>
+            </Link>
           </Form.Group>
 
           <Card.Text id="login_signup_text" className="text-center">

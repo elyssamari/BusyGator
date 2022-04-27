@@ -183,6 +183,12 @@ a.nav:hover{
   margin-top: 50px;
 }
 
+.invalid-tooltip{
+  white-space:pre-wrap;
+  margin-left: 57px;
+  background-color: rgb(220, 53, 69) !important;
+}
+
 .nametitle{
   font-family: "Lucida Console", "Courier New", monospace;
   color: #b9a398;
@@ -349,7 +355,8 @@ margin-left: 10px;
   margin-left: 55px;
   margin-bottom: 40px;
 }
- .maxWidth100{
+
+.maxWidth100{
   max-width: 100px;
 }
 

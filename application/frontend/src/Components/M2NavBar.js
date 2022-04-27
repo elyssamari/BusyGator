@@ -26,6 +26,8 @@ const NavBar = () => {
   const setListings = useContext(DataContext)?.setListings;
   const setSearchParams = useContext(DataContext)?.setSearchParams;
   const searchParams = useContext(DataContext)?.searchParams;
+  let invalidStatus = false;
+  let errorMessage = [];
 
   useEffect(() => {
     // This will set the categories to search from once it has been set
@@ -50,7 +52,8 @@ const NavBar = () => {
         searchParams.max !== null
     ) {
       getListingByFilter(searchParams).then((data) => {
-        setListings(data.data);
+        if (!invalidStatus)
+          setListings(data.data);
       });
     } else {
       getAllListings().then((data) => {
@@ -70,89 +73,112 @@ const NavBar = () => {
     }
   }
 
+  function searchIsInvalid() {
+    // Searches are rejected if they are not alphanumeric or are over 40 characters in length
+    if (!searchParams.searchText)
+      return;
+
+    let alphanumeric = /^[a-zA-Z0-9]+$/;
+
+    if (!searchParams.searchText.match(alphanumeric)) {
+      errorMessage.push("Search text must be alphanumeric.");
+      invalidStatus = true;
+    }
+
+    if (searchParams.searchText.length > 40) {
+      errorMessage.push("Search text length " + searchParams.searchText.length + " is too long. Please keep searches up to 40 alphanumeric characters in length.");
+      invalidStatus = true;
+    }
+
+    return invalidStatus;
+  }
+
   const onFormSubmit = (e) => {
     e.preventDefault();
     search();
   };
 
   return (
-    <>
-      <Navbar bg="dark" variant="dark">
-        <Link to="/">
-          <Navbar.Brand id="logo">
-            <img
-                alt=""
-                src="./BusyGatorLogo.png"
-                width="140px"
-                height="60px"
-                className="d-inline-block align-top"
-            />
-          </Navbar.Brand>
-        </Link>
-
+      <>
+        <Navbar bg="dark" variant="dark">
+          <Link to="/">
+            <Navbar.Brand id="logo">
+              <img
+                  alt=""
+                  src="./BusyGatorLogo.png"
+                  width="140px"
+                  height="60px"
+                  className="d-inline-block align-top"
+              />
+            </Navbar.Brand>
+          </Link>
           <div className="collapse navbar-collapse">
             <Form className="d-flex" onSubmit={onFormSubmit}>
-              <InputGroup className="flex-nowrap">
+              <InputGroup hasValidation className="flex-nowrap">
                 <DropdownButton
                     id="input-group-dropdown-1"
                     variant="secondary"
                     title={returnTitle()}
                 >
-                  {categories &&
-                  categories.map((category, index) => (
-                      <Dropdown.Item
-                          key={index}
-                          onClick={() =>
-                              setSearchParams({
-                                ...searchParams,
-                                categoryId: category.category_id || '',
-                              })
-                          }
-                      >
-                        {category.name}
-                      </Dropdown.Item>
-                  ))}
-                </DropdownButton>
-                <FormControl
-                    id="searchbar"
-                    aria-label="Text input with dropdown button"
-                    placeholder="Search"
-                    onChange={(e) =>
-                        setSearchParams({
-                          ...searchParams,
-                          searchText: e.target.value,
-                        })
-                    }
-                />
-              </InputGroup>
-              <Button
-                  id="searchbutton"
-                  variant="light"
-                  onClick={search}
-                  type="submit"
-              >
-                Search
-              </Button>
-            </Form>
+                {categories &&
+                categories.map((category, index) => (
+                    <Dropdown.Item
+                        key={index}
+                        onClick={() =>
+                            setSearchParams({
+                              ...searchParams,
+                              categoryId: category.category_id || '',
+                            })
+                        }
+                    >
+                      {category.name}
+                    </Dropdown.Item>
+                ))}
+              </DropdownButton>
+              <FormControl
+                  id="searchbar"
+                  aria-label="Text input with dropdown button"
+                  placeholder="Search"
+                  isInvalid={searchIsInvalid()}
+                  onChange={(e) =>
+                      setSearchParams({
+                        ...searchParams,
+                        searchText: e.target.value,
+                      })
+                  }
+              />
+              <Form.Control.Feedback type="invalid" tooltip={true}>
+                {errorMessage.join("\r\n")}
+              </Form.Control.Feedback>
+            </InputGroup>
+            <Button
+                id="searchbutton"
+                variant="light"
+                onClick={search}
+                type="submit"
+            >
+              Search
+            </Button>
+          </Form>
 
-            <Link id="navlink" className="nav-link" to="/Post">
-              Post
-            </Link>
-            <Link id="navlink" className="nav-link" to="/MyPage">
-              My Page
-            </Link>
-            <Link id="navlink" className="nav-link" to="/Messages">
-              Messages
-            </Link>
-            <Link id="navlink" className="nav-link" to="/Login">
-              Login
-            </Link>
-            <Link id="navlink" className="nav-link" to="/Signup">
-              Sign Up
-            </Link>
-          </div>
-        </Navbar>
-      </>
+          <Link id="navlink" className="nav-link" to="/Post">
+            Post
+          </Link>
+          <Link id="navlink" className="nav-link" to="/MyPage">
+            My Page
+          </Link>
+          <Link id="navlink" className="nav-link" to="/Messages">
+            Messages
+          </Link>
+          <Link id="navlink" className="nav-link" to="/Login">
+            Login
+          </Link>
+          <Link id="navlink" className="nav-link" to="/Signup">
+            Sign Up
+          </Link>
+        </div>
+      </Navbar>
+    </>
   );
 };
 

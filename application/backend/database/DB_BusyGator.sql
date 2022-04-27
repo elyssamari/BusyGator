@@ -151,6 +151,11 @@ CREATE TABLE IF NOT EXISTS `message` (
     FOREIGN KEY (`product`)
     REFERENCES `product` (`product_id`)
     ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `MESSAGE_PRODUCT_FK`
+    FOREIGN KEY (`product`)
+    REFERENCES `product` (`product_id`)
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 

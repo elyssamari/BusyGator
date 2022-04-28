@@ -264,8 +264,8 @@ margin-left: 10px;
 }
 
 #sentMessageButton{
-  width: 250px;
-  margin: 0 auto; 
+  width: 170px;
+  margin: 10px; 
   margin-top: 25px;
 }
 
@@ -282,9 +282,9 @@ margin-left: 10px;
   background-color: #e9ecef;
 }
 
-#homeButton{
+#cancelButton{
   width: 100px;
-  margin: 0 auto; 
+  margin:10px; 
   margin-top: 25px;
   margin-left: 10px;
   background-color: gray;
@@ -339,10 +339,14 @@ margin-left: 10px;
 #postbutton1{
   width: 100px;
   margin-right: 50px;
+  background: gray;
+  border-color: gainsboro;
 }
 
 #postbutton2{
   width: 100px;
+  background: gray;
+  border-color: gainsboro;
 }
 
 #product_detail_button{
@@ -355,7 +359,17 @@ margin-left: 10px;
   margin-left: 55px;
   margin-bottom: 40px;
 }
+ #maxWidth100{
+  max-width: 100px;
+}
 
+.newpost_header{
+  padding-left: 15px;
+  background-color: rgb(250, 250, 250);
+}
+.newpost_header > h2{
+  font-weight: bold;
+}
 .maxWidth100{
   max-width: 100px;
 }

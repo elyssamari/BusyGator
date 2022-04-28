@@ -3,7 +3,7 @@
  *
  *
  *
- * This File contains the messages between the seller and buyer.
+ * This File contains the messages between the seller and buyer. 
  */
 import React from 'react';
 import { Card, Form, Button, InputGroup } from 'react-bootstrap';
@@ -17,15 +17,8 @@ const Messages = () => {
         <Card.Body>
           <Card id="textMessage">
             <InputGroup id="inputGroup">
-              <InputGroup.Text>@Mike</InputGroup.Text>
-              <InputGroup.Text>10-12-21</InputGroup.Text>
             </InputGroup>
             <Card.Body id="textBody">
-              Dummy Text Lorem ipsum dolor sit amet, consectetuer adipiscing
-              elit. elit. elit. Aenean commodo ligula eget dolor. Aenean massa.
-              sociis natoque penatibus et magnis dis parturient montes, nascetur
-              ridiculus mus. Donec quam felis, ultricies nec, eu, pretium quis,
-              sem. Nulla consequat massa quis enim.
             </Card.Body>
           </Card>
           <Form>
@@ -36,16 +29,23 @@ const Messages = () => {
                 rows={4}
                 placeholder="Click here to write a message"
               />
-              <Link to="/">
-                <Button id="sentMessageButton" variant="primary">
-                  Send Message
-                </Button>
-              </Link>
-              <Link to="/">
-                <Button id="homeButton" variant="primary">
-                  Home
-                </Button>
-              </Link>
+              
+              <Link
+        id="cancelButton"
+        to="/"
+        className="btn btn-primary btn-lg"
+        role="button"
+      >
+Cancel      </Link>
+
+         
+               <Link
+        id="sentMessageButton"
+        to="/"
+        className="btn btn-primary btn-lg"
+        role="button"
+      >
+Send Message      </Link>
             </Form.Group>
           </Form>
         </Card.Body>
@@ -55,5 +55,3 @@ const Messages = () => {
 };
 
 export default Messages;
-
-// Reference: https://react-bootstrap.github.io

@@ -5,23 +5,17 @@
  *
  * This File contains the page where the seller can make a new post.
  */
-import React, { useEffect, useContext } from 'react';
-import {
-  Form,
-  Button,
-  Card,
-  Col,
-  Row,
-  DropdownButton,
-  Dropdown,
-} from 'react-bootstrap';
+import React from 'react';
+import { Form, Button, Card, Col, Row, Dropdown, DropdownButton} from 'react-bootstrap';
+import CardHeader from 'react-bootstrap/esm/CardHeader';
 
 const Post = () => {
-
   return (
     <>
       <Card id="login_signupcard" className="card h-100">
-        <Card.Header>New Post</Card.Header>
+        <div className="newpost_header">
+          <h2>New post</h2>
+        </div>
         <Card.Body>
           <Form>
             <Form.Group id="" className="mb-3">

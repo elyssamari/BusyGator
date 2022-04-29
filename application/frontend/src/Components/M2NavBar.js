@@ -18,7 +18,7 @@ import {
 import DataContext from '../DataContext/DataContext';
 import { getAllCategories } from '../services/categoryService';
 import { getAllListings, getListingByFilter } from '../services/listingService';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const categories = useContext(DataContext)?.categories;
@@ -26,6 +26,7 @@ const NavBar = () => {
   const setListings = useContext(DataContext)?.setListings;
   const setSearchParams = useContext(DataContext)?.setSearchParams;
   const searchParams = useContext(DataContext)?.searchParams;
+  const navigate = useNavigate();
   let invalidStatus = false;
   let errorMessage = [];
 
@@ -46,14 +47,13 @@ const NavBar = () => {
   function search() {
     // On Click of search button we need to call /getAllListings to get listing
     if (
-        searchParams.categoryId ||
-        searchParams.searchText ||
-        searchParams.min !== null ||
-        searchParams.max !== null
+      searchParams.categoryId ||
+      searchParams.searchText ||
+      searchParams.min !== null ||
+      searchParams.max !== null
     ) {
       getListingByFilter(searchParams).then((data) => {
-        if (!invalidStatus)
-          setListings(data.data);
+        if (!invalidStatus) setListings(data.data);
       });
     } else {
       getAllListings().then((data) => {
@@ -66,7 +66,7 @@ const NavBar = () => {
     if (searchParams.categoryId === '') return 'All';
     else {
       const found = categories.find(
-          (data) => data.category_id === searchParams.categoryId
+        (data) => data.category_id === searchParams.categoryId
       );
       if (found) return found.name;
       else return 'All';
@@ -75,18 +75,21 @@ const NavBar = () => {
 
   function searchIsInvalid() {
     // Searches are rejected if they are not alphanumeric or are over 40 characters in length
-    if (!searchParams.searchText)
-      return;
+    if (!searchParams.searchText) return;
 
     let alphanumeric = /^[a-zA-Z0-9]+$/;
 
     if (!searchParams.searchText.match(alphanumeric)) {
-      errorMessage.push("Search text must be alphanumeric.");
+      errorMessage.push('Search text must be alphanumeric.');
       invalidStatus = true;
     }
 
     if (searchParams.searchText.length > 40) {
-      errorMessage.push("Search text length " + searchParams.searchText.length + " is too long. Please keep searches up to 40 alphanumeric characters in length.");
+      errorMessage.push(
+        'Search text length ' +
+          searchParams.searchText.length +
+          ' is too long. Please keep searches up to 40 alphanumeric characters in length.'
+      );
       invalidStatus = true;
     }
 
@@ -99,63 +102,63 @@ const NavBar = () => {
   };
 
   return (
-      <>
-        <Navbar bg="dark" variant="dark">
-          <Link to="/">
-            <Navbar.Brand id="logo">
-              <img
-                  alt=""
-                  src="./BusyGatorLogo.png"
-                  width="140px"
-                  height="60px"
-                  className="d-inline-block align-top"
-              />
-            </Navbar.Brand>
-          </Link>
-          <div className="collapse navbar-collapse">
-            <Form className="d-flex" onSubmit={onFormSubmit}>
-              <InputGroup hasValidation className="flex-nowrap">
-                <DropdownButton
-                    id="input-group-dropdown-1"
-                    variant="secondary"
-                    title={returnTitle()}
-                >
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Link to="/">
+          <Navbar.Brand id="logo">
+            <img
+              alt=""
+              src="./BusyGatorLogo.png"
+              width="140px"
+              height="60px"
+              className="d-inline-block align-top"
+            />
+          </Navbar.Brand>
+        </Link>
+        <div className="collapse navbar-collapse">
+          <Form className="d-flex" onSubmit={onFormSubmit}>
+            <InputGroup hasValidation className="flex-nowrap">
+              <DropdownButton
+                id="input-group-dropdown-1"
+                variant="secondary"
+                title={returnTitle()}
+              >
                 {categories &&
-                categories.map((category, index) => (
+                  categories.map((category, index) => (
                     <Dropdown.Item
-                        key={index}
-                        onClick={() =>
-                            setSearchParams({
-                              ...searchParams,
-                              categoryId: category.category_id || '',
-                            })
-                        }
+                      key={index}
+                      onClick={() =>
+                        setSearchParams({
+                          ...searchParams,
+                          categoryId: category.category_id || '',
+                        })
+                      }
                     >
                       {category.name}
                     </Dropdown.Item>
-                ))}
+                  ))}
               </DropdownButton>
               <FormControl
-                  id="searchbar"
-                  aria-label="Text input with dropdown button"
-                  placeholder="Search"
-                  isInvalid={searchIsInvalid()}
-                  onChange={(e) =>
-                      setSearchParams({
-                        ...searchParams,
-                        searchText: e.target.value,
-                      })
-                  }
+                id="searchbar"
+                aria-label="Text input with dropdown button"
+                placeholder="Search"
+                isInvalid={searchIsInvalid()}
+                onChange={(e) =>
+                  setSearchParams({
+                    ...searchParams,
+                    searchText: e.target.value,
+                  })
+                }
               />
               <Form.Control.Feedback type="invalid" tooltip={true}>
-                {errorMessage.join("\r\n")}
+                {errorMessage.join('\r\n')}
               </Form.Control.Feedback>
             </InputGroup>
             <Button
-                id="searchbutton"
-                variant="light"
-                onClick={search}
-                type="submit"
+              id="searchbutton"
+              variant="light"
+              onClick={() => navigate('/')}
+              type="submit"
             >
               Search
             </Button>

@@ -6,33 +6,46 @@
  * This File contains future My Page implementation.
  */
 import React from 'react';
-import { Card, Tab, Row, Col, Nav } from 'react-bootstrap';
+import { Card, Form, Button, InputGroup } from 'react-bootstrap';
 
 const MyPage = () => {
   return (
     <>
-      <Card id="welcomeCard">
-        <Card.Header>Welcome user-id</Card.Header>
-        <Tab.Container id="tabCont">
-          <Row>
-            <Col sm={4}>
-              <Nav class="tabs">
-                <Nav.Item>
-                  <Nav.Link eventKey="msgs">My Messages</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="posts">My Posts</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Col>
-            <Col sm={4}>
-              <Tab.Content>
-                <Tab.Pane eventKey="msgs">My messages will go here!</Tab.Pane>
-                <Tab.Pane eventKey="posts">My posts will go here!</Tab.Pane>
-              </Tab.Content>
-            </Col>
-          </Row>
-        </Tab.Container>
+      <Card className="card-center">
+        <Card.Header className="text-center">
+          We will implement the My Page in the future.
+        </Card.Header>
+        <Card.Body>
+          <Card id="textMessage">
+            <InputGroup id="inputGroup">
+              <InputGroup.Text>@Mike</InputGroup.Text>
+              <InputGroup.Text>10-12-21</InputGroup.Text>
+            </InputGroup>
+            <Card.Body id="textBody">
+              Dummy Text Lorem ipsum dolor sit amet, consectetuer adipiscing
+              elit. elit. elit. Aenean commodo ligula eget dolor. Aenean massa.
+              sociis natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Donec quam felis, ultricies nec, eu, pretium quis,
+              sem. Nulla consequat massa quis enim.
+            </Card.Body>
+          </Card>
+          <Form>
+            <Form.Label></Form.Label>
+            <Form.Group>
+              <Form.Control
+                as="textarea"
+                rows={4}
+                placeholder="Click here to write a message"
+              />
+              <Button id="sentMessageButton" href="/" variant="primary">
+                Send Message
+              </Button>
+              <Button id="homeButton" href="/" variant="primary">
+                Home
+              </Button>
+            </Form.Group>
+          </Form>
+        </Card.Body>
       </Card>
     </>
   );

@@ -3,7 +3,7 @@
  *
  *
  *
- * This File contains the source of listings, categories, and locations mapped over the database.
+ * This File contains the source of listings, categories, locations, and users mapped over the database.
  */
 import PropTypes from 'prop-types';
 import React, { createContext, useState } from 'react';
@@ -14,6 +14,7 @@ function DataProvider({ children }) {
   const [listings, setListings] = useState([]);
   const [categories, setCategories] = useState([]);
   const [locations, setLocations] = useState([]);
+  const [users, setUsers] = useState([]);
   const [searchParams, setSearchParams] = useState({
     categoryId: null,
     searchText: null,
@@ -23,14 +24,16 @@ function DataProvider({ children }) {
   return (
     <DataContext.Provider
       value={{
-        listings,
-        setListings,
-        categories,
-        setCategories,
-        locations,
-        setLocations,
-        searchParams,
-        setSearchParams,
+          listings,
+          setListings,
+          categories,
+          setCategories,
+          locations,
+          setLocations,
+          users,
+          setUsers,
+          searchParams,
+          setSearchParams,
       }}
     >
       {children}

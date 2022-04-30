@@ -15,6 +15,18 @@
   }
 }
 
+@media (max-width: 1699px){
+  .button-space{
+    margin: 110px;
+  }
+}
+
+@media (min-width: 1700px){
+  .button-space{
+    margin: 20px;
+  }
+}
+
 a{
   text-decoration:none;
   color: white;
@@ -171,6 +183,12 @@ a.nav:hover{
   margin-top: 50px;
 }
 
+.invalid-tooltip{
+  white-space:pre-wrap;
+  margin-left: 57px;
+  background-color: rgb(220, 53, 69) !important;
+}
+
 .nametitle{
   font-family: "Lucida Console", "Courier New", monospace;
   color: #b9a398;
@@ -191,7 +209,7 @@ a.nav:hover{
   margin-top: -10px;
   margin-right: 55px;
   display: inline-block;
-} 
+}
 
 #navlink{
   margin: auto;
@@ -205,7 +223,6 @@ a.nav:hover{
 }
 
 #searchbar{
-  height: 40px;
   width: 35vw;
 }
 
@@ -247,8 +264,8 @@ margin-left: 10px;
 }
 
 #sentMessageButton{
-  width: 250px;
-  margin: 0 auto; 
+  width: 170px;
+  margin: 10px; 
   margin-top: 25px;
 }
 
@@ -265,9 +282,9 @@ margin-left: 10px;
   background-color: #e9ecef;
 }
 
-#homeButton{
+#cancelButton{
   width: 100px;
-  margin: 0 auto; 
+  margin:10px; 
   margin-top: 25px;
   margin-left: 10px;
   background-color: gray;
@@ -290,6 +307,10 @@ margin-left: 10px;
 
 .space{
   margin: 2px;
+}
+
+.button-space{
+  margin: 20px;
 }
 
 #subnavbar{
@@ -318,10 +339,14 @@ margin-left: 10px;
 #postbutton1{
   width: 100px;
   margin-right: 50px;
+  background: gray;
+  border-color: gainsboro;
 }
 
 #postbutton2{
   width: 100px;
+  background: gray;
+  border-color: gainsboro;
 }
 
 #product_detail_button{
@@ -334,6 +359,31 @@ margin-left: 10px;
   margin-left: 55px;
   margin-bottom: 40px;
 }
- .maxWidth100{
+ #maxWidth100{
   max-width: 100px;
+}
+
+.newpost_header{
+  padding-left: 15px;
+  background-color: rgb(250, 250, 250);
+}
+.newpost_header > h2{
+  font-weight: bold;
+}
+.maxWidth100{
+  max-width: 100px;
+}
+
+#welcomeCard{
+  width: 600px;
+  margin: 0 auto; 
+  margin-top: 25px;
+  border-width: medium;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+
+.foundText{
+  margin-top: 10px;
+  margin-left: 4px;
 }

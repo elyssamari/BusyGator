@@ -6,13 +6,14 @@
  * This File contains the page where the seller can make a new post.
  */
 import React from 'react';
-import { Form, Button, Card, Col, Row } from 'react-bootstrap';
+import { Form, Button, Card, Col, Row, Dropdown, DropdownButton} from 'react-bootstrap';
+import CardHeader from 'react-bootstrap/esm/CardHeader';
 
 const Post = () => {
   return (
     <>
       <Card id="login_signupcard" className="card h-100">
-        <Card.Header>New Post</Card.Header>
+        <Card.Header className="text-center"><h1>New Post</h1></Card.Header>
         <Card.Body>
           <Form>
             <Form.Group id="" className="mb-3">
@@ -44,6 +45,21 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
+              <Form.Label>Categories*</Form.Label>
+              <DropdownButton
+                id="dropdown-basic-button"
+                variant="secondary"
+                title="Categories"
+              >
+                <Dropdown.Item>Electronics</Dropdown.Item>
+                <Dropdown.Item>Pets</Dropdown.Item>
+                <Dropdown.Item>Home</Dropdown.Item>
+                <Dropdown.Item>Recreational</Dropdown.Item>
+                <Dropdown.Item>Books</Dropdown.Item>
+              </DropdownButton>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
               <Form.Label>Price*</Form.Label>
               <Form.Control
                 type="text"
@@ -52,13 +68,19 @@ const Post = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3"> 
               <Form.Label>Location*</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Location"
-                aria-label="Location"
-              />
+              <DropdownButton id="dropdown-basic-button" variant="secondary" title="Locations">
+                <Dropdown.Item>Annex I & Annex II</Dropdown.Item>
+                <Dropdown.Item>University Park North</Dropdown.Item>
+                <Dropdown.Item>Hensill Hall</Dropdown.Item>
+                <Dropdown.Item>J. Paul Leonard Library</Dropdown.Item>
+                <Dropdown.Item>Manzanita Square</Dropdown.Item>
+                <Dropdown.Item>University Park South</Dropdown.Item>
+                <Dropdown.Item>Masshouf Wellness Center</Dropdown.Item>
+                <Dropdown.Item>Parking Garage</Dropdown.Item>
+                <Dropdown.Item>Cox Stadium </Dropdown.Item>
+              </DropdownButton>
             </Form.Group>
 
             <Form.Group className="mb-3">

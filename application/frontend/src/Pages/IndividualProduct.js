@@ -22,19 +22,20 @@ const IndividualProduct = () => {
           <Card.Text>Description: Laptop</Card.Text>
           <Card.Text>In Stock</Card.Text>
         </Card.Body>
-        <Button id="product_detail_button" variant="primary" href="/Messages">
-          Message Seller
-        </Button>
-
-        <Card.Text id="product_text" className="text-center">
-          {`Not Logged In?`}
-          <span className="space"></span>
-          <Link to="/Login">Login Here</Link> or
-          <span className="space"></span>
-          <Link to="/Signup"> Sign up Here</Link>
-        </Card.Text>
-      </Card>
-    </>
+        <Link to="/Messages" className="text-center">
+          <Button id="product_detail_button" variant="primary">
+            Message Seller
+          </Button>
+        </Link>
+          <Card.Text id="product_text" className="text-center">
+            {`Not Logged In?`}
+            <span className="space"></span>
+            <Link to="/Login">Login Here</Link> or
+            <span className="space"></span>
+            <Link to="/Signup"> Sign up Here</Link>
+          </Card.Text>
+        </Card>
+      </>
   );
 };
 

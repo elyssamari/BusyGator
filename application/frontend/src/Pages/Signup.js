@@ -13,7 +13,7 @@ const Signup = () => {
   return (
     <>
       <Card id="login_signupcard" className="card-center">
-        <Card.Header className="text-center">Sign Up</Card.Header>
+        <Card.Header className="text-center"><h1>Sign Up</h1></Card.Header>
         <Card.Body>
           <Form>
             <Form.Group className="mb-3">
@@ -50,13 +50,13 @@ const Signup = () => {
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
 
-              <Form.Group className="mb-3">
-                <Form.Label className="col-sm-4 col-form-label">
-                  Confirm Password
-                </Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-            </Form>
+            <Form.Group className="mb-3">
+              <Form.Label className="col-sm-4 col-form-label">
+                Confirm Password*
+              </Form.Label>
+              <Form.Control type="password" placeholder="Confirm Password" />
+            </Form.Group>
+          </Form>
   
           <Form.Group className="text-center">
             <Link to="/">

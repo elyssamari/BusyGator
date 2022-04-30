@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <>
       <Card id="login_signupcard" className="card-center">
-        <Card.Header className="text-center">Login</Card.Header>
+        <Card.Header className="text-center"><h1>Login</h1></Card.Header>
         <Card.Body>
 
           <Form>

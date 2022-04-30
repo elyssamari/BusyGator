@@ -13,9 +13,7 @@ const Post = () => {
   return (
     <>
       <Card id="login_signupcard" className="card h-100">
-        <div className="newpost_header">
-          <h2>New post</h2>
-        </div>
+        <Card.Header className="text-center"><h1>New Post</h1></Card.Header>
         <Card.Body>
           <Form>
             <Form.Group id="" className="mb-3">

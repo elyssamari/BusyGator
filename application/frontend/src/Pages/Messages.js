@@ -13,7 +13,7 @@ const Messages = () => {
   return (
     <>
       <Card id="messagesCard">
-        <Card.Header>Messages</Card.Header>
+        <Card.Header className="text-center"><h1>Messages</h1></Card.Header>
         <Card.Body>
           <Card id="textMessage">
             <InputGroup id="inputGroup">

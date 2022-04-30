@@ -29,6 +29,12 @@ const Home = () => {
   const setLocations = useContext(DataContext)?.setLocations;
   const [sortAsc, setSortAsc] = useState(null);
   const [dropdownText, setDropdownText] = useState('Default');
+  const [totalItems, setTotalItems] = useState(null);
+
+  useEffect(() => {
+    if (!totalItems) setTotalItems(listings.length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listings]);
 
   const dropDownValues = [
     { name: 'Default', value: null },
@@ -66,79 +72,81 @@ const Home = () => {
 
   function getLocationName(locationNumber) {
     return (
-        locations.find((data) => data.location_id === locationNumber)?.name || ''
+      locations.find((data) => data.location_id === locationNumber)?.name || ''
     );
   }
 
   function getSellerName(sellerID) {
-    let firstName = users.find((data) => data.user_id === sellerID)?.first_name || '';
-    let lastName = users.find((data) => data.user_id === sellerID)?.last_name || '';
-    return (firstName + " " + lastName);
+    let firstName =
+      users.find((data) => data.user_id === sellerID)?.first_name || '';
+    let lastName =
+      users.find((data) => data.user_id === sellerID)?.last_name || '';
+    return firstName + ' ' + lastName;
   }
 
   return (
-      <>
-        <Row id="cardmargin">
-          <Col>
-            <Card className="border-0">
-              <Card.Text class="foundText">Items Found: 24/24</Card.Text>
+    <>
+      <Row id="cardmargin">
+        <Col>
+          <Card className="border-0">
+            <Card.Text class="foundText">
+              Items: {listings ? listings.length : ''} / {totalItems || ''}
+            </Card.Text>
+          </Card>
+        </Col>
+        <Col>
+          <DropdownButton
+            id="dropdown-item-button"
+            title={dropdownText}
+            className="format float-right"
+          >
+            {dropDownValues.map((data, index) => (
+              <Dropdown.Item as="button" key={index}>
+                <div
+                  onClick={() => {
+                    setSortAsc(data.value);
+                    setDropdownText(data.name);
+                  }}
+                >
+                  {data.name}
+                </div>
+              </Dropdown.Item>
+            ))}
+          </DropdownButton>
+        </Col>
+      </Row>
+      <Row id="cardmargin" xs={2} md={5} className="g-4">
+        {listings.map((data, index) => (
+          <Col key={`div_${index}`}>
+            <Card className="card h-100">
+              <Card.Img src={data.image} className="card-img-top" alt="..." />
+              <Card.Body class="mt-auto" id="carddesc">
+                <Card.Title>Product Title: {data.title} </Card.Title>
+                <Card.Text>Price: ${data.price}</Card.Text>
+                <Card.Text>
+                  Location: {getLocationName(data.location)}
+                </Card.Text>
+                <Card.Text>Description: {data.description}</Card.Text>
+                <Card.Text>Seller: {getSellerName(data.seller_id)}</Card.Text>
+                <Card.Text>
+                  Date Listed: {getDateString(data.date_created)}
+                </Card.Text>
+                <Card.Text>In Stock</Card.Text>
+                <Card.Text className="text-center">
+                  <Link to="/IndividualProduct">
+                    <Button variant="outline-dark">Check it out!</Button>
+                  </Link>
+                  <span className="button-space"></span>
+                  <Link to="/Messages">
+                    <Button variant="primary">Message Seller</Button>
+                  </Link>
+                </Card.Text>
+              </Card.Body>
             </Card>
           </Col>
-          <Col>
-            <DropdownButton
-                id="dropdown-item-button"
-                title={dropdownText}
-                className="format float-right"
-            >
-              {dropDownValues.map((data, index) => (
-                  <Dropdown.Item as="button" key={index}>
-                    <div
-                        onClick={() => {
-                          setSortAsc(data.value);
-                          setDropdownText(data.name);
-                        }}
-                    >
-                      {data.name}
-                    </div>
-                  </Dropdown.Item>
-              ))}
-            </DropdownButton>
-          </Col>
-        </Row>
-        <Row id="cardmargin" xs={2} md={5} className="g-4">
-          {listings.map((data, index) => (
-              <Col key={`div_${index}`}>
-                <Card className="card h-100">
-                  <Card.Img src={data.image} className="card-img-top" alt="..." />
-                  <Card.Body class="mt-auto" id="carddesc">
-                    <Card.Title>Product Title: {data.title} </Card.Title>
-                    <Card.Text>Price: ${data.price}</Card.Text>
-                    <Card.Text>
-                      Location: {getLocationName(data.location)}
-                    </Card.Text>
-                    <Card.Text>Description: {data.description}</Card.Text>
-                    <Card.Text>Seller: {getSellerName(data.seller_id)}</Card.Text>
-                    <Card.Text>Date Listed: {getDateString(data.date_created)}</Card.Text>
-                    <Card.Text>In Stock</Card.Text>
-                    <Card.Text className="text-center">
-                      <Link to="/IndividualProduct">
-                        <Button variant="outline-dark">
-                          Check it out!
-                        </Button>
-                      </Link>
-                      <span className="button-space"></span>
-                      <Link to="/Messages">
-                        <Button variant="primary">
-                          Message Seller
-                        </Button>
-                      </Link>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-          ))}
-        </Row>
-      </>
+        ))}
+      </Row>
+    </>
   );
 };
 

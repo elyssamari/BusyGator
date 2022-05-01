@@ -30,13 +30,9 @@ const Post = () => {
             </Form.Group>
           </Form>
 
-          <Card.Text id="posttext">
-            All fields with an asterisk (*) are mandatory
-          </Card.Text>
-
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Product Title*</Form.Label>
+              <Form.Label>Product Title</Form.Label>
               <Form.Control
                 type="text"
                 className="form-control"
@@ -45,7 +41,7 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Categories*</Form.Label>
+              <Form.Label>Categories</Form.Label>
               <DropdownButton
                 id="dropdown-basic-button"
                 variant="secondary"
@@ -60,7 +56,7 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Price*</Form.Label>
+              <Form.Label>Price</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Price"
@@ -69,7 +65,7 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3"> 
-              <Form.Label>Location*</Form.Label>
+              <Form.Label>Location</Form.Label>
               <DropdownButton id="dropdown-basic-button" variant="secondary" title="Locations">
                 <Dropdown.Item>Annex I & Annex II</Dropdown.Item>
                 <Dropdown.Item>University Park North</Dropdown.Item>
@@ -84,7 +80,7 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Description*</Form.Label>
+              <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
                 className="form-control"

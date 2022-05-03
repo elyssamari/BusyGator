@@ -126,6 +126,11 @@ img{
   }
 }
 
+.card-img{
+  object-fit: cover;
+  height:270px;
+}
+
 .title{
   margin-top: 2px;
   font-size: 15px;

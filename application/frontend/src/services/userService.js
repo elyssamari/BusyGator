@@ -8,5 +8,5 @@
 import axios from 'axios';
 
 export const getAllUsers = () => {
-    return axios.get('/user/getAllUsers');
+  return axios.get('/user/getAllUsers');
 };

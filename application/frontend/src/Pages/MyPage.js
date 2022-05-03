@@ -16,7 +16,7 @@ const MyPage = () => {
         <Tab.Container id="tabCont">
           <Row>
             <Col sm={4}>
-              <Nav class="tabs">
+              <Nav className="tabs">
                 <Nav.Item>
                   <Nav.Link eventKey="msgs">My Messages</Nav.Link>
                 </Nav.Item>

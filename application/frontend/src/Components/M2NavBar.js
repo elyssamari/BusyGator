@@ -26,6 +26,9 @@ const NavBar = () => {
   const setListings = useContext(DataContext)?.setListings;
   const setSearchParams = useContext(DataContext)?.setSearchParams;
   const searchParams = useContext(DataContext)?.searchParams;
+  const sortAsc = useContext(DataContext)?.sortAsc;
+  const setTotalCount = useContext(DataContext)?.setTotalCount;
+
   const navigate = useNavigate();
   let invalidStatus = false;
   let errorMessage = [];
@@ -53,11 +56,17 @@ const NavBar = () => {
       searchParams.max !== null
     ) {
       getListingByFilter(searchParams).then((data) => {
-        if (!invalidStatus) setListings(data.data);
+        if (!invalidStatus) {
+          const { results, totalCount } = data.data;
+          setTotalCount(totalCount);
+          setListings(sortData(results));
+        }
       });
     } else {
       getAllListings().then((data) => {
-        setListings(data.data);
+        const { results, totalCount } = data.data;
+        setTotalCount(totalCount);
+        setListings(sortData(results));
       });
     }
   }
@@ -100,6 +109,21 @@ const NavBar = () => {
     e.preventDefault();
     search();
   };
+
+  const sortData = (data) => {
+    if (sortAsc !== null) {
+      const arr = data.sort((a, b) => {
+        if (sortAsc) return a.price - b.price;
+        else return b.price - a.price;
+      });
+      return arr;
+    } else return data;
+  };
+
+  useEffect(() => {
+    search();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortAsc]);
 
   return (
     <>
@@ -176,7 +200,6 @@ const NavBar = () => {
           <Link id="navlink" className="nav-link" to="/Login">
             Login
           </Link>
-          
         </div>
       </Navbar>
     </>

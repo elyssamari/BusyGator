@@ -101,7 +101,7 @@ const Home = () => {
           <Col key={`div_${index}`}>
             <Card className="card h-100">
               <Card.Img src={data.image} className="card-img-top" alt="..." />
-              <Card.Body className="mt-auto" id="carddesc">
+              <Card.Body class="mt-auto" id="carddesc">
                 <Card.Title>Product Title: {data.title} </Card.Title>
                 <Card.Text>Price: ${data.price}</Card.Text>
                 <Card.Text>
@@ -115,9 +115,7 @@ const Home = () => {
                 <Card.Text>In Stock</Card.Text>
                 <Card.Text className="text-center">
                   <Link to="/IndividualProduct">
-                    <Button variant="outline-dark" className="check-it-out-btn">
-                      Check it out!
-                    </Button>
+                    <Button variant="outline-dark">Check it out!</Button>
                   </Link>
                   <span className="button-space"></span>
                   <Link to="/Messages">

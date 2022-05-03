@@ -8,7 +8,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DataContext from '../DataContext/DataContext';
-import { getAllListings } from '../services/listingService';
 import { getAllLocations } from '../services/locationService';
 import { getAllUsers } from '../services/userService';
 import {
@@ -22,37 +21,19 @@ import {
 
 const Home = () => {
   const listings = useContext(DataContext)?.listings;
-  const setListings = useContext(DataContext)?.setListings;
   const users = useContext(DataContext)?.users;
   const setUsers = useContext(DataContext)?.setUsers;
   const locations = useContext(DataContext)?.locations;
   const setLocations = useContext(DataContext)?.setLocations;
-  const [sortAsc, setSortAsc] = useState(null);
+  const setSortAsc = useContext(DataContext)?.setSortAsc;
+  const totalCount = useContext(DataContext)?.totalCount;
   const [dropdownText, setDropdownText] = useState('Default');
-  const [totalItems, setTotalItems] = useState(null);
-
-  useEffect(() => {
-    if (!totalItems) setTotalItems(listings.length);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [listings]);
 
   const dropDownValues = [
     { name: 'Default', value: null },
     { name: 'Sort by: Price: Low to High', value: true },
     { name: 'Sort by: Price: High to Low', value: false },
   ];
-
-  useEffect(() => {
-    getAllListings().then((data) => {
-      if (sortAsc !== null) {
-        const arr = data.data.sort((a, b) => {
-          if (sortAsc) return a.price - b.price;
-          else return b.price - a.price;
-        });
-        setListings(arr);
-      } else setListings(data.data);
-    });
-  }, [setListings, sortAsc]);
 
   useEffect(() => {
     getAllLocations().then((data) => {
@@ -89,8 +70,8 @@ const Home = () => {
       <Row id="cardmargin">
         <Col>
           <Card className="border-0">
-            <Card.Text class="foundText">
-              Items: {listings ? listings.length : ''} / {totalItems || ''}
+            <Card.Text className="foundText">
+              Items: {listings ? listings.length : ''} / {totalCount || ''}
             </Card.Text>
           </Card>
         </Col>
@@ -120,7 +101,7 @@ const Home = () => {
           <Col key={`div_${index}`}>
             <Card className="card h-100">
               <Card.Img src={data.image} className="card-img-top" alt="..." />
-              <Card.Body class="mt-auto" id="carddesc">
+              <Card.Body className="mt-auto" id="carddesc">
                 <Card.Title>Product Title: {data.title} </Card.Title>
                 <Card.Text>Price: ${data.price}</Card.Text>
                 <Card.Text>
@@ -134,7 +115,9 @@ const Home = () => {
                 <Card.Text>In Stock</Card.Text>
                 <Card.Text className="text-center">
                   <Link to="/IndividualProduct">
-                    <Button variant="outline-dark">Check it out!</Button>
+                    <Button variant="outline-dark" className="check-it-out-btn">
+                      Check it out!
+                    </Button>
                   </Link>
                   <span className="button-space"></span>
                   <Link to="/Messages">

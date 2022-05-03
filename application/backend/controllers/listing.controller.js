@@ -32,6 +32,11 @@ const getAllListings = async (req, res) => {
 const getListingByFilter = async (req, res) => {
     try {
         const { categoryId = "", searchText = "", min = "", max = "" } = req.query;
+        let totalCount = 0;
+        connection.query(`select count(*) as totalCount 
+        from product;`, (err, res) => {
+            totalCount = res[0].totalCount
+        });
         if (categoryId !== "" && searchText === "") {
             connection.query(`SELECT * from product where product.category=${categoryId}`, (err, results) => {
                 let newResults = [];
@@ -46,7 +51,10 @@ const getListingByFilter = async (req, res) => {
                         newResults.push(obj);
                     }
                 };
-                res.send(newResults);
+                res.send({
+                    totalCount,
+                    results: newResults
+                });
                 if (err) throw err
             });
         } else if (categoryId === "" && searchText !== "") {
@@ -65,11 +73,11 @@ const getListingByFilter = async (req, res) => {
                         newResults.push(obj);
                     }
                 };
-                res.send(newResults);
+                res.send({totalCount,
+                    results: newResults});
                 if (err) throw err
             });
         } else if (categoryId !== "" && searchText !== "") {
-            console.log()
             connection.query(`SELECT * FROM product WHERE product.category=${categoryId} AND (product.title LIKE "%${searchText}%" OR product.description LIKE "%${searchText}%");`, (err, results) => {
                 let newResults = [];
                 for (let index = 0; index < results.length; index++) {
@@ -83,7 +91,8 @@ const getListingByFilter = async (req, res) => {
                         newResults.push(obj);
                     }
                 };
-                res.send(newResults); if (err) throw err
+                res.send({totalCount,
+                    results: newResults}); if (err) throw err
             });
         } else {
             connection.query('SELECT * from product', (err, results) => {
@@ -99,7 +108,8 @@ const getListingByFilter = async (req, res) => {
                         newResults.push(obj);
                     }
                 };
-                res.send(newResults);
+                res.send({totalCount,
+                    results: newResults});
                 if (err) throw err
             });
         }

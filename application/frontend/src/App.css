@@ -17,14 +17,12 @@
 
 @media (max-width: 1699px){
   .button-space{
-    margin: 110px;
+    display: block;
   }
 }
 
-@media (min-width: 1700px){
-  .button-space{
-    margin: 20px;
-  }
+.button-space{
+  margin: 20px;
 }
 
 a{

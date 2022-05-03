@@ -27,15 +27,15 @@ const IndividualProduct = () => {
             Message Seller
           </Button>
         </Link>
-          <Card.Text id="product_text" className="text-center">
-            {`Not Logged In?`}
-            <span className="space"></span>
-            <Link to="/Login">Login Here</Link> or
-            <span className="space"></span>
-            <Link to="/Signup"> Sign up Here</Link>
-          </Card.Text>
-        </Card>
-      </>
+        <Card.Text id="product_text" className="text-center">
+          {`Not Logged In?`}
+          <span className="space"></span>
+          <Link to="/Login">Login Here</Link> or
+          <span className="space"></span>
+          <Link to="/Signup"> Sign up Here</Link>
+        </Card.Text>
+      </Card>
+    </>
   );
 };
 

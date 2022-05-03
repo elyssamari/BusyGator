@@ -13,7 +13,9 @@ const Signup = () => {
   return (
     <>
       <Card id="login_signupcard" className="card-center">
-        <Card.Header className="text-center"><h1>Sign Up</h1></Card.Header>
+        <Card.Header className="text-center">
+          <h1>Sign Up</h1>
+        </Card.Header>
         <Card.Body>
           <Form>
             <Form.Group className="mb-3">
@@ -57,7 +59,6 @@ const Signup = () => {
               <Form.Control type="password" placeholder="Confirm Password" />
             </Form.Group>
           </Form>
-  
           <Form.Group className="text-center">
             <Link to="/">
               <Button id="login_signin_button" variant="primary">
@@ -65,13 +66,13 @@ const Signup = () => {
               </Button>
             </Link>
           </Form.Group>
-
           <Card.Text id="login_signup_text" className="text-center">
             Have an account?
             <span className="space"></span>
             <Link to="/Login">Login Here</Link>
           </Card.Text>
-          <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
+          <input type="checkbox" name="checkbox" value="check" id="agree" /> I
+          have read and agree to the Terms and Conditions and Privacy Policy
         </Card.Body>
       </Card>
     </>

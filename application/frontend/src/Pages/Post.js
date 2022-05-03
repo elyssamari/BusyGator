@@ -6,14 +6,23 @@
  * This File contains the page where the seller can make a new post.
  */
 import React from 'react';
-import { Form, Button, Card, Col, Row, Dropdown, DropdownButton} from 'react-bootstrap';
-import CardHeader from 'react-bootstrap/esm/CardHeader';
+import {
+  Form,
+  Button,
+  Card,
+  Col,
+  Row,
+  Dropdown,
+  DropdownButton,
+} from 'react-bootstrap';
 
 const Post = () => {
   return (
     <>
       <Card id="login_signupcard" className="card h-100">
-        <Card.Header className="text-center"><h1>New Post</h1></Card.Header>
+        <Card.Header className="text-center">
+          <h1>New Post</h1>
+        </Card.Header>
         <Card.Body>
           <Form>
             <Form.Group id="" className="mb-3">
@@ -64,9 +73,13 @@ const Post = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3"> 
+            <Form.Group className="mb-3">
               <Form.Label>Location</Form.Label>
-              <DropdownButton id="dropdown-basic-button" variant="secondary" title="Locations">
+              <DropdownButton
+                id="dropdown-basic-button"
+                variant="secondary"
+                title="Locations"
+              >
                 <Dropdown.Item>Annex I & Annex II</Dropdown.Item>
                 <Dropdown.Item>University Park North</Dropdown.Item>
                 <Dropdown.Item>Hensill Hall</Dropdown.Item>

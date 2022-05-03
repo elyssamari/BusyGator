@@ -13,9 +13,10 @@ const Login = () => {
   return (
     <>
       <Card id="login_signupcard" className="card-center">
-        <Card.Header className="text-center"><h1>Login</h1></Card.Header>
+        <Card.Header className="text-center">
+          <h1>Login</h1>
+        </Card.Header>
         <Card.Body>
-
           <Form>
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>

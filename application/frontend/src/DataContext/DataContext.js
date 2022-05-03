@@ -15,25 +15,32 @@ function DataProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [locations, setLocations] = useState([]);
   const [users, setUsers] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [searchParams, setSearchParams] = useState({
     categoryId: null,
     searchText: null,
     minPrice: null,
     maxPrice: null,
   });
+  const [sortAsc, setSortAsc] = useState(null);
+
   return (
     <DataContext.Provider
       value={{
-          listings,
-          setListings,
-          categories,
-          setCategories,
-          locations,
-          setLocations,
-          users,
-          setUsers,
-          searchParams,
-          setSearchParams,
+        listings,
+        setListings,
+        categories,
+        setCategories,
+        locations,
+        setLocations,
+        users,
+        setUsers,
+        searchParams,
+        setSearchParams,
+        sortAsc,
+        setSortAsc,
+        totalCount,
+        setTotalCount,
       }}
     >
       {children}

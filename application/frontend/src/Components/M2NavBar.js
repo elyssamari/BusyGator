@@ -194,9 +194,6 @@ const NavBar = () => {
           <Link id="navlink" className="nav-link" to="/MyPage">
             My Page
           </Link>
-          <Link id="navlink" className="nav-link" to="/Messages">
-            Messages
-          </Link>
           <Link id="navlink" className="nav-link" to="/Login">
             Login
           </Link>

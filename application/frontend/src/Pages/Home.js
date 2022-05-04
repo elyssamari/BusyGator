@@ -96,7 +96,7 @@ const Home = () => {
           </DropdownButton>
         </Col>
       </Row>
-      <Row id="cardmargin" xs={2} md={5} className="g-4">
+      <Row id="cardmargin" xs={1} sm={2} md={3} lg={4} xl={5} className="g-4">
         {listings.map((data, index) => (
           <Col key={`div_${index}`}>
             <Card className="card h-100">

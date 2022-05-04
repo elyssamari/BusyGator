@@ -7,7 +7,6 @@
  */
 import React from 'react';
 import { Row, Col, Figure } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -25,7 +24,6 @@ const Footer = () => {
             <Col id="footertext">
               Software Engineering Class SFSU Spring 2022 Section 3 - Team 4{' '}
               <span className="space"></span>
-              <Link to="/About">About Us</Link>
             </Col>
           </Row>
         </Col>

@@ -1,7 +1,11 @@
--- COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
--- Script name: DB_BusyGator_Inserts.sql
--- Author:      Samantha Saxton-Getty and Aaron Carlson
--- Purpose:     This inserts sample data to test the integrity of this database system.
+--
+-- FILE: DB_BusyGator_Inserts.sql
+--
+-- AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma,
+-- Samantha Saxton-Getty
+--
+-- PURPOSE: This file inserts sample data to test the integrity of this database system.
+--    
 
 INSERT INTO user (user_id, first_name, last_name, email, password, administrator, date_created) 
 VALUES

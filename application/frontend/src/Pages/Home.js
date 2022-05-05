@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Home.js
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma, 
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the page with current products.
+ * PURPOSE: This file contains the page with current products.
  */
+
 import React, { useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DataContext from '../DataContext/DataContext';

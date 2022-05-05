@@ -1,11 +1,13 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: App.js
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma, 
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the App.js for the application.
+ * PURPOSE: This file contains the App.js for the application.
  * This component controls the routing and has the main layout of the application.
  */
+
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import M2NavBar from './Components/M2NavBar';

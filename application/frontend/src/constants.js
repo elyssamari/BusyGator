@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: constants.css
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- *
- * This File contains all the member's descriptions and pictures.
+ * PURPOSE: This file contains all the member's descriptions and pictures.
  */
+
 export const ABOUT_ME_DATA = [
   {
     name: 'Vishal',

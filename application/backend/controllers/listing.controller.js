@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: listing.controller.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the controller of the listings.
+ * PURPOSE: This file contains the controller of the listings.
  */
+
 const { connection } = require('../databaseConnect');
 
 const getAllListings = async (req, res) => {

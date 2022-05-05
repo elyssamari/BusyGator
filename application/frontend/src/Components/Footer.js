@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Footer.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- *
- * This File contains Global footer for the application.
+ * PURPOSE: This file contains Global footer for the application.
  */
+
 import React from 'react';
 import { Row, Col, Figure } from 'react-bootstrap';
 

@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: index.js
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma,
+ * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the application routes.
+ * PURPOSE: This file contains the application routes.
  */
+
 require('dotenv').config();
 const express = require('express');
 const app = express();

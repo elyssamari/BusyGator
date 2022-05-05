@@ -1,3 +1,12 @@
+/*
+ * FILE: index.css
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
+ *
+ * PURPOSE: This file contains the rendering of general CSS for the application.
+ */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

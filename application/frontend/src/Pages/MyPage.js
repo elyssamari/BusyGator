@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: MyPage.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Abdullah Sharaf, 
+ * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- *
- * This File contains future My Page implementation.
+ * PURPOSE: This file contains future My Page implementation.
  */
+
 import React from 'react';
 import { Card, Tab, Row, Col, Nav } from 'react-bootstrap';
 

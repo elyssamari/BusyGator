@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Messages.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Abdullah Sharaf, 
+ * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the messages between the seller and buyer.
+ * PURPOSE: This file contains the messages between the seller and buyer.
  */
+
 import React from 'react';
 import { Card, Form, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

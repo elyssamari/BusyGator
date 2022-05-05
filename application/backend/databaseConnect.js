@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: databaseConnect.js
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma,
+ * Samantha Saxton-Getty
  *
- *
- *
- * This File contains the connection to the database.
+ * PURPOSE: This file contains the connection to the database.
  */
+
 const mysql = require('mysql2')
 const connection = mysql.createConnection({
     host: 'localhost',

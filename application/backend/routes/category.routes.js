@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: category.routes.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the routes of the categories.
+ * PURPOSE: This file contains the routes of the categories.
  */
+
 const express = require('express');
 const categoryController = require('../controllers/category.controller');
 const router = express.Router();

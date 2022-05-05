@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: DataContext.js
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma, 
+ * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the source of listings, categories, locations, and users mapped over the database.
+ * PURPOSE: This file contains the source of listings, categories, locations, and users mapped over the database.
  */
+
 import PropTypes from 'prop-types';
 import React, { createContext, useState } from 'react';
 

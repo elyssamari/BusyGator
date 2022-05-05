@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: listing.routes.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the routes of the listings.
+ * PURPOSE: This file contains the routes of the listings.
  */
+
 const express = require('express');
 const listingController = require('../controllers/listing.controller');
 const router = express.Router();

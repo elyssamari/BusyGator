@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Login.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the user login to the home page.
+ * PURPOSE: This file contains the user login to the home page.
  */
+
 import React from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

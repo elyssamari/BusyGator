@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: category.controller.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the controller of the categories.
+ * PURPOSE: This file contains the controller of the categories.
  */
+ 
 const { connection } = require('../databaseConnect');
 
 const getAllCategories = async (req, res) => {

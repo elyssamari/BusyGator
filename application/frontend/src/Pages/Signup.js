@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Signup.js
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma, 
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the page for new users to sign up and make an account.
+ * PURPOSE: This file contains the page for new users to sign up and make an account.
  */
+
 import React from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

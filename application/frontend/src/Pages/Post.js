@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Post.js
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma, 
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the page where the seller can make a new post.
+ * PURPOSE: This file contains the page where the seller can make a new post.
  */
+
 import React from 'react';
 import {
   Form,

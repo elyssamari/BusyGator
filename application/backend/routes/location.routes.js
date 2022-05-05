@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: location.routes.js
+ * 
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- *
- * This File contains the routes of the locations.
+ * PURPOSE: This file contains the routes of the locations.
  */
+
 const express = require('express');
 const locationController = require('../controllers/location.controller');
 const router = express.Router();

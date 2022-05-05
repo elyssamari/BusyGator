@@ -22,39 +22,39 @@ const Signup = () => {
           </Card.Text>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Email*</Form.Label>
+              <Form.Label>Email *</Form.Label>
               <Form.Control
                 type="email"
                 className="form-control"
-                placeholder="Email"
+                placeholder="e.g: example@mail.sfsu.edu"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>First Name*</Form.Label>
+              <Form.Label>First Name *</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="First name"
+                placeholder="First Name"
                 aria-label="First name"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Last Name*</Form.Label>
+              <Form.Label>Last Name *</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Last name"
+                placeholder="Last Name"
                 aria-label="Last name"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Password*</Form.Label>
+              <Form.Label>Password *</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Confirm Password*</Form.Label>
+              <Form.Label>Confirm Password *</Form.Label>
               <Form.Control type="password" placeholder="Confirm Password" />
             </Form.Group>
           </Form>

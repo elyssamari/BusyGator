@@ -29,7 +29,7 @@ const Post = () => {
           </Card.Text>
           <Form>
             <Form.Group id="" className="mb-3">
-              <Card.Text>Add image*</Card.Text>
+              <Card.Text>Add Product Image *</Card.Text>
               <Col>
                 <Form.Control type="file" />
                 <Form.Group id="checkbox" className="mb-3">
@@ -44,16 +44,16 @@ const Post = () => {
 
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Product Title*</Form.Label>
+              <Form.Label>Product Title *</Form.Label>
               <Form.Control
                 type="text"
                 className="form-control"
-                placeholder="Product Title"
+                placeholder="e.g: Foundations of Computer Science Textbook"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Categories*</Form.Label>
+              <Form.Label>Product Category *</Form.Label>
               <DropdownButton
                 id="dropdown-basic-button"
                 variant="secondary"
@@ -68,16 +68,16 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Price*</Form.Label>
+              <Form.Label>Product Price *</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Price"
+                placeholder="e.g: 200"
                 aria-label="Price"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Location</Form.Label>
+              <Form.Label>Product Pickup Location</Form.Label>
               <DropdownButton
                 id="dropdown-basic-button"
                 variant="secondary"
@@ -96,11 +96,11 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Description*</Form.Label>
+              <Form.Label>Brief Product Description *</Form.Label>
               <Form.Control
                 type="text"
                 className="form-control"
-                placeholder="Description"
+                placeholder="e.g: Textbooks require Author and Edition"
               />
             </Form.Group>
           </Form>

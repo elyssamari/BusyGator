@@ -22,12 +22,12 @@ const Login = () => {
           </Card.Text>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Email*</Form.Label>
-              <Form.Control type="email" placeholder="Email" />
+              <Form.Label>Email *</Form.Label>
+              <Form.Control type="email" placeholder="e.g: example@mail.sfsu.edu" />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Password*</Form.Label>
+              <Form.Label>Password *</Form.Label>
               <Form.Control type="email" placeholder="Password" />
             </Form.Group>
           </Form>
@@ -43,7 +43,7 @@ const Login = () => {
           <Card.Text id="login_signup_text" className="text-center">
             {`Don't have an account?`}
             <span className="space"></span>
-            <Link to="/Signup">Sign up Here</Link>
+            <Link to="/Signup">Sign Up Here</Link>
           </Card.Text>
         </Card.Body>
       </Card>

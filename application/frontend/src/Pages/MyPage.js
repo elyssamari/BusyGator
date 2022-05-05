@@ -12,7 +12,7 @@ const MyPage = () => {
   return (
     <>
       <Card id="welcomeCard">
-        <Card.Header>Welcome user-id</Card.Header>
+        <Card.Header>Welcome </Card.Header>
         <Tab.Container id="tabCont">
           <Row>
             <Col sm={4}>

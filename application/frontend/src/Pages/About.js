@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: About.js
  *
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- * This File contains information about the team.
+ * PURPOSE: This file contains information about the team.
  */
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 

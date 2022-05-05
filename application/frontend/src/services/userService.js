@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: userService.js
  *
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- * This File contains the services of the users.
+ * PURPOSE: This file contains the services of the users.
  */
+
 import axios from 'axios';
 
 export const getAllUsers = () => {

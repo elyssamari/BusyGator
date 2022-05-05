@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Members.js
  *
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- * This File contains member's introductions for milestone 1.
+ * PURPOSE: This file contains member's introductions for milestone 1.
  */
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ABOUT_ME_DATA } from '../constants';

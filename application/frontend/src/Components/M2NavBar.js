@@ -1,10 +1,13 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: M2NavBar.js
  *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma,
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- * This File contains the Navbar with the search fuctionality and links to navigate through our application.
+ * PURPOSE: This file contains the Navbar with the search fuctionality and
+ * links to navigate through our application.
  */
+
 import React, { useEffect, useContext } from 'react';
 import {
   InputGroup,
@@ -194,11 +197,11 @@ const NavBar = () => {
           <Link id="navlink" className="nav-link" to="/MyPage">
             My Page
           </Link>
-          <Link id="navlink" className="nav-link" to="/Login">
-            Login
-          </Link>
           <Link id="navlink" className="nav-link" to="/About">
             About Us
+          </Link>
+          <Link id="navlink" className="nav-link" to="/Login">
+            Login
           </Link>
         </div>
       </Navbar>

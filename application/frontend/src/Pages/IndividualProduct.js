@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: IndividualProduct.js
  *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma,
+ * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- * This File contains the information about individual products and messaging the seller.
+ * PURPOSE: This file contains the information about individual products and messaging the seller.
  */
+
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

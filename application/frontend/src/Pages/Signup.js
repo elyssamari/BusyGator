@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Signup.js
  *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma,
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- * This File contains the page for new users to sign up and make an account.
+ * PURPOSE: This file contains the page for new users to sign up and make an account.
  */
+
 import React from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -17,48 +19,49 @@ const Signup = () => {
           <h1>Sign Up</h1>
         </Card.Header>
         <Card.Body>
+          <Card.Text className="text-right">
+            All fields with an asterick (*) are mandatory
+          </Card.Text>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label className="col-sm-2">Email</Form.Label>
+              <Form.Label>Email *</Form.Label>
               <Form.Control
                 type="email"
                 className="form-control"
-                placeholder="Email"
+                placeholder="e.g: example@mail.sfsu.edu"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label className="col-sm-4">First Name</Form.Label>
+              <Form.Label>First Name *</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="First name"
+                placeholder="First Name"
                 aria-label="First name"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label className="col-sm-4">Last Name</Form.Label>
+              <Form.Label>Last Name *</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Last name"
+                placeholder="Last Name"
                 aria-label="Last name"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label className="col-sm-4 col-form-label">
-                Password
-              </Form.Label>
+              <Form.Label>Password *</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label className="col-sm-4 col-form-label">
-                Confirm Password*
-              </Form.Label>
+              <Form.Label>Confirm Password *</Form.Label>
               <Form.Control type="password" placeholder="Confirm Password" />
             </Form.Group>
           </Form>
+          <input type="checkbox" name="checkbox" value="check" id="agree" /> I
+          have read and agree to the Terms and Conditions and Privacy Policy
           <Form.Group className="text-center">
             <Link to="/">
               <Button id="login_signin_button" variant="primary">
@@ -71,8 +74,6 @@ const Signup = () => {
             <span className="space"></span>
             <Link to="/Login">Login Here</Link>
           </Card.Text>
-          <input type="checkbox" name="checkbox" value="check" id="agree" /> I
-          have read and agree to the Terms and Conditions and Privacy Policy
         </Card.Body>
       </Card>
     </>

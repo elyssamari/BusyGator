@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: M1Home.js
  *
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- * This File contains the home page for milestone 1.
+ * PURPOSE: This file contains the home page for milestone 1.
  */
+
 import React from 'react';
 
 const Home = () => {

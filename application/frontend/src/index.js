@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: index.css
  *
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
+ * Elyssa Mari Tapawan
  *
- *
- * This File contains the rendering of the application.
+ * PURPOSE: This file contains the rendering of the application.
  */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

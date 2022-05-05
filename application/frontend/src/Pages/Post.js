@@ -1,10 +1,12 @@
-/**
- * COPYRIGHT San Francisco State University SCS648 Team 4 - SP22
+/*
+ * FILE: Post.js
  *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma,
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- *
- * This File contains the page where the seller can make a new post.
+ * PURPOSE: This file contains the page where the seller can make a new post.
  */
+
 import React from 'react';
 import {
   Form,
@@ -24,9 +26,12 @@ const Post = () => {
           <h1>New Post</h1>
         </Card.Header>
         <Card.Body>
+          <Card.Text className="text-right">
+            All fields with an asterick (*) are mandatory
+          </Card.Text>
           <Form>
             <Form.Group id="" className="mb-3">
-              <Card.Text>Add image:</Card.Text>
+              <Card.Text>Add Product Image *</Card.Text>
               <Col>
                 <Form.Control type="file" />
                 <Form.Group id="checkbox" className="mb-3">
@@ -41,16 +46,16 @@ const Post = () => {
 
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Product Title</Form.Label>
+              <Form.Label>Product Title *</Form.Label>
               <Form.Control
                 type="text"
                 className="form-control"
-                placeholder="Product Title"
+                placeholder="e.g: Foundations of Computer Science Textbook"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Categories</Form.Label>
+              <Form.Label>Product Category *</Form.Label>
               <DropdownButton
                 id="dropdown-basic-button"
                 variant="secondary"
@@ -65,16 +70,16 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>Product Price *</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Price"
+                placeholder="e.g: 200"
                 aria-label="Price"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Location</Form.Label>
+              <Form.Label>Product Pickup Location</Form.Label>
               <DropdownButton
                 id="dropdown-basic-button"
                 variant="secondary"
@@ -93,11 +98,11 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Brief Product Description *</Form.Label>
               <Form.Control
                 type="text"
                 className="form-control"
-                placeholder="Description"
+                placeholder="e.g: Textbooks require Author and Edition"
               />
             </Form.Group>
           </Form>

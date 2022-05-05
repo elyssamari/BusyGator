@@ -1,3 +1,12 @@
+--
+-- FILE: DB_BusyGator.sql
+-- 
+-- AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma,
+-- Samantha Saxton-Getty
+--
+-- PURPOSE: This file creates the BusyGator database.
+-- 
+
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/

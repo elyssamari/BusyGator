@@ -1,3 +1,12 @@
+/*
+ * FILE: App.css
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma, 
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
+ *
+ * PURPOSE: This file contains the CSS for the application.
+ */
+
 .navtext{
   margin-top: 48px;
   color:white;
@@ -34,19 +43,6 @@ a:hover{
   color:#434652;
   text-decoration:underline;
 }
-
-.nav{
-  list-style-type: none;
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 0px;
-  height: 150px;
-  background-color: #b9a398;
-  font-family: "Lucida Console", "Courier New", monospace;
-  font-size: 50px;
-  text-decoration: none;
-  cursor: pointer;
-  }
 
 .homeheader{
   margin-top: 75px;
@@ -385,4 +381,8 @@ margin-left: 10px;
 .foundText{
   margin-top: 10px;
   margin-left: 4px;
+}
+
+.myPageLink{
+  cursor: pointer;
 }

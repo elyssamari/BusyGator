@@ -18,10 +18,14 @@ const MyPage = () => {
             <Col sm={4}>
               <Nav className="tabs">
                 <Nav.Item>
-                  <Nav.Link eventKey="msgs">My Messages</Nav.Link>
+                  <Nav.Link eventKey="msgs" className="myPageLink">
+                    My Messages
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="posts">My Posts</Nav.Link>
+                  <Nav.Link eventKey="posts" className="myPageLink">
+                    My Posts
+                  </Nav.Link>
                 </Nav.Item>
               </Nav>
             </Col>

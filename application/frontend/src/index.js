@@ -1,6 +1,6 @@
 /*
  * FILE: index.css
- * 
+ *
  * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
  * Elyssa Mari Tapawan
  *

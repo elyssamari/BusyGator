@@ -1,6 +1,6 @@
 /*
  * FILE: Login.js
- * 
+ *
  * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
  * Elyssa Mari Tapawan
  *
@@ -19,13 +19,16 @@ const Login = () => {
           <h1>Login</h1>
         </Card.Header>
         <Card.Body>
-          <Card.Text className="text-right"> 
+          <Card.Text className="text-right">
             All fields with an asterick (*) are mandatory
           </Card.Text>
           <Form>
             <Form.Group className="mb-3">
               <Form.Label>Email *</Form.Label>
-              <Form.Control type="email" placeholder="e.g: example@mail.sfsu.edu" />
+              <Form.Control
+                type="email"
+                placeholder="e.g: example@mail.sfsu.edu"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">

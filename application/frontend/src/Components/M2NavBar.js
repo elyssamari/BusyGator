@@ -1,10 +1,10 @@
 /*
  * FILE: M2NavBar.js
- * 
- * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma, 
+ *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma,
  * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
- * PURPOSE: This file contains the Navbar with the search fuctionality and 
+ * PURPOSE: This file contains the Navbar with the search fuctionality and
  * links to navigate through our application.
  */
 

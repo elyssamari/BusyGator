@@ -1,7 +1,7 @@
 /*
  * FILE: IndividualProduct.js
- * 
- * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma, 
+ *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma,
  * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
  * PURPOSE: This file contains the information about individual products and messaging the seller.

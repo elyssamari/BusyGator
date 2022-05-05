@@ -1,7 +1,7 @@
 /*
  * FILE: DataContext.js
- * 
- * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma, 
+ *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma,
  * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
  * PURPOSE: This file contains the source of listings, categories, locations, and users mapped over the database.

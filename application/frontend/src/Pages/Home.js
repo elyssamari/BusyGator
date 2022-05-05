@@ -1,7 +1,7 @@
 /*
  * FILE: Home.js
- * 
- * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma, 
+ *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma,
  * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
  * PURPOSE: This file contains the page with current products.

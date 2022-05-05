@@ -1,7 +1,7 @@
 /*
  * FILE: Signup.js
- * 
- * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma, 
+ *
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma,
  * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
  * PURPOSE: This file contains the page for new users to sign up and make an account.
@@ -60,7 +60,6 @@ const Signup = () => {
               <Form.Control type="password" placeholder="Confirm Password" />
             </Form.Group>
           </Form>
-
           <input type="checkbox" name="checkbox" value="check" id="agree" /> I
           have read and agree to the Terms and Conditions and Privacy Policy
           <Form.Group className="text-center">

@@ -1,6 +1,6 @@
 /*
  * FILE: categoryService.js
- * 
+ *
  * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
  * Elyssa Mari Tapawan
  *

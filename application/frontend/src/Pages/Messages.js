@@ -1,7 +1,7 @@
 /*
  * FILE: Messages.js
- * 
- * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Abdullah Sharaf, 
+ *
+ * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Abdullah Sharaf,
  * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
  * PURPOSE: This file contains the messages between the seller and buyer.

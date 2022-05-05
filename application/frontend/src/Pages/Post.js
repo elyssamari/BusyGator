@@ -24,9 +24,12 @@ const Post = () => {
           <h1>New Post</h1>
         </Card.Header>
         <Card.Body>
+          <Card.Text className="text-right">
+            All fields with an asterick (*) are mandatory
+          </Card.Text>
           <Form>
             <Form.Group id="" className="mb-3">
-              <Card.Text>Add image:</Card.Text>
+              <Card.Text>Add image*</Card.Text>
               <Col>
                 <Form.Control type="file" />
                 <Form.Group id="checkbox" className="mb-3">
@@ -41,7 +44,7 @@ const Post = () => {
 
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Product Title</Form.Label>
+              <Form.Label>Product Title*</Form.Label>
               <Form.Control
                 type="text"
                 className="form-control"
@@ -50,7 +53,7 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Categories</Form.Label>
+              <Form.Label>Categories*</Form.Label>
               <DropdownButton
                 id="dropdown-basic-button"
                 variant="secondary"
@@ -65,7 +68,7 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>Price*</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Price"
@@ -93,7 +96,7 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Description*</Form.Label>
               <Form.Control
                 type="text"
                 className="form-control"

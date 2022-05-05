@@ -17,14 +17,17 @@ const Login = () => {
           <h1>Login</h1>
         </Card.Header>
         <Card.Body>
+          <Card.Text className="text-right"> 
+            All fields with an asterick (*) are mandatory
+          </Card.Text>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Email*</Form.Label>
               <Form.Control type="email" placeholder="Email" />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Password*</Form.Label>
               <Form.Control type="email" placeholder="Password" />
             </Form.Group>
           </Form>

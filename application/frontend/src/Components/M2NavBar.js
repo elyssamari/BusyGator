@@ -130,7 +130,7 @@ const NavBar = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" className="flexWrap" variant="dark">
         <Link to="/">
           <Navbar.Brand id="logo">
             <img
@@ -142,55 +142,54 @@ const NavBar = () => {
             />
           </Navbar.Brand>
         </Link>
-        <div className="collapse navbar-collapse">
-          <Form className="d-flex" onSubmit={onFormSubmit}>
-            <InputGroup hasValidation className="flex-nowrap">
-              <DropdownButton
-                id="input-group-dropdown-1"
-                variant="secondary"
-                title={returnTitle()}
-              >
-                {categories &&
-                  categories.map((category, index) => (
-                    <Dropdown.Item
-                      key={index}
-                      onClick={() =>
-                        setSearchParams({
-                          ...searchParams,
-                          categoryId: category.category_id || '',
-                        })
-                      }
-                    >
-                      {category.name}
-                    </Dropdown.Item>
-                  ))}
-              </DropdownButton>
-              <FormControl
-                id="searchbar"
-                aria-label="Text input with dropdown button"
-                placeholder="Search"
-                isInvalid={searchIsInvalid()}
-                onChange={(e) =>
-                  setSearchParams({
-                    ...searchParams,
-                    searchText: e.target.value,
-                  })
-                }
-              />
-              <Form.Control.Feedback type="invalid" tooltip={true}>
-                {errorMessage.join('\r\n')}
-              </Form.Control.Feedback>
-            </InputGroup>
-            <Button
-              id="searchbutton"
-              variant="light"
-              onClick={() => navigate('/')}
-              type="submit"
+        <Form className="d-flex formFlex" onSubmit={onFormSubmit}>
+          <InputGroup hasValidation className="flex-nowrap">
+            <DropdownButton
+              id="input-group-dropdown-1"
+              variant="secondary"
+              title={returnTitle()}
             >
-              Search
-            </Button>
-          </Form>
-
+              {categories &&
+                categories.map((category, index) => (
+                  <Dropdown.Item
+                    key={index}
+                    onClick={() =>
+                      setSearchParams({
+                        ...searchParams,
+                        categoryId: category.category_id || '',
+                      })
+                    }
+                  >
+                    {category.name}
+                  </Dropdown.Item>
+                ))}
+            </DropdownButton>
+            <FormControl
+              id="searchbar"
+              aria-label="Text input with dropdown button"
+              placeholder="Search"
+              isInvalid={searchIsInvalid()}
+              onChange={(e) =>
+                setSearchParams({
+                  ...searchParams,
+                  searchText: e.target.value,
+                })
+              }
+            />
+            <Form.Control.Feedback type="invalid" tooltip={true}>
+              {errorMessage.join('\r\n')}
+            </Form.Control.Feedback>
+          </InputGroup>
+          <Button
+            id="searchbutton"
+            variant="light"
+            onClick={() => navigate('/')}
+            type="submit"
+          >
+            Search
+          </Button>
+        </Form>
+        <div className="collapse navbar-collapse">
           <Link id="navlink" className="nav-link" to="/Post">
             Post
           </Link>

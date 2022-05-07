@@ -102,7 +102,11 @@ const Home = () => {
         {listings.map((data, index) => (
           <Col key={`div_${index}`}>
             <Card className="card h-100">
-              <Card.Img src={data.image} className="card-img-top" alt="..." />
+              <Card.Img
+                src={data.image_thumbnail}
+                className="card-img-top"
+                alt="..."
+              />
               <Card.Body class="mt-auto" id="carddesc">
                 <Card.Title>Product Title: {data.title} </Card.Title>
                 <Card.Text>Price: ${data.price}</Card.Text>

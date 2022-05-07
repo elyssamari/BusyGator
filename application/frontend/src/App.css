@@ -122,11 +122,6 @@ img{
   }
 }
 
-.card-img{
-  object-fit: cover;
-  height:270px;
-}
-
 .title{
   margin-top: 2px;
   font-size: 15px;
@@ -321,6 +316,7 @@ margin-left: 10px;
 
 #carddesc{
   margin: 10px;
+  padding-top: 16px;
 }
 
 #checkbox{
@@ -385,4 +381,14 @@ margin-left: 10px;
 
 .myPageLink{
   cursor: pointer;
+}
+
+@media (max-width: 1200px){
+  .formFlex{
+    flex-grow: 1;
+  }
+}
+
+.flexWrap{
+  flex-wrap: wrap !important;
 }

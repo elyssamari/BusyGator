@@ -17,6 +17,13 @@ function DataProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [locations, setLocations] = useState([]);
   const [users, setUsers] = useState([]);
+  const [userInfo, setUserInfo] = useState({
+    email: null,
+    fName: null,
+    lName: null,
+    password: null,
+    cPassword: null,
+  });
   const [totalCount, setTotalCount] = useState(0);
   const [searchParams, setSearchParams] = useState({
     categoryId: null,
@@ -37,6 +44,8 @@ function DataProvider({ children }) {
         setLocations,
         users,
         setUsers,
+        userInfo,
+        setUserInfo,
         searchParams,
         setSearchParams,
         sortAsc,

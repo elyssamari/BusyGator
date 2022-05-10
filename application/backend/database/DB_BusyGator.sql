@@ -176,7 +176,7 @@ INSERT INTO `product` (`product_id`, `seller_id`, `category`, `location`, `title
 --
 
 CREATE TABLE `user` (
-  `user_id` int(9) NOT NULL,
+  `user_id` int(9) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
@@ -243,8 +243,6 @@ ALTER TABLE `product`
 --
 -- Indexes for table `user`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Constraints for dumped tables

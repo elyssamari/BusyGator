@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <>
       <Figure id="footer">
-        <Col>
+        <Col className="footerCol">
           <Row>
             <Col id="footertext">
               SFSU Software Engineering Project CSC 648-848, Spring 2022. For

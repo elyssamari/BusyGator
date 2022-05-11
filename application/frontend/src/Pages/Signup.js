@@ -175,6 +175,21 @@ const Signup = () => {
 
         setUserInfo({ ...userInfo, password: value });
       }
+
+      if (confirmPasswordFormObj.value && value !== confirmPasswordFormObj.value) {
+        setConfirmPasswordFormObj({
+          ...confirmPasswordFormObj,
+          isValid: false,
+          errorMessage: 'Passwords must match',
+        });
+      } else {
+        setConfirmPasswordFormObj({
+          ...confirmPasswordFormObj,
+          value: value,
+          isValid: true,
+          errorMessage: '',
+        });
+      }
     } else if (key === 'confirmPassword') {
       if (!value) {
         setConfirmPasswordFormObj({

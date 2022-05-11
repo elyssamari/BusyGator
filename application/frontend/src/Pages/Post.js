@@ -7,18 +7,56 @@
  * PURPOSE: This file contains the page where the seller can make a new post.
  */
 
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Form,
   Button,
   Card,
-  Col,
   Row,
   Dropdown,
   DropdownButton,
 } from 'react-bootstrap';
+import DataContext from '../DataContext/DataContext';
+import { useNavigate } from 'react-router-dom';
 
 const Post = () => {
+  const userInfo = useContext(DataContext)?.userInfo;
+  const navigate = useNavigate();
+  const categories = useContext(DataContext)?.categories;
+  const locations = useContext(DataContext)?.locations;
+
+  const [locationCategoryObj, setLocationCategoryObj] = useState({
+    locationId: null,
+    categoryId: null,
+  });
+  function onPostSubmit() {
+    if (userInfo.email) {
+      // perform post functionality to backend
+    } else {
+      navigate('/Signup');
+    }
+  }
+
+  function returnTitle() {
+    if (locationCategoryObj.categoryId) {
+      const found = categories.find(
+        (data) => data.category_id === locationCategoryObj.categoryId
+      );
+      if (found) return found.name;
+    }
+    return 'Categories';
+  }
+
+  function returnLocationTitle() {
+    if (locationCategoryObj.locationId) {
+      const found = locations.find(
+        (data) => data.location_id === locationCategoryObj.locationId
+      );
+      if (found) return found.name;
+    }
+    return 'Locations';
+  }
+
   return (
     <>
       <Card id="login_signupcard" className="card h-100">
@@ -32,19 +70,14 @@ const Post = () => {
           <Form>
             <Form.Group id="" className="mb-3">
               <Card.Text>Add Product Image *</Card.Text>
-              <Col>
-                <Form.Control type="file" />
-                <Form.Group id="checkbox" className="mb-3">
-                  <Form.Check
-                    type="checkbox"
-                    label="Accept User Policy for Uploading Image"
-                  />
-                </Form.Group>
-              </Col>
+              <Form.Control type="file" />
+              <Form.Group id="checkbox" className="mb-3">
+                <Form.Check
+                  type="checkbox"
+                  label="Accept User Policy for Uploading Image"
+                />
+              </Form.Group>
             </Form.Group>
-          </Form>
-
-          <Form>
             <Form.Group className="mb-3">
               <Form.Label>Product Title *</Form.Label>
               <Form.Control
@@ -59,13 +92,24 @@ const Post = () => {
               <DropdownButton
                 id="dropdown-basic-button"
                 variant="secondary"
-                title="Categories"
+                title={returnTitle()}
               >
-                <Dropdown.Item>Electronics</Dropdown.Item>
-                <Dropdown.Item>Pets</Dropdown.Item>
-                <Dropdown.Item>Home</Dropdown.Item>
-                <Dropdown.Item>Recreational</Dropdown.Item>
-                <Dropdown.Item>Books</Dropdown.Item>
+                {categories &&
+                  categories
+                    .filter((elem) => elem.name !== 'All')
+                    .map((category, index) => (
+                      <Dropdown.Item
+                        key={index}
+                        onClick={() =>
+                          setLocationCategoryObj({
+                            ...locationCategoryObj,
+                            categoryId: category.category_id || '',
+                          })
+                        }
+                      >
+                        {category.name}
+                      </Dropdown.Item>
+                    ))}
               </DropdownButton>
             </Form.Group>
 
@@ -83,17 +127,22 @@ const Post = () => {
               <DropdownButton
                 id="dropdown-basic-button"
                 variant="secondary"
-                title="Locations"
+                title={returnLocationTitle()}
               >
-                <Dropdown.Item>Annex I & Annex II</Dropdown.Item>
-                <Dropdown.Item>University Park North</Dropdown.Item>
-                <Dropdown.Item>Hensill Hall</Dropdown.Item>
-                <Dropdown.Item>J. Paul Leonard Library</Dropdown.Item>
-                <Dropdown.Item>Manzanita Square</Dropdown.Item>
-                <Dropdown.Item>University Park South</Dropdown.Item>
-                <Dropdown.Item>Masshouf Wellness Center</Dropdown.Item>
-                <Dropdown.Item>Parking Garage</Dropdown.Item>
-                <Dropdown.Item>Cox Stadium </Dropdown.Item>
+                {locations &&
+                  locations.map((location, index) => (
+                    <Dropdown.Item
+                      key={index}
+                      onClick={() =>
+                        setLocationCategoryObj({
+                          ...locationCategoryObj,
+                          locationId: location.location_id || '',
+                        })
+                      }
+                    >
+                      {location.name}
+                    </Dropdown.Item>
+                  ))}
               </DropdownButton>
             </Form.Group>
 
@@ -108,10 +157,14 @@ const Post = () => {
           </Form>
 
           <Form.Group className="text-center">
-            <Button id="postbutton1" variant="primary" type="submit">
+            <Button id="postbutton1" variant="primary">
               Cancel
             </Button>
-            <Button id="postbutton2" variant="primary" type="submit">
+            <Button
+              id="postbutton2"
+              variant="primary"
+              onClick={() => onPostSubmit()}
+            >
               Post
             </Button>
           </Form.Group>

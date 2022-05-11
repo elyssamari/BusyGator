@@ -22,6 +22,7 @@ import DataContext from '../DataContext/DataContext';
 import { getAllCategories } from '../services/categoryService';
 import { getAllListings, getListingByFilter } from '../services/listingService';
 import { Link, useNavigate } from 'react-router-dom';
+import { getAllLocations } from '../services/locationService';
 
 const NavBar = () => {
   const categories = useContext(DataContext)?.categories;
@@ -31,6 +32,7 @@ const NavBar = () => {
   const searchParams = useContext(DataContext)?.searchParams;
   const sortAsc = useContext(DataContext)?.sortAsc;
   const setTotalCount = useContext(DataContext)?.setTotalCount;
+  const setLocations = useContext(DataContext)?.setLocations;
 
   const navigate = useNavigate();
   let invalidStatus = false;
@@ -49,6 +51,12 @@ const NavBar = () => {
       ]);
     });
   }, [setCategories]);
+
+  useEffect(() => {
+    getAllLocations().then((data) => {
+      setLocations(data.data);
+    });
+  }, [setLocations]);
 
   function search() {
     // On Click of search button we need to call /getAllListings to get listing

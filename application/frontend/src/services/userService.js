@@ -13,10 +13,6 @@ export const getAllUsers = () => {
   return axios.get('/user/getAllUsers');
 };
 
-export const emailExists = (userInfo) => {
-  return axios.get('/user/emailExists', { params: userInfo });
-};
-
 export const createUser = (userInfo) => {
   return axios.get('/user/createUser', { params: userInfo });
 };

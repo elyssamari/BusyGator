@@ -21,24 +21,12 @@ const getAllUsers = async (req, res) => {
     }
 };
 
-const emailExists = async (req, res) => {
-    try {
-        const { email = "" } = req.query;
-        connection.query('SELECT * FROM user WHERE email=?', [email], (err, results) => {
-            res.send(!(results && results.length == 0));
-            if (err) throw err
-        });
-    } catch (error) {
-        res.status(500).json(error)
-    }
-};
-
 const createUser = async (req, res) => {
     try {
-        const { email = "", fName = "", lName = "", password = "" } = req.query;
+        const { email = "", firstName = "", lastName = "", password = "" } = req.query;
         let hashedPassword = bcrypt.hashSync(password, 12);
         let baseSQL = "INSERT INTO user (first_name, last_name, email, password, date_created) VALUES (?, ?, ?, ?, now());";
-        connection.query(baseSQL, [fName, lName, email, hashedPassword], (err, results) => {
+        connection.query(baseSQL, [firstName, lastName, email, hashedPassword], (err, results) => {
             if (err) throw err
         });
     } catch (error) {
@@ -48,6 +36,5 @@ const createUser = async (req, res) => {
 
 module.exports = {
     getAllUsers,
-    emailExists,
     createUser
 };

@@ -12,7 +12,6 @@ const userController = require('../controllers/user.controller');
 const router = express.Router();
 
 router.get('/getAllUsers', userController.getAllUsers);
-router.get('/emailExists', userController.emailExists);
 router.get('/createUser', userController.createUser);
 
 module.exports = router;

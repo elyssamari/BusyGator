@@ -10,7 +10,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DataContext from '../DataContext/DataContext';
-import { getAllLocations } from '../services/locationService';
 import { getAllUsers } from '../services/userService';
 import {
   Card,
@@ -26,7 +25,6 @@ const Home = () => {
   const users = useContext(DataContext)?.users;
   const setUsers = useContext(DataContext)?.setUsers;
   const locations = useContext(DataContext)?.locations;
-  const setLocations = useContext(DataContext)?.setLocations;
   const setSortAsc = useContext(DataContext)?.setSortAsc;
   const totalCount = useContext(DataContext)?.totalCount;
   const [dropdownText, setDropdownText] = useState('Default');
@@ -36,12 +34,6 @@ const Home = () => {
     { name: 'Sort by: Price: Low to High', value: true },
     { name: 'Sort by: Price: High to Low', value: false },
   ];
-
-  useEffect(() => {
-    getAllLocations().then((data) => {
-      setLocations(data.data);
-    });
-  }, [setLocations]);
 
   useEffect(() => {
     getAllUsers().then((data) => {

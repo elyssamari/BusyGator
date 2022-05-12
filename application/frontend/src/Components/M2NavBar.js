@@ -17,6 +17,7 @@ import {
   Button,
   Navbar,
   Form,
+  Card,
 } from 'react-bootstrap';
 import DataContext from '../DataContext/DataContext';
 import { getAllCategories } from '../services/categoryService';
@@ -138,6 +139,14 @@ const NavBar = () => {
 
   return (
     <>
+      <Card id="navTextCard" bg="dark" variant="dark">
+        <Card.Header id="navText">
+          <p>
+            SFSU Software Engineering Project CSC 648-848, Spring 2022. For
+            Demonstration Only.
+          </p>
+        </Card.Header>
+      </Card>
       <Navbar bg="dark" className="flexWrap" variant="dark">
         <Link to="/">
           <Navbar.Brand id="logo">

@@ -401,3 +401,16 @@ margin-left: 10px;
     margin-right: 12px;
   }
 }
+
+#navTextCard{
+ border-radius: 1px;
+ padding-bottom: 0px;
+ color: white;
+ border-width: 0px;
+}
+
+#navText{
+  margin-left: 13px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}

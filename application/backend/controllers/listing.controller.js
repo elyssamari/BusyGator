@@ -1,13 +1,15 @@
 /*
  * FILE: listing.controller.js
  * 
- * AUTHOR(S): Siqi Guo, Vishal Ramanand Sharma, Samantha Saxton-Getty,
- * Elyssa Mari Tapawan
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Vishal Ramanand Sharma,
+ * Samantha Saxton-Getty, Elyssa Mari Tapawan
  *
  * PURPOSE: This file contains the controller of the listings.
  */
 
 const { connection } = require('../databaseConnect');
+const fs = require('fs');
+var mime = require('mime-types');
 
 const getAllListings = async (req, res) => {
     try {
@@ -75,8 +77,10 @@ const getListingByFilter = async (req, res) => {
                         newResults.push(obj);
                     }
                 };
-                res.send({totalCount,
-                    results: newResults});
+                res.send({
+                    totalCount,
+                    results: newResults
+                });
                 if (err) throw err
             });
         } else if (categoryId !== "" && searchText !== "") {
@@ -93,8 +97,10 @@ const getListingByFilter = async (req, res) => {
                         newResults.push(obj);
                     }
                 };
-                res.send({totalCount,
-                    results: newResults}); if (err) throw err
+                res.send({
+                    totalCount,
+                    results: newResults
+                }); if (err) throw err
             });
         } else {
             connection.query('SELECT * from product', (err, results) => {
@@ -110,8 +116,10 @@ const getListingByFilter = async (req, res) => {
                         newResults.push(obj);
                     }
                 };
-                res.send({totalCount,
-                    results: newResults});
+                res.send({
+                    totalCount,
+                    results: newResults
+                });
                 if (err) throw err
             });
         }
@@ -133,8 +141,32 @@ const returnMinMaxFilter = (min, max, obj) => {
     } else return true;
 }
 
+const createListing = async (req, res) => {
+    try {
+        const { title = "", category = "", price = "", location = "", description = "", sellerID = "" } = req.body;
+        const { imageFile = "" } = req.files;
+        let totalCount = 0;
+        connection.query(`select count(*) as totalCount 
+        from product;`, (err, countResult) => {
+            totalCount = countResult[0].totalCount + 1;
+            const fileName = title.trim().toLowerCase().replace(/ /g, "_") + "." + mime.extension(imageFile.mimetype);
+            let baseSQL = "INSERT INTO product (seller_id, category, location, title, description, image, image_thumbnail, price, date_created) VALUES (?, ?, ?, ?, ?, ?, ?, ?, now());";
+            connection.query(baseSQL, [1, parseInt(category), parseInt(location), title, description, (totalCount + '_' + fileName), (totalCount + '_thumbnail_' + fileName), parseInt(price)], (err, results) => {
+                if (err) throw err
+                else {
+                    fs.writeFileSync(`./uploads/images/${totalCount + "_" + fileName}`, imageFile.data)
+                    fs.writeFileSync(`./uploads/thumbnails/${totalCount + '_thumbnail_' + fileName}`, imageFile.data)
+                    res.status(200);
+                }
+            });
+        });
+    } catch (error) {
+        res.status(500).json(error)
+    }
+};
 
 module.exports = {
     getAllListings,
-    getListingByFilter
+    getListingByFilter,
+    createListing
 };

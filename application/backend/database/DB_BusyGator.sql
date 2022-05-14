@@ -126,7 +126,7 @@ INSERT INTO `message` (`message_id`, `creator_id`, `receiver_id`, `product`, `su
 --
 
 CREATE TABLE `product` (
-  `product_id` int(9) NOT NULL,
+  `product_id` int(9) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `seller_id` int(9) NOT NULL,
   `category` int(9) NOT NULL,
   `location` int(9) NOT NULL,
@@ -235,7 +235,6 @@ ALTER TABLE `message`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_id`),
   ADD KEY `PRODUCT_CATEGORY_FK` (`category`),
   ADD KEY `PRODUCT_LOCATION_FK` (`location`),
   ADD KEY `PRODUCT_USER_FK` (`seller_id`);

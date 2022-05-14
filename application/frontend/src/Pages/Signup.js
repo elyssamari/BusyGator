@@ -176,7 +176,10 @@ const Signup = () => {
         setUserInfo({ ...userInfo, password: value });
       }
 
-      if (confirmPasswordFormObj.value && value !== confirmPasswordFormObj.value) {
+      if (
+        confirmPasswordFormObj.value &&
+        value !== confirmPasswordFormObj.value
+      ) {
         setConfirmPasswordFormObj({
           ...confirmPasswordFormObj,
           isValid: false,

@@ -219,14 +219,53 @@ const Signup = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    // Prevent form from submitting before all fields are checked
+    let waitForCheck = false;
+
+    if (!emailFormObj.value) {
+      waitForCheck = true;
+      setEmailFormObj({
+        ...emailFormObj,
+        isValid: false,
+        errorMessage: 'Please fill in email field',
+      });
+    }
+
+    if (!firstNameFormObj.value) {
+      waitForCheck = true;  
+      setFirstNameFormObj({
+        ...firstNameFormObj,
+        isValid: false,
+        errorMessage: 'Please fill in last name field',
+      });
+    }
+
+    if (!passwordFormObj.value) {
+      waitForCheck = true;
+      setPasswordFormObj({
+        ...passwordFormObj,
+        isValid: false,
+        errorMessage: 'Please fill in password field',
+      });
+    }
+
+    if (!confirmPasswordFormObj.value) {
+      waitForCheck = true;
+      setConfirmPasswordFormObj({
+        ...confirmPasswordFormObj,
+        isValid: false,
+        errorMessage: 'Please confirm password',
+      });
+    }
 
     if (
-      emailFormObj.isValid &&
+      !waitForCheck &&
+      (emailFormObj.isValid &&
       firstNameFormObj.isValid &&
       lastNameFormObj.isValid &&
       passwordFormObj.isValid &&
       confirmPasswordFormObj.isValid
-    ) {
+    )) {
       createUser(userInfo);
       navigate('/');
     }
@@ -249,6 +288,7 @@ const Signup = () => {
                 type="text"
                 className="form-control"
                 placeholder="e.g: example@mail.sfsu.edu"
+                maxLength="45"
                 isInvalid={!emailFormObj.isValid}
                 onChange={(e) => setFormData('email', e.target.value)}
               />
@@ -262,6 +302,7 @@ const Signup = () => {
                 type="text"
                 placeholder="First Name"
                 aria-label="First name"
+                maxLength="45"
                 isInvalid={!firstNameFormObj.isValid}
                 onChange={(e) => setFormData('firstName', e.target.value)}
               />
@@ -275,6 +316,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Last Name"
                 aria-label="Last name"
+                maxLength="45"
                 isInvalid={!lastNameFormObj.isValid}
                 onChange={(e) => setFormData('lastName', e.target.value)}
               />
@@ -288,6 +330,7 @@ const Signup = () => {
                 type="password"
                 placeholder="Password"
                 aria-label="Password"
+                maxLength="45"
                 isInvalid={!passwordFormObj.isValid}
                 onChange={(e) => setFormData('password', e.target.value)}
               />
@@ -301,6 +344,7 @@ const Signup = () => {
                 type="password"
                 placeholder="Confirm Password"
                 aria-label="Confirm Password"
+                maxLength="45"
                 isInvalid={!confirmPasswordFormObj.isValid}
                 onChange={(e) => setFormData('confirmPassword', e.target.value)}
               />

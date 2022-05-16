@@ -56,6 +56,10 @@ const Post = () => {
     isValid: true,
     errorMessage: '',
   });
+  const [agreementFormObj, setAgreementFormObj] = useState({
+    value: null,
+    isValid: true,
+  });
   const [listingInfo, setListingInfo] = useState({
     image: null,
     title: null,
@@ -110,7 +114,7 @@ const Post = () => {
       }
     } else if (key === 'price') {
       // Remove non-numbers from input
-      let priceParsed = parseInt(value.replace(/\D/g, ''));
+      let priceParsed = parseInt(value.replace(/\$|,/g, ''));
 
       if (!priceParsed) {
         setPriceFormObj({
@@ -150,11 +154,14 @@ const Post = () => {
 
   function onPostSubmit() {
     //if (userInfo.email) {   Check if user is logged in
+    // Prevent form from submitting before all fields are checked
+    let waitForCheck = false;
     //  Check if file is a valid image
     if (
       !imageFormObj.value ||
       imageFormObj.value['type'].split('/')[0] !== 'image'
     ) {
+      waitForCheck = true;
       setImageFormObj({
         ...imageFormObj,
         isValid: false,
@@ -162,7 +169,25 @@ const Post = () => {
       });
     }
 
+    if (!agreementFormObj.value) {
+      waitForCheck = true;    
+      setAgreementFormObj({
+        ...titleFormObj,
+        isValid: false,
+      });
+    }
+
+    if (!titleFormObj.value) {
+      waitForCheck = true;    
+      setTitleFormObj({
+        ...titleFormObj,
+        isValid: false,
+        errorMessage: 'Please fill in title field',
+      });
+    }
+
     if (!categoryFormObj.value) {
+      waitForCheck = true;
       setCategoryFormObj({
         ...categoryFormObj,
         isValid: false,
@@ -171,6 +196,7 @@ const Post = () => {
     }
 
     if (!locationFormObj.value) {
+      waitForCheck = true;
       setLocationFormObj({
         ...locationFormObj,
         isValid: false,
@@ -178,13 +204,31 @@ const Post = () => {
       });
     }
 
+    if (!priceFormObj.value) {
+      waitForCheck = true;
+      setPriceFormObj({
+        ...priceFormObj,
+        isValid: false,
+        errorMessage: 'Please enter number in price field',
+      });
+    }
+
+    if (!descriptionFormObj.value) {
+      setDescriptionFormObj({
+        ...descriptionFormObj,
+        isValid: false,
+        errorMessage: 'Please fill in description field',
+      });
+    }
+
     if (
-      imageFormObj.value &&
+      !waitForCheck &&
+      (imageFormObj.value &&
       titleFormObj.value &&
       categoryFormObj.value &&
       priceFormObj.value &&
       descriptionFormObj.value
-    ) {
+    )) {
       // setListingInfo({ ...listingInfo, sellerID: userID });  Assign ID of user logged in to product seller ID. Must be done before this function due to promise return
 
       createListing(listingInfo);
@@ -236,7 +280,20 @@ const Post = () => {
                   type="checkbox"
                   required
                   label="Accept User Policy for Uploading Image"
+                  onChange={(e) => {
+                    setAgreementFormObj({
+                      ...agreementFormObj,
+                      value: e.target.checked,
+                      isValid: true,
+                      errorMessage: '',
+                    });
+                  }}
                 />
+              {!agreementFormObj.isValid && (
+                <small className="text-danger">
+                  Please check user policy agreement
+                </small>
+              )}
               </Form.Group>
             </Form.Group>
             <Form.Group className="mb-3">
@@ -245,6 +302,7 @@ const Post = () => {
                 type="text"
                 className="form-control"
                 placeholder="e.g: Foundations of Computer Science Textbook"
+                maxLength="45"
                 isInvalid={!titleFormObj.isValid}
                 onChange={(e) => setFormData('title', e.target.value)}
               />
@@ -296,6 +354,7 @@ const Post = () => {
                 type="text"
                 placeholder="e.g: 200"
                 aria-label="Price"
+                maxLength="9"
                 isInvalid={!priceFormObj.isValid}
                 onChange={(e) => setFormData('price', e.target.value)}
               />
@@ -340,6 +399,7 @@ const Post = () => {
                 type="text"
                 className="form-control"
                 placeholder="e.g: Textbooks require Author and Edition"
+                maxLength="120"
                 isInvalid={!descriptionFormObj.isValid}
                 onChange={(e) => setFormData('description', e.target.value)}
               />

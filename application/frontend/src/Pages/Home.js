@@ -61,7 +61,7 @@ const Home = () => {
 
   return (
     <>
-      <Row id="cardmargin">
+      <Row id="cardmarginRow">
         <Col>
           <Card className="border-0">
             <Card.Text className="foundText">

@@ -7,7 +7,7 @@
  * PURPOSE: This file contains the CSS for the application.
  */
 
-.navtext{
+ .navtext{
   margin-top: 48px;
   color:white;
 }
@@ -128,11 +128,12 @@ img{
 }
 
 .namelink{
-  margin-top: 50px;
+  /* margin-top: 50px; */
   display:inline-block;
   margin-left: auto;
-  margin-bottom: 110px;
+  /* margin-bottom: 110px; */
 }
+
 
 a.name1:link {
   color:white;
@@ -226,6 +227,10 @@ margin-left: 10px;
 }
 
 #cardmargin{
+  margin: 10px;  
+  margin-bottom: 80px;
+}
+#cardmarginRow{
   margin: 10px;
 }
 
@@ -242,11 +247,16 @@ margin-left: 10px;
   margin-bottom: 0%;
 }
 
+#root{
+  position: relative;
+  height: 100%;
+}
+
 #login_signupcard{
   max-width: 600px;
   margin: 0 auto; 
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 75px;
 }
 
 #product_card{
@@ -365,11 +375,9 @@ margin-left: 10px;
 
 #welcomeCard{
   max-width: 600px;
-  margin: 0 auto; 
+  margin: 0 auto;
   margin-top: 25px;
-  border-width: medium;
-  margin-bottom: 25px;
-  border-radius: 10px;
+  margin-bottom: 80px;
 }
 
 .foundText{
@@ -402,6 +410,38 @@ margin-left: 10px;
   }
 }
 
+#cardHeader{
+margin-bottom: 15px;
+}
+
+#msgContent{
+  background-color: #F8F8F8;
+  width: 300px;
+}
+
+/* #postCard{
+  background-color: #F8F8F8;
+  margin: 10px;
+} */
+
+#messageCard{
+  background-color: #F8F8F8;
+  margin: 10px;
+  border-radius: 0px;
+}
+
+#messageText{
+  margin-left: 10px;
+  margin-bottom: 10px;
+
+}
+
+#postContent{
+  background-color: #F8F8F8;
+  margin: 10px;
+  width: 300px;
+}
+
 #navTextCard{
  border-radius: 1px;
  padding-bottom: 0px;
@@ -413,4 +453,23 @@ margin-left: 10px;
   margin-left: 13px;
   padding-top: 10px;
   padding-bottom: 0px;
+}
+
+html, body, #app {
+  height: 100%
+}
+
+#cardmargin{
+  min-height: calc(100% - 262px);
+}
+
+#logInHolder{
+  min-height: calc(100% - 246px);
+}
+
+#myPageHolder{
+  min-height: calc(100% - 246px);
+}
+#aboutHolder{
+  min-height: calc(100% - 400px);
 }

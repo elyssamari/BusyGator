@@ -112,7 +112,7 @@ const Home = () => {
                 </Card.Text>
                 <Card.Text>In Stock</Card.Text>
                 <Card.Text className="text-center">
-                  <Link to="/IndividualProduct">
+                  <Link to={`/Product/${data.product_id}`}>
                     <Button variant="outline-dark" className="check-it-out-btn">
                       Check it out!
                     </Button>

@@ -14,6 +14,10 @@ export const getAllListings = () => {
   return axios.get('/listing/getAllListings');
 };
 
+export const getListingById = (listingId) => {
+  return axios.get('/listing/getListingById', { params: listingId });
+};
+
 export const getListingByFilter = (searchParams) => {
   return axios.get('/listing/getListingByFilter', { params: searchParams });
 };

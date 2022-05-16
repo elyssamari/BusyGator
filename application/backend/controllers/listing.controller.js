@@ -32,6 +32,24 @@ const getAllListings = async (req, res) => {
     }
 };
 
+const getListingById = async (req, res) => {
+    try {
+        let productId = req.query[0];
+        connection.query(`SELECT * from product where product.product_id=${productId}`, (err, results) => {
+            const resultElement = results[0];
+            const resultObj = {
+                ...resultElement,
+                image_thumbnail: `/thumbnails/${resultElement.image_thumbnail}`,
+                image: `/images/${resultElement.image}`
+            }
+            res.send(resultObj);
+            if (err) throw err
+        });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+};
+
 
 const getListingByFilter = async (req, res) => {
     try {
@@ -167,6 +185,7 @@ const createListing = async (req, res) => {
 
 module.exports = {
     getAllListings,
+    getListingById,
     getListingByFilter,
     createListing
 };

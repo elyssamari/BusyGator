@@ -37,7 +37,7 @@ function App() {
           <Route path="/Post" element={<Post />} />
           <Route path="/MyPage" element={<MyPage />} />
           <Route path="/Messages" element={<Messages />} />
-          <Route path="/IndividualProduct" element={<IndividualProduct />} />
+          <Route path="/Product/:productId" element={<IndividualProduct />} />
           <Route path="/About" element={<About />} />
           <Route path="/M1Home" element={<M1Home />} />
           <Route path="/about/:username" element={<Members />} />

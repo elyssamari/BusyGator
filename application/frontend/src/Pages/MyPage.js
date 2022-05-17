@@ -5,11 +5,50 @@
  *
  * This File contains future My Page implementation.
  */
-import React from 'react';
+
+import React, { useEffect, useContext, useState } from 'react';
 import { Card, Tab, Row, Col, Nav, Table, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import DataContext from '../DataContext/DataContext';
+import { getAllUsers } from '../services/userService';
+import { getAllMessages, getMessagesById } from '../services/messageService';
 
 const MyPage = () => {
+  const listings = useContext(DataContext)?.listings;
+  const users = useContext(DataContext)?.users;
+  const setUsers = useContext(DataContext)?.setUsers;
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    getAllMessages().then((data) => {
+      setMessages(data.data);
+    });
+  }, [setMessages]);
+
+  useEffect(() => {
+    getAllUsers().then((data) => {
+      setUsers(data.data);
+    });
+  }, [setUsers]);
+
+  function getDateString(date) {
+    return new Date(date).toLocaleString();
+  }
+
+  function getListingName(listingNumber) {
+    return (
+      listings.find((data) => data.product_id === listingNumber)?.title || null
+    );
+  }
+
+  function getUserName(userId) {
+    let firstName =
+      users.find((data) => data.user_id === userId)?.first_name || '';
+    let lastName =
+      users.find((data) => data.user_id === userId)?.last_name || '';
+    return firstName + ' ' + lastName;
+  }
+
   return (
     <>
       <div id="myPageHolder">
@@ -36,22 +75,30 @@ const MyPage = () => {
               <Col sm={1.5} id="tabContent">
                 <Tab.Content>
                   <Tab.Pane eventKey="msgs">
-                    <Card id="messageCard">
-                      <Table bordered id="msgContent">
-                        <tbody>
-                          <tr>
-                            <td>Date</td>
-                            <td>Recipient</td>
-                            <td>
-                              <Link to="">Product</Link>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </Table>
-                      <Card.Text id="messageText">
-                        The messages will go here!
-                      </Card.Text>
-                    </Card>
+                  {messages.map((data, index) => (
+                    <Card id="messageCard" key={`div_${index}`}>
+                        <Table bordered id="msgContent">
+                          <tbody>
+                            <tr>
+                              <td>{getDateString(data.date_created)}</td>
+                              <td>{getUserName(data.creator_id)}</td>
+                              <td>⇢</td>
+                              <td>{getUserName(data.receiver_id)}</td>
+                              <td>
+                                {
+                                  getListingName(data.product) &&
+                                  (<Link to={`/Product/${data.product}`}>{getListingName(data.product)}</Link>) ||
+                                  ("Post waiting for approval")
+                                }
+                              </td>
+                            </tr>
+                          </tbody>
+                        </Table>
+                        <Card.Text id="messageText">
+                        {data.message_body}
+                        </Card.Text>
+                      </Card>
+                    ))}
                   </Tab.Pane>
                   <Tab.Pane eventKey="posts">
                     <Table bordered id="postContent">
@@ -62,14 +109,16 @@ const MyPage = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            <Link to="">placeholder</Link>
-                          </td>
-                          <td>
-                            <Button>Delete Post</Button>
-                          </td>
-                        </tr>
+                        {listings.map((data, index) => (
+                          <tr key={`div_${index}`}>
+                            <td>
+                              {getListingName(data.product_id) && (<Link to={`/Product/${data.product_id}`}>{getListingName(data.product_id)}</Link>)}
+                            </td>
+                            <td>
+                              <Button>Delete Post</Button>
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </Table>
                   </Tab.Pane>

@@ -1,18 +1,16 @@
-
-
 import React, { useState } from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUser } from '../services/userService';
-import axios from "axios";
+import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [user, setUser] = useState();
 
- /**  useEffect(() => {
+  /**  useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
@@ -23,30 +21,31 @@ const Login = () => {
   // logout the user
   const handleLogout = () => {
     setUser({});
-    setEmail("");
-    setPassword("");
+    setEmail('');
+    setPassword('');
     localStorage.clear();
   };
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    
+
     const user = { email, password };
     // send the username and password to the serve
     // set the state of the user
-        const response = axios.post('http://localhost:3000/Login',user ).then(response => {
-          if (response) {
-            setUser(response.data);
-            window.alert('Your login is success!');
-          }
-        });
-    const getAllUsers =  axios.get('/user');
-    
+    const response = axios
+      .post('http://localhost:3000/Login', user)
+      .then((response) => {
+        if (response) {
+          setUser(response.data);
+          window.alert('Your login is success!');
+        }
+      });
+    const getAllUsers = axios.get('/user');
+
     // store the user in localStorage
-    localStorage.setItem("user", JSON.stringify(response.data));
-    
+    localStorage.setItem('user', JSON.stringify(response.data));
   };
-  
+
   if (user) {
     return (
       <div>
@@ -54,7 +53,7 @@ const Login = () => {
         <button onClick={handleLogout}>logout</button>
       </div>
     );
-  } 
+  }
 
   return (
     <>
@@ -70,12 +69,12 @@ const Login = () => {
             <Form.Group className="mb-3">
               <Form.Label>Email *</Form.Label>
               <Form.Control
-               value={email}
-               placeholder="enter a username"
-               onChange={({ target }) => setEmail(target.value)}
+                value={email}
+                placeholder="enter a username"
+                onChange={({ target }) => setEmail(target.value)}
                 type="text"
-                className="form-control"/>
-             
+                className="form-control"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -83,23 +82,16 @@ const Login = () => {
               <Form.Control
                 type="password"
                 placeholder="Password"
-                aria-label="Password"  
+                aria-label="Password"
                 value={password}
-            
-            onChange={({ target }) => setPassword(target.value)}
+                onChange={({ target }) => setPassword(target.value)}
               />
-              
             </Form.Group>
 
             <Link to="/ForgetPassword">Forgot Password?</Link>
 
             <Form.Group className="text-center">
-              <Button
-                id="login_signin_button"
-                variant="primary"
-                type="submit"
-                
-              >
+              <Button id="login_signin_button" variant="primary" type="submit">
                 Login
               </Button>
             </Form.Group>
@@ -116,4 +108,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -170,7 +170,7 @@ const Post = () => {
     }
 
     if (!agreementFormObj.value) {
-      waitForCheck = true;    
+      waitForCheck = true;
       setAgreementFormObj({
         ...titleFormObj,
         isValid: false,
@@ -178,7 +178,7 @@ const Post = () => {
     }
 
     if (!titleFormObj.value) {
-      waitForCheck = true;    
+      waitForCheck = true;
       setTitleFormObj({
         ...titleFormObj,
         isValid: false,
@@ -223,12 +223,12 @@ const Post = () => {
 
     if (
       !waitForCheck &&
-      (imageFormObj.value &&
+      imageFormObj.value &&
       titleFormObj.value &&
       categoryFormObj.value &&
       priceFormObj.value &&
       descriptionFormObj.value
-    )) {
+    ) {
       // setListingInfo({ ...listingInfo, sellerID: userID });  Assign ID of user logged in to product seller ID. Must be done before this function due to promise return
 
       createListing(listingInfo);
@@ -289,11 +289,11 @@ const Post = () => {
                     });
                   }}
                 />
-              {!agreementFormObj.isValid && (
-                <small className="text-danger">
-                  Please check user policy agreement
-                </small>
-              )}
+                {!agreementFormObj.isValid && (
+                  <small className="text-danger">
+                    Please check user policy agreement
+                  </small>
+                )}
               </Form.Group>
             </Form.Group>
             <Form.Group className="mb-3">

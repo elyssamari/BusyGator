@@ -232,7 +232,7 @@ const Signup = () => {
     }
 
     if (!firstNameFormObj.value) {
-      waitForCheck = true;  
+      waitForCheck = true;
       setFirstNameFormObj({
         ...firstNameFormObj,
         isValid: false,
@@ -260,12 +260,12 @@ const Signup = () => {
 
     if (
       !waitForCheck &&
-      (emailFormObj.isValid &&
+      emailFormObj.isValid &&
       firstNameFormObj.isValid &&
       lastNameFormObj.isValid &&
       passwordFormObj.isValid &&
       confirmPasswordFormObj.isValid
-    )) {
+    ) {
       createUser(userInfo);
       navigate('/');
     }

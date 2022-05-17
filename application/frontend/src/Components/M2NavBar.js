@@ -148,7 +148,10 @@ const NavBar = () => {
         </Card.Header>
       </Card>
       <Navbar bg="dark" className="flexWrap" variant="dark">
-      <button onClick={() => navigate('/' , {state : {data : ''}})} style={{'backgroundColor':'transparent', 'border':'none'}}>
+        <button
+          onClick={() => navigate('/', { state: { data: '' } })}
+          style={{ backgroundColor: 'transparent', border: 'none' }}
+        >
           <Navbar.Brand id="logo">
             <img
               alt=""

@@ -9,7 +9,7 @@
 
 import React, { useEffect, useContext, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import { useParams, Link, } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import DataContext from '../DataContext/DataContext';
 import { getUserById } from '../services/userService';
 import { getListingById } from '../services/listingService';
@@ -36,11 +36,11 @@ const IndividualProduct = () => {
   }
 
   let productId = useParams().productId;
-  useEffect(() => { 
+  useEffect(() => {
     getListingById(productId).then((data) => {
       setListing(data.data);
       getUserName(data.data.seller_id);
-    }) 
+    });
   }, []);
 
   return (
@@ -54,7 +54,9 @@ const IndividualProduct = () => {
           <Card.Text>Location: {getLocationName(listing.location)}</Card.Text>
           <Card.Text>Description: {listing.description}</Card.Text>
           <Card.Text>Seller: {sellerName}</Card.Text>
-          <Card.Text>Date Listed: {getDateString(listing.date_created)}</Card.Text>
+          <Card.Text>
+            Date Listed: {getDateString(listing.date_created)}
+          </Card.Text>
           <Card.Text>In Stock</Card.Text>
         </Card.Body>
         <Link to="/Messages" className="text-center">

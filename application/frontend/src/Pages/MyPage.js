@@ -75,8 +75,8 @@ const MyPage = () => {
               <Col sm={1.5} id="tabContent">
                 <Tab.Content>
                   <Tab.Pane eventKey="msgs">
-                  {messages.map((data, index) => (
-                    <Card id="messageCard" key={`div_${index}`}>
+                    {messages.map((data, index) => (
+                      <Card id="messageCard" key={`div_${index}`}>
                         <Table bordered id="msgContent">
                           <tbody>
                             <tr>
@@ -85,17 +85,18 @@ const MyPage = () => {
                               <td>⇢</td>
                               <td>{getUserName(data.receiver_id)}</td>
                               <td>
-                                {
-                                  getListingName(data.product) &&
-                                  (<Link to={`/Product/${data.product}`}>{getListingName(data.product)}</Link>) ||
-                                  ("Post waiting for approval")
-                                }
+                                {(getListingName(data.product) && (
+                                  <Link to={`/Product/${data.product}`}>
+                                    {getListingName(data.product)}
+                                  </Link>
+                                )) ||
+                                  'Post waiting for approval'}
                               </td>
                             </tr>
                           </tbody>
                         </Table>
                         <Card.Text id="messageText">
-                        {data.message_body}
+                          {data.message_body}
                         </Card.Text>
                       </Card>
                     ))}
@@ -112,7 +113,11 @@ const MyPage = () => {
                         {listings.map((data, index) => (
                           <tr key={`div_${index}`}>
                             <td>
-                              {getListingName(data.product_id) && (<Link to={`/Product/${data.product_id}`}>{getListingName(data.product_id)}</Link>)}
+                              {getListingName(data.product_id) && (
+                                <Link to={`/Product/${data.product_id}`}>
+                                  {getListingName(data.product_id)}
+                                </Link>
+                              )}
                             </td>
                             <td>
                               <Button>Delete Post</Button>

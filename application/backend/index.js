@@ -32,6 +32,7 @@ const locationRouter = require('./routes/location.routes');
 const listingRouter = require('./routes/listing.routes');
 const categoryRouter = require('./routes/category.routes');
 const userRouter = require('./routes/user.routes');
+const messageRouter = require('./routes/message.routes');
 connection.connect();
 
 
@@ -42,6 +43,7 @@ app.use('/location',locationRouter);
 app.use('/category',categoryRouter)
 app.use('/listing',listingRouter);
 app.use('/user',userRouter);
+app.use('/message',messageRouter);
 
 // Default Route for serving Index.html
 app.get('*', (req, res) => {

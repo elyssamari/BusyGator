@@ -21,6 +21,18 @@ const getAllUsers = async (req, res) => {
     }
 };
 
+const getUserById = async (req, res) => {
+    try {
+        let userId = req.query[0];
+        connection.query(`SELECT * from user where user.user_id=${userId}`, (err, results) => {
+            res.send(results[0]);
+            if (err) throw err
+        });
+    } catch (error) {
+        res.status(500).json(error)
+    }
+};
+
 const createUser = async (req, res) => {
     try {
         const { email = "", firstName = "", lastName = "", password = "" } = req.query;
@@ -36,5 +48,6 @@ const createUser = async (req, res) => {
 
 module.exports = {
     getAllUsers,
+    getUserById,
     createUser
 };

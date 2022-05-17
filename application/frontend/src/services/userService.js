@@ -13,6 +13,10 @@ export const getAllUsers = () => {
   return axios.get('/user/getAllUsers');
 };
 
+export const getUserById = (userId) => {
+  return axios.get('/user/getUserById', { params: userId });
+};
+
 export const createUser = (userInfo) => {
   return axios.get('/user/createUser', { params: userInfo });
 };

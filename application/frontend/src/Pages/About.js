@@ -21,7 +21,7 @@ const About = () => {
         </h2>
       </div>
 
-      <div className="namelink">
+      <div className="namelink" id="aboutHolder">
         <Link className="name1" to="/about/Aaron">
           Aaron Carlson
           <p className="title">Back-End Lead</p>{' '}

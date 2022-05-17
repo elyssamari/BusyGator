@@ -8,6 +8,7 @@
  */
 
 import React, { useContext, useState, useEffect } from 'react';
+import DataContext from '../DataContext/DataContext';
 import {
   Form,
   Button,
@@ -16,7 +17,6 @@ import {
   Dropdown,
   DropdownButton,
 } from 'react-bootstrap';
-import DataContext from '../DataContext/DataContext';
 import { useNavigate } from 'react-router-dom';
 import { createListing } from '../services/listingService';
 
@@ -153,91 +153,92 @@ const Post = () => {
   };
 
   function onPostSubmit() {
-    //if (userInfo.email) {   Check if user is logged in
-    // Prevent form from submitting before all fields are checked
-    let waitForCheck = false;
-    //  Check if file is a valid image
-    if (
-      !imageFormObj.value ||
-      imageFormObj.value['type'].split('/')[0] !== 'image'
-    ) {
-      waitForCheck = true;
-      setImageFormObj({
-        ...imageFormObj,
-        isValid: false,
-        errorMessage: 'Please add an image',
-      });
-    }
+    console.log(userInfo)
+    if (userInfo.email) {  // Check if user is logged in
+      // Prevent form from submitting before all fields are checked
+      let waitForCheck = false;
+      //  Check if file is a valid image
+      if (
+        !imageFormObj.value ||
+        imageFormObj.value['type'].split('/')[0] !== 'image'
+      ) {
+        waitForCheck = true;
+        setImageFormObj({
+          ...imageFormObj,
+          isValid: false,
+          errorMessage: 'Please add an image',
+        });
+      }
 
-    if (!agreementFormObj.value) {
-      waitForCheck = true;
-      setAgreementFormObj({
-        ...titleFormObj,
-        isValid: false,
-      });
-    }
+      if (!agreementFormObj.value) {
+        waitForCheck = true;
+        setAgreementFormObj({
+          ...titleFormObj,
+          isValid: false,
+        });
+      }
 
-    if (!titleFormObj.value) {
-      waitForCheck = true;
-      setTitleFormObj({
-        ...titleFormObj,
-        isValid: false,
-        errorMessage: 'Please fill in title field',
-      });
-    }
+      if (!titleFormObj.value) {
+        waitForCheck = true;
+        setTitleFormObj({
+          ...titleFormObj,
+          isValid: false,
+          errorMessage: 'Please fill in title field',
+        });
+      }
 
-    if (!categoryFormObj.value) {
-      waitForCheck = true;
-      setCategoryFormObj({
-        ...categoryFormObj,
-        isValid: false,
-        errorMessage: 'Please select a category',
-      });
-    }
+      if (!categoryFormObj.value) {
+        waitForCheck = true;
+        setCategoryFormObj({
+          ...categoryFormObj,
+          isValid: false,
+          errorMessage: 'Please select a category',
+        });
+      }
 
-    if (!locationFormObj.value) {
-      waitForCheck = true;
-      setLocationFormObj({
-        ...locationFormObj,
-        isValid: false,
-        errorMessage: 'Please select a location',
-      });
-    }
+      if (!locationFormObj.value) {
+        waitForCheck = true;
+        setLocationFormObj({
+          ...locationFormObj,
+          isValid: false,
+          errorMessage: 'Please select a location',
+        });
+      }
 
-    if (!priceFormObj.value) {
-      waitForCheck = true;
-      setPriceFormObj({
-        ...priceFormObj,
-        isValid: false,
-        errorMessage: 'Please enter number in price field',
-      });
-    }
+      if (!priceFormObj.value) {
+        waitForCheck = true;
+        setPriceFormObj({
+          ...priceFormObj,
+          isValid: false,
+          errorMessage: 'Please enter number in price field',
+        });
+      }
 
-    if (!descriptionFormObj.value) {
-      setDescriptionFormObj({
-        ...descriptionFormObj,
-        isValid: false,
-        errorMessage: 'Please fill in description field',
-      });
-    }
+      if (!descriptionFormObj.value) {
+        setDescriptionFormObj({
+          ...descriptionFormObj,
+          isValid: false,
+          errorMessage: 'Please fill in description field',
+        });
+      }
 
-    if (
-      !waitForCheck &&
-      imageFormObj.value &&
-      titleFormObj.value &&
-      categoryFormObj.value &&
-      priceFormObj.value &&
-      descriptionFormObj.value
-    ) {
-      // setListingInfo({ ...listingInfo, sellerID: userID });  Assign ID of user logged in to product seller ID. Must be done before this function due to promise return
+      if (
+        !waitForCheck &&
+        imageFormObj.value &&
+        titleFormObj.value &&
+        categoryFormObj.value &&
+        priceFormObj.value &&
+        descriptionFormObj.value
+      ) {
+        // setListingInfo({ ...listingInfo, sellerID: userID });  Assign ID of user logged in to product seller ID. Must be done before this function due to promise return
 
-      createListing(listingInfo);
-      navigate('/');
-    }
+        createListing(listingInfo);
+        navigate('/');
+      }
 
-    /*} else {
+    } else {
       navigate('/Signup');
-    }*/
+    }
   }
 
   return (

@@ -7,13 +7,17 @@
  * PURPOSE: This file contains the page for new users to sign up and make an account.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import DataContext from '../DataContext/DataContext';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUser } from '../services/userService';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const userInfo = useContext(DataContext)?.userInfo;
+  const setUserInfo = useContext(DataContext)?.setUserInfo;
+
 
   const [emailFormObj, setEmailFormObj] = useState({
     value: '',
@@ -39,12 +43,6 @@ const Signup = () => {
     value: '',
     isValid: true,
     errorMessage: '',
-  });
-  const [userInfo, setUserInfo] = useState({
-    email: '',
-    firstName: '',
-    lastName: '',
-    password: '',
   });
 
   const setFormData = (key, value) => {
@@ -218,6 +216,8 @@ const Signup = () => {
   };
 
   const onFormSubmit = (e) => {
+    console.log(userInfo)
+
     e.preventDefault();
     // Prevent form from submitting before all fields are checked
     let waitForCheck = false;
@@ -235,6 +235,15 @@ const Signup = () => {
       waitForCheck = true;
       setFirstNameFormObj({
         ...firstNameFormObj,
+        isValid: false,
+        errorMessage: 'Please fill in first name field',
+      });
+    }
+
+    if (!lastNameFormObj.value) {
+      waitForCheck = true;
+      setLastNameFormObj({
+        ...lastNameFormObj,
         isValid: false,
         errorMessage: 'Please fill in last name field',
       });

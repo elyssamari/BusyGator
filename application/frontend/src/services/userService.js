@@ -20,3 +20,7 @@ export const getUserById = (userId) => {
 export const createUser = (userInfo) => {
   return axios.get('/user/createUser', { params: userInfo });
 };
+
+export const checkUserCredential = (userInfo) => {
+  return axios.post('/user/userLogin', userInfo);
+};

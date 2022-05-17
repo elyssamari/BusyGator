@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { createUser } from '../services/userService';
-import axios from 'axios';
+import { checkUserCredential } from '../services/userService';
+import { toastError, toastSuccess } from '../ToastService';
+import DataContext from '../DataContext/DataContext';
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user, setUser] = useState();
-
-  /**  useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
-      setUser(foundUser);
-    }
-  }, []); **/
+  const setUserInfo = useContext(DataContext)?.setUserInfo;
+  const userInfo = useContext(DataContext)?.userInfo;
 
   // logout the user
   const handleLogout = () => {
-    setUser({});
-    setEmail('');
-    setPassword('');
-    localStorage.clear();
+    setUserInfo({
+      email: null,
+      firstName: null,
+      lastName: null,
+      userId: null,
+    });
   };
 
   const onFormSubmit = (e) => {
@@ -32,24 +28,26 @@ const Login = () => {
     const user = { email, password };
     // send the username and password to the serve
     // set the state of the user
-    const response = axios
-      .post('http://localhost:3000/Login', user)
-      .then((response) => {
-        if (response) {
-          setUser(response.data);
-          window.alert('Your login is success!');
-        }
-      });
-    const getAllUsers = axios.get('/user');
-
-    // store the user in localStorage
-    localStorage.setItem('user', JSON.stringify(response.data));
+    checkUserCredential(user).then((data) => {
+      if (data.data.userId !== null) {
+        toastSuccess('Login Successful');
+        setUserInfo({
+          email,
+          firstName: data.data.firstName,
+          lastName: data.data.lastName,
+          userId: data.data.userId,
+        });
+        navigate('/');
+      } else {
+        toastError(data.data.message);
+      }
+    });
   };
 
-  if (user) {
+  if (userInfo.userId) {
     return (
       <div>
-        {user.name} is loggged in
+        {`${userInfo.firstName} ${userInfo.lastName}`} is loggged in
         <button onClick={handleLogout}>logout</button>
       </div>
     );

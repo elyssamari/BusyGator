@@ -148,7 +148,7 @@ const NavBar = () => {
         </Card.Header>
       </Card>
       <Navbar bg="dark" className="flexWrap" variant="dark">
-        <Link to="/">
+      <button onClick={() => navigate('/' , {state : {data : ''}})} style={{'backgroundColor':'transparent', 'border':'none'}}>
           <Navbar.Brand id="logo">
             <img
               alt=""
@@ -158,7 +158,7 @@ const NavBar = () => {
               className="d-inline-block align-top"
             />
           </Navbar.Brand>
-        </Link>
+        </button>
         <Form className="d-flex formFlex" onSubmit={onFormSubmit}>
           <InputGroup hasValidation className="flex-nowrap">
             <DropdownButton
@@ -217,7 +217,7 @@ const NavBar = () => {
             About Us
           </Link>
           <Link id="navlink" className="nav-link" to="/Login">
-            Login
+            Login/Signup
           </Link>
         </div>
       </Navbar>

@@ -14,5 +14,6 @@ const router = express.Router();
 router.get('/getAllUsers', userController.getAllUsers);
 router.get('/getUserById', userController.getUserById);
 router.get('/createUser', userController.createUser);
+router.post('/userLogin', userController.checkCredentials);
 
 module.exports = router;

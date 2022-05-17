@@ -153,8 +153,9 @@ const Post = () => {
   };
 
   function onPostSubmit() {
-    console.log(userInfo)
-    if (userInfo.email) {  // Check if user is logged in
+    console.log(userInfo);
+    if (userInfo.email) {
+      // Check if user is logged in
       // Prevent form from submitting before all fields are checked
       let waitForCheck = false;
       //  Check if file is a valid image
@@ -235,7 +236,6 @@ const Post = () => {
         createListing(listingInfo);
         navigate('/');
       }
-
     } else {
       navigate('/Signup');
     }

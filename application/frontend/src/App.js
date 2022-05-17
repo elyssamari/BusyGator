@@ -25,11 +25,14 @@ import IndividualProduct from './Pages/IndividualProduct';
 import { DataProvider } from './DataContext/DataContext';
 import './App.css';
 import ForgetPassword from './Pages/ForgetPassword';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <BrowserRouter>
       <DataProvider>
+        <ToastContainer />
         <M2NavBar />
         <Routes>
           <Route path="/" element={<Home />} />

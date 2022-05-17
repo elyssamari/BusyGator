@@ -18,7 +18,6 @@ const Signup = () => {
   const userInfo = useContext(DataContext)?.userInfo;
   const setUserInfo = useContext(DataContext)?.setUserInfo;
 
-
   const [emailFormObj, setEmailFormObj] = useState({
     value: '',
     isValid: true,
@@ -216,7 +215,7 @@ const Signup = () => {
   };
 
   const onFormSubmit = (e) => {
-    console.log(userInfo)
+    console.log(userInfo);
 
     e.preventDefault();
     // Prevent form from submitting before all fields are checked

@@ -21,7 +21,7 @@ function DataProvider({ children }) {
     email: null,
     firstName: null,
     lastName: null,
-    password: null,
+    userId: null,
   });
   const [totalCount, setTotalCount] = useState(0);
   const [searchParams, setSearchParams] = useState({

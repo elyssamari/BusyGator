@@ -46,8 +46,42 @@ const createUser = async (req, res) => {
     }
 };
 
+const checkCredentials = async (req, res) => {
+    try {
+        const { email = "", password = "" } = req.body;
+        const baseSQL = `SELECT * from user where user.email="${email}";`;
+        connection.query(baseSQL, (err, results) => {
+            if (err) throw err
+            if (results.length) {
+                const result = results[0];
+                bcrypt.compare(password, result.password, (err, bcryptResult) => {
+                    if (bcryptResult) {
+                        res.send({ userId: result.user_id, firstName: result.first_name, lastName: result.last_name });
+                    } else {
+                        res.send({
+                            message:"Incorrect Password",
+                            userId: null
+                        })
+                    }
+                })
+            } else {
+                res.send({
+                    message:"Email not found",
+                    userId: null
+                })
+            }
+
+
+        });
+    } catch (error) {
+        res.status(500).json(error)
+    }
+};
+
+
 module.exports = {
     getAllUsers,
     getUserById,
-    createUser
+    createUser,
+    checkCredentials
 };

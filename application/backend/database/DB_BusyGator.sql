@@ -12,7 +12,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 01, 2022 at 07:56 AM
+-- Generation Time: May 17, 2022 at 04:33 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -29,13 +29,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `DB_BusyGator`
 --
-
--- -----------------------------------------------------
--- Database: `DB_BusyGator`
--- -----------------------------------------------------
 CREATE DATABASE IF NOT EXISTS `DB_BusyGator` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `DB_BusyGator`;
-
 
 -- --------------------------------------------------------
 
@@ -43,6 +38,7 @@ USE `DB_BusyGator`;
 -- Table structure for table `category`
 --
 
+DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `category_id` int(9) NOT NULL,
   `name` varchar(45) NOT NULL,
@@ -66,6 +62,7 @@ INSERT INTO `category` (`category_id`, `name`, `description`) VALUES
 -- Table structure for table `location`
 --
 
+DROP TABLE IF EXISTS `location`;
 CREATE TABLE `location` (
   `location_id` int(9) NOT NULL,
   `name` varchar(45) NOT NULL
@@ -93,6 +90,7 @@ INSERT INTO `location` (`location_id`, `name`) VALUES
 -- Table structure for table `message`
 --
 
+DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `message_id` int(9) NOT NULL,
   `creator_id` int(9) NOT NULL,
@@ -125,8 +123,9 @@ INSERT INTO `message` (`message_id`, `creator_id`, `receiver_id`, `product`, `su
 -- Table structure for table `product`
 --
 
+DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
-  `product_id` int(9) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `product_id` int(9) NOT NULL,
   `seller_id` int(9) NOT NULL,
   `category` int(9) NOT NULL,
   `location` int(9) NOT NULL,
@@ -175,12 +174,13 @@ INSERT INTO `product` (`product_id`, `seller_id`, `category`, `location`, `title
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `user_id` int(9) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `user_id` int(9) NOT NULL,
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `password` binary(60) NOT NULL,
+  `password` longtext NOT NULL,
   `administrator` tinyint(4) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -190,21 +190,22 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email`, `password`, `administrator`, `date_created`) VALUES
-(1, 'Steve', 'Russel', 'steve@gmail.com', 0x243261243132245378652e3555376b3179494279392f6372725849434f643454587069514f3379495554565263632e38524f7050675a695a38575357, 0, '2022-04-29 18:05:32'),
-(2, 'Shauna', 'Jones', 'shauna@gmail.com', 0x243261243132244f36737a3073574c486f72503261494159705a746d2e6c6f784c696375435777706d4d376a4f48715361435565725930526959422e, 0, '2022-04-29 18:05:32'),
-(3, 'Bryan', 'Matthew', 'bryan@gmail.com', 0x243261243132244b58325245565a585a76356742684d396a686e70627550364f61745764744f4e6e455135366a775273456762514966483174494a71, 0, '2022-04-29 18:05:32'),
-(4, 'George', 'Martin', 'george@gmail.com', 0x24326124313224423833466f5a4e35786d4b6d514f467736497050464f6968314771335270617750733249796f33614b744654714473685578546475, 0, '2022-04-29 18:05:32'),
-(5, 'Carly', 'Brown', 'carly@gmail.com', 0x24326124313224517a41496d67455345713753434d5a7a696b6677714f424e78302e787934675867686b3834466555667548665571624a544a77674f, 0, '2022-04-29 18:05:32'),
-(6, 'Noah', 'Williams', 'noah@gmail.com', 0x243261243132247959392f34517466795845626a62665136524431752e474244514c4e315a4933586b5759626a57316f674d306659424a5570702e61, 0, '2022-04-29 18:05:32'),
-(7, 'Olivia', 'Johnson', 'olivia@gmail.com', 0x2432612431322439534c6a7a5343744b42527a5872522e777a5755342e6a773957546973783531584a54366e2f6d4d4a5a71354f6f5a4f6b46684653, 0, '2022-04-29 18:05:32'),
-(8, 'Emma', 'Jones', 'emma@gmail.com', 0x24326124313224785772354448596d5a675071724b50755850342e6f652f4e3567336e4f774c44502e7753322f4f61576b61673359633630376b6d4f, 0, '2022-04-29 18:05:32'),
-(9, 'Elijah', 'Garcia', 'elijah@gmail.com', 0x243261243132244c444f66636d4a635a63757a524f4a6b3132514d434f662f547a6b32416245576849467557774a5674386768734b654232586b4f61, 0, '2022-04-29 18:05:32'),
-(10, 'Charlotte', 'Miller', 'charlotte@gmail.com', 0x243261243132246c50635a2f786f75666974685367676166456e54674f4c50764d375a5a4a3842364a466664376938796931714e6a722e45717a382e, 0, '2022-04-29 18:05:32'),
-(11, 'William', 'Davis', 'william@gmail.com', 0x2432612431322445694c64737a516f73746f6252314b4959637459357569755650516e4a6b7641715265716750547a54355148775664614477466f79, 0, '2022-04-29 18:05:32'),
-(12, 'James', 'Rodriguez', 'james@gmail.com', 0x2432612431322436626b2f302f724b73346e73672e71516a35557a454f704a6b44767445756150752e64322e70467739566c4f30584c422e35364d69, 0, '2022-04-29 18:05:32'),
-(13, 'Amelia', 'Wilson', 'amelia@gmail.com', 0x2432612431322474415038486b4a516e3872693554724d7a4a316a51653570626332374c6148487565782f725561464c3637774e702e366a72656561, 0, '2022-04-29 18:05:32'),
-(14, 'Lucas', 'Anderson', 'lucas@gmail.com', 0x24326124313224586863732f56647943614f6a6d58566a764971733065502e37552f4a2f52584f4e75647a30692f7836795751796f3853663076314b, 0, '2022-04-29 18:05:32'),
-(15, 'Evelyn', 'Thomas', 'evelyn@gmail.com', 0x243261243132242e79434953645647444e6d4c31706539762f7670622e4a6c7264424c476d31304c71426a4c536548675048534b5465564f49553336, 0, '2022-04-29 18:05:32');
+(1, 'Steve', 'Russel', 'steve@gmail.com', '$2a$12$Sxe.5U7k1yIBy9/crrXICOd4TXpiQO3yIUTVRcc.8ROpPgZiZ8WSW', 0, '2022-04-29 18:05:32'),
+(2, 'Shauna', 'Jones', 'shauna@gmail.com', '$2a$12$O6sz0sWLHorP2aIAYpZtm.loxLicuCWwpmM7jOHqSaCUerY0RiYB.', 0, '2022-04-29 18:05:32'),
+(3, 'Bryan', 'Matthew', 'bryan@gmail.com', '$2a$12$KX2REVZXZv5gBhM9jhnpbuP6OatWdtONnEQ56jwRsEgbQIfH1tIJq', 0, '2022-04-29 18:05:32'),
+(4, 'George', 'Martin', 'george@gmail.com', '$2a$12$B83FoZN5xmKmQOFw6IpPFOih1Gq3RpawPs2Iyo3aKtFTqDshUxTdu', 0, '2022-04-29 18:05:32'),
+(5, 'Carly', 'Brown', 'carly@gmail.com', '$2a$12$QzAImgESEq7SCMZzikfwqOBNx0.xy4gXghk84FeUfuHfUqbJTJwgO', 0, '2022-04-29 18:05:32'),
+(6, 'Noah', 'Williams', 'noah@gmail.com', '$2a$12$yY9/4QtfyXEbjbfQ6RD1u.GBDQLN1ZI3XkWYbjW1ogM0fYBJUpp.a', 0, '2022-04-29 18:05:32'),
+(7, 'Olivia', 'Johnson', 'olivia@gmail.com', '$2a$12$9SLjzSCtKBRzXrR.wzWU4.jw9WTisx51XJT6n/mMJZq5OoZOkFhFS', 0, '2022-04-29 18:05:32'),
+(8, 'Emma', 'Jones', 'emma@gmail.com', '$2a$12$xWr5DHYmZgPqrKPuXP4.oe/N5g3nOwLDP.wS2/OaWkag3Yc607kmO', 0, '2022-04-29 18:05:32'),
+(9, 'Elijah', 'Garcia', 'elijah@gmail.com', '$2a$12$LDOfcmJcZcuzROJk12QMCOf/Tzk2AbEWhIFuWwJVt8ghsKeB2XkOa', 0, '2022-04-29 18:05:32'),
+(10, 'Charlotte', 'Miller', 'charlotte@gmail.com', '$2a$12$lPcZ/xoufithSggafEnTgOLPvM7ZZJ8B6JFfd7i8yi1qNjr.Eqz8.', 0, '2022-04-29 18:05:32'),
+(11, 'William', 'Davis', 'william@gmail.com', '$2a$12$EiLdszQostobR1KIYctY5uiuVPQnJkvAqReqgPTzT5QHwVdaDwFoy', 0, '2022-04-29 18:05:32'),
+(12, 'James', 'Rodriguez', 'james@gmail.com', '$2a$12$6bk/0/rKs4nsg.qQj5UzEOpJkDvtEuaPu.d2.pFw9VlO0XLB.56Mi', 0, '2022-04-29 18:05:32'),
+(13, 'Amelia', 'Wilson', 'amelia@gmail.com', '$2a$12$tAP8HkJQn8ri5TrMzJ1jQe5pbc27LaHHuex/rUaFL67wNp.6jreea', 0, '2022-04-29 18:05:32'),
+(14, 'Lucas', 'Anderson', 'lucas@gmail.com', '$2a$12$Xhcs/VdyCaOjmXVjvIqs0eP.7U/J/RXONudz0i/x6yWQyo8Sf0v1K', 0, '2022-04-29 18:05:32'),
+(15, 'Evelyn', 'Thomas', 'evelyn@gmail.com', '$2a$12$.yCISdVGDNmL1pe9v/vpb.JlrdBLGm10LqBjLSeHgPHSKTeVOIU36', 0, '2022-04-29 18:05:32'),
+(16, 'Vishal', 'Sharma', 'vsharma5@mail.sfsu.edu', '$2b$12$nYQK0ytd3/VKVMadIfILj.dKkRig2E/Sv0D/r52zHk50jOdHmdbJy', 0, '2022-05-16 18:25:04');
 
 --
 -- Indexes for dumped tables
@@ -235,6 +236,7 @@ ALTER TABLE `message`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
+  ADD PRIMARY KEY (`product_id`),
   ADD KEY `PRODUCT_CATEGORY_FK` (`category`),
   ADD KEY `PRODUCT_LOCATION_FK` (`location`),
   ADD KEY `PRODUCT_USER_FK` (`seller_id`);
@@ -242,6 +244,24 @@ ALTER TABLE `product`
 --
 -- Indexes for table `user`
 --
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `product_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

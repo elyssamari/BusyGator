@@ -21,8 +21,9 @@ import { useNavigate } from 'react-router-dom';
 import { createListing } from '../services/listingService';
 
 const Post = () => {
-  const userInfo = useContext(DataContext)?.userInfo;
   const navigate = useNavigate();
+  const userInfo = useContext(DataContext)?.userInfo;
+  const users = useContext(DataContext)?.users;
   const categories = useContext(DataContext)?.categories;
   const locations = useContext(DataContext)?.locations;
 
@@ -71,8 +72,8 @@ const Post = () => {
   });
 
   useEffect(() => {
-    console.log(listingInfo);
-  }, [listingInfo]);
+    setListingInfo({ ...listingInfo, sellerID: users.find((data) => data.email === userInfo.email)?.user_id });
+  }, [userInfo]);
 
   function returnTitle() {
     if (categoryFormObj.value) {
@@ -231,7 +232,6 @@ const Post = () => {
         priceFormObj.value &&
         descriptionFormObj.value
       ) {
-        // setListingInfo({ ...listingInfo, sellerID: userID });  Assign ID of user logged in to product seller ID. Must be done before this function due to promise return
 
         createListing(listingInfo);
         navigate('/');

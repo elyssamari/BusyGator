@@ -8,7 +8,7 @@
 
 import React, { useEffect, useContext, useState } from 'react';
 import { Card, Tab, Row, Col, Nav, Table, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DataContext from '../DataContext/DataContext';
 import { getAllUsers } from '../services/userService';
 import { getAllMessages, getMessagesById } from '../services/messageService';
@@ -18,6 +18,8 @@ const MyPage = () => {
   const users = useContext(DataContext)?.users;
   const setUsers = useContext(DataContext)?.setUsers;
   const [messages, setMessages] = useState([]);
+  const userInfo = useContext(DataContext)?.userInfo;
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllMessages().then((data) => {
@@ -47,6 +49,10 @@ const MyPage = () => {
     let lastName =
       users.find((data) => data.user_id === userId)?.last_name || '';
     return firstName + ' ' + lastName;
+  }
+
+  if (!userInfo.userId) {
+    navigate('/Login');
   }
 
   return (

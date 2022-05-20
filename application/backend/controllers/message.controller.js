@@ -23,8 +23,8 @@ const getAllMessages = async (req, res) => {
 const getMessagesById = async (req, res) => {
     try {
         let userId = req.query[0];
-        connection.query(`SELECT * from message message.creator_id=${userId} or message.receiver=${userId}`, (err, results) => {
-            res.send(results[0]);
+        connection.query(`SELECT * from message WHERE message.creator_id=${userId} OR message.receiver_id=${userId}`, (err, results) => {
+            res.send(results);
             if (err) throw err
         });
     } catch (error) {

@@ -66,13 +66,13 @@ const Post = () => {
     title: null,
     category: null,
     price: null,
-    location: 1, // Figure out other default value since input not required
+    location: 1,
     description: null,
-    sellerID: 1, // Change to null once real value is available
+    sellerID: null,
   });
 
   useEffect(() => {
-    setListingInfo({ ...listingInfo, sellerID: users.find((data) => data.email === userInfo.email)?.user_id });
+    setListingInfo({ ...listingInfo, sellerID: userInfo.userId });
   }, [userInfo]);
 
   function returnTitle() {

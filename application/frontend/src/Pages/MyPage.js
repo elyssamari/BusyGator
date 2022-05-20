@@ -10,28 +10,28 @@ import React, { useEffect, useContext, useState } from 'react';
 import { Card, Tab, Row, Col, Nav, Table, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import DataContext from '../DataContext/DataContext';
-import { getAllUsers } from '../services/userService';
 import { getAllMessages, getMessagesById } from '../services/messageService';
 
 const MyPage = () => {
-  const listings = useContext(DataContext)?.listings;
-  const users = useContext(DataContext)?.users;
-  const setUsers = useContext(DataContext)?.setUsers;
-  const [messages, setMessages] = useState([]);
   const userInfo = useContext(DataContext)?.userInfo;
+  const users = useContext(DataContext)?.users;
+  const listings = useContext(DataContext)?.listings;
+  const [userListings, setUserListings] = useState([]);
+  const [messages, setMessages] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    getAllMessages().then((data) => {
-      setMessages(data.data);
-    });
-  }, [setMessages]);
+    if (!userInfo.userId) {
+      navigate('/Login');
+    }
+    else {
+      getMessagesById(userInfo.userId).then((data) => {
+        setMessages(data.data);
+      });
 
-  useEffect(() => {
-    getAllUsers().then((data) => {
-      setUsers(data.data);
-    });
-  }, [setUsers]);
+      setUserListings(listings.filter(listing => listing.seller_id === userInfo.userId));
+    }
+  }, []);
 
   function getDateString(date) {
     return new Date(date).toLocaleString();
@@ -49,10 +49,6 @@ const MyPage = () => {
     let lastName =
       users.find((data) => data.user_id === userId)?.last_name || '';
     return firstName + ' ' + lastName;
-  }
-
-  if (!userInfo.userId) {
-    navigate('/Login');
   }
 
   return (
@@ -116,7 +112,7 @@ const MyPage = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {listings.map((data, index) => (
+                        {userListings.map((data, index) => (
                           <tr key={`div_${index}`}>
                             <td>
                               {getListingName(data.product_id) && (

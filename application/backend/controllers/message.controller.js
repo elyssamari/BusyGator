@@ -32,7 +32,20 @@ const getMessagesById = async (req, res) => {
     }
 };
 
+const createMessage = async (req, res) => {
+    try {
+        const { creatorId = "", receiverId = "", product = "", subject = "", messageBody = "" } = req.query;
+        let baseSQL = "INSERT INTO message (creator_id, receiver_id, product, subject, message_body, date_created) VALUES (?, ?, ?, ?, ?, now());";
+        connection.query(baseSQL, [creatorId, receiverId, product, subject, messageBody], (err, results) => {
+            if (err) throw err
+        });
+    } catch (error) {
+        res.status(500).json(error)
+    }
+};
+
 module.exports = {
     getAllMessages,
-    getMessagesById
+    getMessagesById,
+    createMessage
 };

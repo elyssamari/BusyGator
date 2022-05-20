@@ -262,6 +262,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  
+  --
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `message_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables

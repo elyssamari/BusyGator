@@ -24,19 +24,21 @@ const Members = () => {
 
   return (
     <>
-      <h1 className="hello"> Hello, I am </h1>
-      <h1 className="nametitle">{currentUser.fullName || ''}</h1>
-      <p className="profiletext">{currentUser.desc || ''}</p>
-      <img src={currentUser.image || ''} alt={currentUser.alt}></img>
-      <br></br>
-      <Link
-        id="memberbutton"
-        to="/About"
-        className="btn btn-primary btn-lg"
-        role="button"
-      >
-        go back
-      </Link>
+      <div className="setHeight">
+        <h1 className="hello"> Hello, I am </h1>
+        <h1 className="nametitle">{currentUser.fullName || ''}</h1>
+        <p className="profiletext">{currentUser.desc || ''}</p>
+        <img src={currentUser.image || ''} alt={currentUser.alt}></img>
+        <br></br>
+        <Link
+          id="memberbutton"
+          to="/About"
+          className="btn btn-primary btn-lg"
+          role="button"
+        >
+          go back
+        </Link>
+      </div>
     </>
   );
 };

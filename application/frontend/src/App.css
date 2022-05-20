@@ -470,13 +470,10 @@ html, body, #app {
   min-height: calc(100% - 262px);
 }
 
-#logInHolder{
-  min-height: calc(100% - 246px);
-}
-
-#myPageHolder{
-  min-height: calc(100% - 246px);
-}
 #aboutHolder{
   min-height: calc(100% - 400px);
+}
+
+.setHeight{
+  min-height: calc(100% - 246px);
 }

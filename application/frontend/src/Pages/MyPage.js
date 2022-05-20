@@ -57,7 +57,7 @@ const MyPage = () => {
 
   return (
     <>
-      <div id="myPageHolder">
+      <div className="setHeight">
         <Card id="welcomeCard">
           <Card.Header id="cardHeader" className="text-center">
             <h1>Welcome</h1>

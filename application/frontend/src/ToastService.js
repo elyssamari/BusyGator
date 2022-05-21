@@ -1,3 +1,11 @@
+/*
+ * FILE: ToastService.js
+ * 
+ * AUTHOR(S): Vishal Ramanand Sharma, Samantha Saxton-Getty
+ *
+ * PURPOSE: This file contains the information for react toast.
+ */
+
 import { toast } from 'react-toastify';
 
 export function toastSuccess(title) {

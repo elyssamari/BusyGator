@@ -1,3 +1,12 @@
+/*
+ * FILE: Map.js
+ * 
+ * AUTHOR(S): Samantha Saxton-Getty, Elyssa Mari Tapawan
+ *
+ * PURPOSE: This file contains the page for presenting the map
+ * locations and legend.
+ */
+
 import React from 'react';
 import { Card } from 'react-bootstrap';
 

@@ -9,12 +9,7 @@
 
 import React, { useEffect, useContext, useState } from 'react';
 import DataContext from '../DataContext/DataContext';
-import { 
-  Card,
-  Button,
-  Form,
-  InputGroup,
-} from 'react-bootstrap';
+import { Card, Button, Form, InputGroup } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { toastError, toastSuccess } from '../ToastService';
 import { createMessage } from '../services/messageService';
@@ -22,7 +17,7 @@ import { getListingById } from '../services/listingService';
 
 const Messages = () => {
   const navigate = useNavigate();
-  const userInfo = useContext(DataContext)?.userInfo;;
+  const userInfo = useContext(DataContext)?.userInfo;
   const users = useContext(DataContext)?.users;
 
   const [messageInfo, setMessageInfo] = useState({
@@ -30,7 +25,7 @@ const Messages = () => {
     receiverId: '',
     product: '',
     subject: '',
-    messageBody: ''
+    messageBody: '',
   });
 
   let productId = useParams().productId;
@@ -40,7 +35,8 @@ const Messages = () => {
 
       setMessageInfo({
         ...messageInfo,
-        creatorId: users.find((userData) => userData.email === userInfo.email)?.user_id,
+        creatorId: users.find((userData) => userData.email === userInfo.email)
+          ?.user_id,
         receiverId: listing.seller_id,
         product: productId,
         subject: listing.title,
@@ -54,7 +50,7 @@ const Messages = () => {
         createMessage(messageInfo);
         navigate('/');
         toastSuccess('Message sent');
-      } catch(error) {
+      } catch (error) {
         toastError(error);
       }
     } else {
@@ -64,50 +60,36 @@ const Messages = () => {
 
   return (
     <>
-      <div className="setHeight">
-        <Card id="messagesCard">
-          <Card.Header className="text-center">
-            <h1>Messages</h1>
-          </Card.Header>
-          <Card.Body>
-            <Form onSubmit={onFormSubmit}>
-              <Form.Label></Form.Label>
-              <Form.Group>
-                <Form.Control
-                  as="textarea"
-                  rows={4}
-                  placeholder="Click here to write a message"
-                  required
-                  onChange={(e) =>
-                    setMessageInfo({
-                    ...messageInfo,
-                    messageBody: e.target.value,
-                    })
-                  }
-                />
+      <Card id="messagesCard">
+        <Card.Header className="text-center">
+          <h1>Messages</h1>
+        </Card.Header>
+        <Card.Body>
+          <Card id="textMessage">
+            <Card.Body id="message-box"> </Card.Body>
+          </Card>
+          <Form>
+            <Form.Group>
+              <Form.Control
+                id="message-text-box"
+                as="textarea"
+                rows={4}
+                placeholder="Click here to write a message"
+              />
+            </Form.Group>
 
-                <Link
-                  id="cancelButton"
-                  to="/"
-                  className="btn btn-primary btn-lg"
-                  role="button"
-                >
-                  Cancel{' '}
-                </Link>
+            <Form.Group className="text-center">
+              <Button id="cancelButton" className="primary">
+                Cancel{' '}
+              </Button>
 
-                <Button
-                  id="sentMessageButton"
-                  className="btn btn-primary btn-lg"
-                  type="submit"
-                  role="button"
-                >
-                  Send Message{' '}
-                </Button>
-              </Form.Group>
-            </Form>
-          </Card.Body>
-        </Card>
-      </div>
+              <Button id="sentMessageButton" className="primary">
+                Send Message{' '}
+              </Button>
+            </Form.Group>
+          </Form>
+        </Card.Body>
+      </Card>
     </>
   );
 };

@@ -7,7 +7,16 @@
  */
 
 import React, { useEffect, useContext, useState } from 'react';
-import { Card, Tab, Row, Col, Nav, Table, Button } from 'react-bootstrap';
+import {
+  Card,
+  Tab,
+  Row,
+  Col,
+  Nav,
+  Table,
+  Button,
+  Container,
+} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import DataContext from '../DataContext/DataContext';
 import { getAllMessages, getMessagesById } from '../services/messageService';
@@ -23,13 +32,14 @@ const MyPage = () => {
   useEffect(() => {
     if (!userInfo.userId) {
       navigate('/Login');
-    }
-    else {
+    } else {
       getMessagesById(userInfo.userId).then((data) => {
         setMessages(data.data);
       });
 
-      setUserListings(listings.filter(listing => listing.seller_id === userInfo.userId));
+      setUserListings(
+        listings.filter((listing) => listing.seller_id === userInfo.userId)
+      );
     }
   }, []);
 
@@ -79,24 +89,28 @@ const MyPage = () => {
                   <Tab.Pane eventKey="msgs">
                     {messages.map((data, index) => (
                       <Card id="messageCard" key={`div_${index}`}>
-                        <Table bordered id="msgContent">
-                          <tbody>
-                            <tr>
-                              <td>{getDateString(data.date_created)}</td>
-                              <td>{getUserName(data.creator_id)}</td>
-                              <td>⇢</td>
-                              <td>{getUserName(data.receiver_id)}</td>
-                              <td>
-                                {(getListingName(data.product) && (
-                                  <Link to={`/Product/${data.product}`}>
-                                    {getListingName(data.product)}
-                                  </Link>
-                                )) ||
-                                  'Post waiting for approval'}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </Table>
+                        <Container>
+                          <Row id="msgRow">
+                            <Col className="msgCol text-center">
+                              {getDateString(data.date_created)}
+                            </Col>
+                            <Col className="msgCol text-center">
+                              {getUserName(data.creator_id)}
+                            </Col>
+                            <Col className="msgCol text-center">⇢</Col>
+                            <Col className="msgCol">
+                              {getUserName(data.receiver_id)}
+                            </Col>
+                            <Col className="msgCol text-center">
+                              {(getListingName(data.product) && (
+                                <Link to={`/Product/${data.product}`}>
+                                  {getListingName(data.product)}
+                                </Link>
+                              )) ||
+                                'Post waiting for approval'}
+                            </Col>
+                          </Row>
+                        </Container>
                         <Card.Text id="messageText">
                           {data.message_body}
                         </Card.Text>

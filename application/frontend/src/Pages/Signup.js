@@ -375,7 +375,7 @@ const Signup = () => {
             </Form.Group>
           </Form>
           <Card.Text id="login_signup_text" className="text-center">
-            Have an account?
+            Already have an account?
             <span className="space"></span>
             <Link to="/Login">Login Here</Link>
           </Card.Text>

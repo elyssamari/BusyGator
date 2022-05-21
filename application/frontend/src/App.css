@@ -45,29 +45,15 @@ a:hover{
 }
 
 .homeheader{
-  margin-top: 75px;
-  margin-left: 50px;
-  font-family: "Lucida Console", "Courier New", monospace;
-  font-size: 12px;
-}
-
-.welcome{
-  color:#434652;
+  margin-left: 40px;
+  font-size: 40px;
   margin-top: 20px;
-  margin-left: 130px;
-  font-weight: 20;
-}
-
-.about{
+  margin-bottom: 40px;
   color:#434652;
-  margin-top: 20px;
-  margin-left: 7px;
-  font-weight: 100;
 }
 
 .homep{
   color:#434652;
-  font-family: "Garamond", monospace;
   margin-top: 100px;
   margin-left: 55px;
   font-size: 40px;
@@ -76,7 +62,6 @@ a:hover{
 
 .homep1{
   color:#434652;
-  font-family: "Garamond", monospace;
   margin-top: 50px;
   margin-left: 55px;
   font-size: 30px;
@@ -85,7 +70,6 @@ a:hover{
 
 .homep2{
   color:#434652;
-  font-family: "Garamond", monospace;
   margin-top: 50px;
   margin-left: 55px;
   font-size: 30px;
@@ -93,23 +77,14 @@ a:hover{
 }
 
 .name1{
-  font-family: "Lucida Console", "Courier New", monospace;
-  font-size: 30px;
-  font-weight: 100;
-  margin-left: 120px;
-  margin-bottom: 55px;
+  margin-bottom: 50px;
   display:inline-block;
-  height: 60px;
-  width: 420px;
-  background-color: #b9a398;
+  height: 80px;
+  width: 630px;
   border-radius: 25px;
   text-align: center;
   padding-top: 10px;
-}
-
-img{
-  float: right;
-  margin-right: 5%;
+  margin-left: auto;
 }
 
 @media (max-width: 950px){
@@ -122,18 +97,15 @@ img{
   }
 }
 
+#profile-image{
+  height: 500px;
+  width: 400px;
+}
+
 .title{
   margin-top: 2px;
   font-size: 15px;
 }
-
-.namelink{
-  /* margin-top: 50px; */
-  display:inline-block;
-  margin-left: auto;
-  /* margin-bottom: 110px; */
-}
-
 
 a.name1:link {
   color:white;
@@ -171,7 +143,6 @@ a.nav:hover{
 }
 
 .hello{
-  font-family: "Garamond", monospace;
   font-size: 40px;
   color:#434652;
   margin-left: 50px;
@@ -185,9 +156,7 @@ a.nav:hover{
 }
 
 .nametitle{
-  font-family: "Lucida Console", "Courier New", monospace;
-  color: #b9a398;
-  font-weight: 100;
+  font-weight: 500;
   font-size: 60px;
   margin-left: 50px;
   margin-top: -10px;
@@ -195,15 +164,9 @@ a.nav:hover{
 }
 
 .profiletext{
-  font-family: "Garamond", monospace;
   color:#434652;
-  font-weight: 100;
-  margin-left: 55px;
-  width: 60%;
-  font-size: 30px;
-  margin-top: -10px;
-  margin-right: 55px;
-  display: inline-block;
+  font-weight: 450;
+  font-size: 20px;
 }
 
 #navlink{
@@ -266,10 +229,11 @@ margin-left: 10px;
   margin-bottom: 25px;
 }
 
-#sentMessageButton{
-  width: 170px;
-  margin: 10px; 
+#map_card{
+  max-width: 694px;
+  margin: 0 auto; 
   margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 #messagesCard{
@@ -283,15 +247,6 @@ margin-left: 10px;
 
 #textMessage{
   background-color: #e9ecef;
-}
-
-#cancelButton{
-  width: 100px;
-  margin:10px; 
-  margin-top: 25px;
-  margin-left: 10px;
-  background-color: gray;
-  border-color: gainsboro;
 }
 
 #login_signin_button{
@@ -348,6 +303,29 @@ margin-left: 10px;
   border-color: gainsboro;
 }
 
+#cancelButton{
+  width: 100px;
+  border-color: gainsboro;
+  background-color: gray;
+  margin-top: 15px;
+  margin-right: 50px;
+}
+
+#sentMessageButton{
+  width: 150px;
+  border-color: gainsboro;
+  margin-top: 15px;
+}
+
+#message-text-box{
+  margin-top: 25px;
+  height: 200px;
+}
+
+#message-box{
+  height: 246px;
+}
+
 #product_detail_button{
   width: 250px;
   margin: 0 auto; 
@@ -355,7 +333,7 @@ margin-left: 10px;
 }
 
 #memberbutton{
-  margin-left: 55px;
+  margin-left: 40%;
   margin-bottom: 40px;
 }
  #maxWidth100{
@@ -432,15 +410,16 @@ margin-bottom: 15px;
 } */
 
 #messageCard{
-  background-color: #F8F8F8;
+  /* background-color: #F8F8F8; */
   margin: 10px;
   border-radius: 0px;
 }
 
 #messageText{
-  margin-left: 10px;
+  margin-left: 30px;
+  margin-top: 15px;
   margin-bottom: 10px;
-
+  margin-right: 30px;
 }
 
 #postContent{
@@ -476,4 +455,38 @@ html, body, #app {
 
 .setHeight{
   min-height: calc(100% - 246px);
+}
+
+#aboutHolder{
+  min-height: calc(100% - 334px);
+}
+
+.msgCol{
+  background-color: #E8E8E8;
+  margin: 1px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+#msgRow{
+  margin-top: 10px;
+}
+
+#map-link{
+  margin-top: -10px;
+  font-size: 13px;
+}
+
+#map-image{
+  height: 706px;
+  width: 694px;
+}
+
+#forgot-password-text{
+  margin-top: 35px;
+}
+
+#in-stock{
+  font-weight: 700;
+  font-size: large;
 }

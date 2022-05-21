@@ -1,3 +1,13 @@
+/*
+ * FILE: ForgotPassword.js
+ * 
+ * AUTHOR(S): Vishal Ramanand Sharma, Abdullah Sharaf, 
+ * Samantha Saxton-Getty, Elyssa Mari Tapawan
+ *
+ * PURPOSE: This file contains the page for when a user forgets
+ * their password.
+ */
+
 import React from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 

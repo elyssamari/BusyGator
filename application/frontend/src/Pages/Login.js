@@ -1,3 +1,13 @@
+/*
+ * FILE: Login.js
+ * 
+ * AUTHOR(S): Aaron Carlson, Siqi Guo, Janvi Patel, Vishal Ramanand Sharma,
+ * Abdullah Sharaf, Samantha Saxton-Getty, Elyssa Mari Tapawan
+ *
+ * PURPOSE: This file contains the page for logging in and
+ * out of the website.
+ */
+
 import React, { useState, useContext } from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';

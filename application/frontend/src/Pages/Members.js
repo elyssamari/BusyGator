@@ -25,36 +25,38 @@ const Members = () => {
 
   return (
     <>
-      <h1 className="hello"> Hello, I am </h1>
-      <h1 className="nametitle">{currentUser.fullName || ''}</h1>
+      <div className="setHeight">
+        <h1 className="hello"> Hello, I am </h1>
+        <h1 className="nametitle">{currentUser.fullName || ''}</h1>
 
-      <Card
-        style={{ width: '25rem' }}
-        id="product_card"
-        className="card-center"
-      >
-        <Card.Img
-          variant="top"
-          id="profile-image"
-          src={currentUser.image || ''}
-          alt={currentUser.alt}
-        />
-        <Card.Body>
-          <Card.Text className="profiletext">
-            {currentUser.desc || ''}
-          </Card.Text>
+        <Card
+          style={{ width: '25rem' }}
+          id="product_card"
+          className="card-center"
+        >
+          <Card.Img
+            variant="top"
+            id="profile-image"
+            src={currentUser.image || ''}
+            alt={currentUser.alt}
+          />
+          <Card.Body>
+            <Card.Text className="profiletext">
+              {currentUser.desc || ''}
+            </Card.Text>
 
-          <br></br>
-          <Link
-            id="memberbutton"
-            to="/About"
-            className="btn btn-primary btn-md"
-            role="button"
-          >
-            Go Back
-          </Link>
-        </Card.Body>
-      </Card>
+            <br></br>
+            <Link
+              id="memberbutton"
+              to="/About"
+              className="btn btn-primary btn-md"
+              role="button"
+            >
+              Go Back
+            </Link>
+          </Card.Body>
+        </Card>
+      </div>
     </>
   );
 };

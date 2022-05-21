@@ -60,36 +60,38 @@ const Messages = () => {
 
   return (
     <>
-      <Card id="messagesCard">
-        <Card.Header className="text-center">
-          <h1>Messages</h1>
-        </Card.Header>
-        <Card.Body>
-          <Card id="textMessage">
-            <Card.Body id="message-box"> </Card.Body>
-          </Card>
-          <Form>
-            <Form.Group>
-              <Form.Control
-                id="message-text-box"
-                as="textarea"
-                rows={4}
-                placeholder="Click here to write a message"
-              />
-            </Form.Group>
+      <div className="setHeight">
+        <Card id="messagesCard">
+          <Card.Header className="text-center">
+            <h1>Messages</h1>
+          </Card.Header>
+          <Card.Body>
+            <Card id="textMessage">
+              <Card.Body id="message-box"> </Card.Body>
+            </Card>
+            <Form>
+              <Form.Group>
+                <Form.Control
+                  id="message-text-box"
+                  as="textarea"
+                  rows={4}
+                  placeholder="Click here to write a message"
+                />
+              </Form.Group>
 
-            <Form.Group className="text-center">
-              <Button id="cancelButton" className="primary">
-                Cancel{' '}
-              </Button>
+              <Form.Group className="text-center">
+                <Button id="cancelButton" className="primary">
+                  Cancel{' '}
+                </Button>
 
-              <Button id="sentMessageButton" className="primary">
-                Send Message{' '}
-              </Button>
-            </Form.Group>
-          </Form>
-        </Card.Body>
-      </Card>
+                <Button id="sentMessageButton" className="primary">
+                  Send Message{' '}
+                </Button>
+              </Form.Group>
+            </Form>
+          </Card.Body>
+        </Card>
+      </div>
     </>
   );
 };

@@ -454,7 +454,7 @@ html, body, #app {
 }
 
 .setHeight{
-  min-height: calc(100% - 246px);
+  min-height: calc(100% - 238px);
 }
 
 #aboutHolder{
@@ -489,15 +489,4 @@ html, body, #app {
 #in-stock{
   font-weight: 700;
   font-size: large;
-}
-
-.msgCol{
-  background-color: #E8E8E8;
-  margin: 1px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-}
-
-#msgRow{
-  margin-top: 10px;
 }

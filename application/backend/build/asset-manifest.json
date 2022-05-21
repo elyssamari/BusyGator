@@ -1,5 +1,9 @@
 {
   "files": {
+<<<<<<< HEAD
+    "main.css": "./static/css/main.8ac77632.css",
+    "main.js": "./static/js/main.9c5e12cf.js",
+=======
     "main.css": "./static/css/main.4a9f5b01.css",
 <<<<<<< HEAD
     "main.js": "./static/js/main.3c2a1370.js",
@@ -12,13 +16,19 @@
     "static/js/main.3c2a1370.js"
 =======
     "main.js": "./static/js/main.7e109eb0.js",
+>>>>>>> main
     "index.html": "./index.html",
-    "main.4a9f5b01.css.map": "./static/css/main.4a9f5b01.css.map",
-    "main.7e109eb0.js.map": "./static/js/main.7e109eb0.js.map"
+    "main.8ac77632.css.map": "./static/css/main.8ac77632.css.map",
+    "main.9c5e12cf.js.map": "./static/js/main.9c5e12cf.js.map"
   },
   "entrypoints": [
+<<<<<<< HEAD
+    "static/css/main.8ac77632.css",
+    "static/js/main.9c5e12cf.js"
+=======
     "static/css/main.4a9f5b01.css",
     "static/js/main.7e109eb0.js"
+>>>>>>> main
 >>>>>>> main
   ]
 }

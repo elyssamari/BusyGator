@@ -20,12 +20,15 @@ import {
   Card,
 } from 'react-bootstrap';
 import DataContext from '../DataContext/DataContext';
+import { Link, useNavigate } from 'react-router-dom';
+import { toastError, toastSuccess } from '../ToastService';
 import { getAllCategories } from '../services/categoryService';
 import { getAllListings, getListingByFilter } from '../services/listingService';
-import { Link, useNavigate } from 'react-router-dom';
 import { getAllLocations } from '../services/locationService';
 
 const NavBar = () => {
+  const userInfo = useContext(DataContext)?.userInfo;
+  const setUserInfo = useContext(DataContext)?.setUserInfo;
   const categories = useContext(DataContext)?.categories;
   const setCategories = useContext(DataContext)?.setCategories;
   const setListings = useContext(DataContext)?.setListings;
@@ -38,6 +41,21 @@ const NavBar = () => {
   const navigate = useNavigate();
   let invalidStatus = false;
   let errorMessage = [];
+
+  // logout the user
+  function handleLogout() {
+    try {
+      setUserInfo({
+        email: null,
+        firstName: null,
+        lastName: null,
+        userId: null,
+      });
+      toastSuccess('Logout Successful');
+    } catch(error) {
+      toastError(error);
+    }
+  }
 
   useEffect(() => {
     // This will set the categories to search from once it has been set
@@ -219,9 +237,14 @@ const NavBar = () => {
           <Link id="navlink" className="nav-link" to="/About">
             About Us
           </Link>
+          {(userInfo.email && (
+            <Link id="navlink" className="nav-link" to="/Login" onClick={handleLogout}>
+              Logout
+            </Link>
+          )) ||
           <Link id="navlink" className="nav-link" to="/Login">
-            Login/Signup
-          </Link>
+              Login/Signup
+            </Link>}
         </div>
       </Navbar>
     </>

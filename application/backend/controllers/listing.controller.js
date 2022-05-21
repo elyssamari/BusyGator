@@ -164,12 +164,13 @@ const createListing = async (req, res) => {
         const { title = "", category = "", price = "", location = "", description = "", sellerID = "" } = req.body;
         const { imageFile = "" } = req.files;
         let totalCount = 0;
-        connection.query(`select count(*) as totalCount 
-        from product where approved = 1;`, (err, countResult) => {
-            totalCount = countResult[0].totalCount + 1;
+        connection.query(`select count(*) as totalCount from product;`, (err, res) => {
+            totalCount = res[0].totalCount + 1;
+        });
+        connection.query(`SELECT * from product where approved = 1;`, (err, countResult) => {
             const fileName = title.trim().toLowerCase().replace(/ /g, "_") + "." + mime.extension(imageFile.mimetype);
             let baseSQL = "INSERT INTO product (seller_id, category, location, title, description, image, image_thumbnail, price, date_created) VALUES (?, ?, ?, ?, ?, ?, ?, ?, now());";
-            connection.query(baseSQL, [1, parseInt(category), parseInt(location), title, description, (totalCount + '_' + fileName), (totalCount + '_thumbnail_' + fileName), parseInt(price)], (err, results) => {
+            connection.query(baseSQL, [sellerID, parseInt(category), parseInt(location), title, description, (totalCount + '_' + fileName), (totalCount + '_thumbnail_' + fileName), parseInt(price)], (err, results) => {
                 if (err) throw err
                 else {
                     fs.writeFileSync(`./uploads/images/${totalCount + "_" + fileName}`, imageFile.data)

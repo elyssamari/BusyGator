@@ -12,5 +12,6 @@ const router = express.Router();
 
 router.get('/getAllMessages', messageController.getAllMessages);
 router.get('/getMessagesById', messageController.getMessagesById);
+router.get('/createMessage', messageController.createMessage);
 
 module.exports = router;

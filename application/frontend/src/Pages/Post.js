@@ -21,8 +21,9 @@ import { useNavigate } from 'react-router-dom';
 import { createListing } from '../services/listingService';
 
 const Post = () => {
-  const userInfo = useContext(DataContext)?.userInfo;
   const navigate = useNavigate();
+  const userInfo = useContext(DataContext)?.userInfo;
+  const users = useContext(DataContext)?.users;
   const categories = useContext(DataContext)?.categories;
   const locations = useContext(DataContext)?.locations;
 
@@ -65,14 +66,14 @@ const Post = () => {
     title: null,
     category: null,
     price: null,
-    location: 1, // Figure out other default value since input not required
+    location: 1,
     description: null,
-    sellerID: 1, // Change to null once real value is available
+    sellerID: null,
   });
 
   useEffect(() => {
-    console.log(listingInfo);
-  }, [listingInfo]);
+    setListingInfo({ ...listingInfo, sellerID: userInfo.userId });
+  }, [userInfo]);
 
   function returnTitle() {
     if (categoryFormObj.value) {
@@ -231,7 +232,6 @@ const Post = () => {
         priceFormObj.value &&
         descriptionFormObj.value
       ) {
-        // setListingInfo({ ...listingInfo, sellerID: userID });  Assign ID of user logged in to product seller ID. Must be done before this function due to promise return
 
         createListing(listingInfo);
         navigate('/');

@@ -8,28 +8,30 @@
 
 import React, { useEffect, useContext, useState } from 'react';
 import { Card, Tab, Row, Col, Nav, Table, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DataContext from '../DataContext/DataContext';
-import { getAllUsers } from '../services/userService';
 import { getAllMessages, getMessagesById } from '../services/messageService';
 
 const MyPage = () => {
-  const listings = useContext(DataContext)?.listings;
+  const userInfo = useContext(DataContext)?.userInfo;
   const users = useContext(DataContext)?.users;
-  const setUsers = useContext(DataContext)?.setUsers;
+  const listings = useContext(DataContext)?.listings;
+  const [userListings, setUserListings] = useState([]);
   const [messages, setMessages] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getAllMessages().then((data) => {
-      setMessages(data.data);
-    });
-  }, [setMessages]);
+    if (!userInfo.userId) {
+      navigate('/Login');
+    }
+    else {
+      getMessagesById(userInfo.userId).then((data) => {
+        setMessages(data.data);
+      });
 
-  useEffect(() => {
-    getAllUsers().then((data) => {
-      setUsers(data.data);
-    });
-  }, [setUsers]);
+      setUserListings(listings.filter(listing => listing.seller_id === userInfo.userId));
+    }
+  }, []);
 
   function getDateString(date) {
     return new Date(date).toLocaleString();
@@ -51,7 +53,7 @@ const MyPage = () => {
 
   return (
     <>
-      <div id="myPageHolder">
+      <div className="setHeight">
         <Card id="welcomeCard">
           <Card.Header id="cardHeader" className="text-center">
             <h1>Welcome</h1>
@@ -110,7 +112,7 @@ const MyPage = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {listings.map((data, index) => (
+                        {userListings.map((data, index) => (
                           <tr key={`div_${index}`}>
                             <td>
                               {getListingName(data.product_id) && (

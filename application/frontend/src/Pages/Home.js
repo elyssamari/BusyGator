@@ -118,7 +118,7 @@ const Home = () => {
                     </Button>
                   </Link>
                   <span className="button-space"></span>
-                  <Link to="/Messages">
+                  <Link to={`/Message/${data.product_id}`}>
                     <Button variant="primary">Message Seller</Button>
                   </Link>
                 </Card.Text>

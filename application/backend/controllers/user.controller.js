@@ -39,7 +39,8 @@ const createUser = async (req, res) => {
         let hashedPassword = bcrypt.hashSync(password, 12);
         let baseSQL = "INSERT INTO user (first_name, last_name, email, password, date_created) VALUES (?, ?, ?, ?, now());";
         connection.query(baseSQL, [firstName, lastName, email, hashedPassword], (err, results) => {
-            if (err) throw err
+            res.send(results);
+            if (err) throw err;
         });
     } catch (error) {
         res.status(500).json(error)

@@ -18,6 +18,7 @@ import {
   DropdownButton,
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { toastError, toastSuccess } from '../ToastService';
 import { createListing } from '../services/listingService';
 
 const Post = () => {
@@ -72,7 +73,12 @@ const Post = () => {
   });
 
   useEffect(() => {
-    setListingInfo({ ...listingInfo, sellerID: userInfo.userId });
+    if (userInfo.userId) {
+      setListingInfo({ ...listingInfo, sellerID: userInfo.userId });
+    }
+    else {
+      navigate('/Login');
+    }
   }, [userInfo]);
 
   function returnTitle() {
@@ -155,89 +161,88 @@ const Post = () => {
 
   function onPostSubmit() {
     console.log(userInfo);
-    if (userInfo.email) {
-      // Check if user is logged in
-      // Prevent form from submitting before all fields are checked
-      let waitForCheck = false;
-      //  Check if file is a valid image
-      if (
-        !imageFormObj.value ||
-        imageFormObj.value['type'].split('/')[0] !== 'image'
-      ) {
-        waitForCheck = true;
-        setImageFormObj({
-          ...imageFormObj,
-          isValid: false,
-          errorMessage: 'Please add an image',
-        });
-      }
+    // Prevent form from submitting before all fields are checked
+    let waitForCheck = false;
+    //  Check if file is a valid image
+    if (
+      !imageFormObj.value ||
+      imageFormObj.value['type'].split('/')[0] !== 'image'
+    ) {
+      waitForCheck = true;
+      setImageFormObj({
+        ...imageFormObj,
+        isValid: false,
+        errorMessage: 'Please add an image',
+      });
+    }
 
-      if (!agreementFormObj.value) {
-        waitForCheck = true;
-        setAgreementFormObj({
-          ...titleFormObj,
-          isValid: false,
-        });
-      }
+    if (!agreementFormObj.value) {
+      waitForCheck = true;
+      setAgreementFormObj({
+        ...titleFormObj,
+        isValid: false,
+      });
+    }
 
-      if (!titleFormObj.value) {
-        waitForCheck = true;
-        setTitleFormObj({
-          ...titleFormObj,
-          isValid: false,
-          errorMessage: 'Please fill in title field',
-        });
-      }
+    if (!titleFormObj.value) {
+      waitForCheck = true;
+      setTitleFormObj({
+        ...titleFormObj,
+        isValid: false,
+        errorMessage: 'Please fill in title field',
+      });
+    }
 
-      if (!categoryFormObj.value) {
-        waitForCheck = true;
-        setCategoryFormObj({
-          ...categoryFormObj,
-          isValid: false,
-          errorMessage: 'Please select a category',
-        });
-      }
+    if (!categoryFormObj.value) {
+      waitForCheck = true;
+      setCategoryFormObj({
+        ...categoryFormObj,
+        isValid: false,
+        errorMessage: 'Please select a category',
+      });
+    }
 
-      if (!locationFormObj.value) {
-        waitForCheck = true;
-        setLocationFormObj({
-          ...locationFormObj,
-          isValid: false,
-          errorMessage: 'Please select a location',
-        });
-      }
+    if (!locationFormObj.value) {
+      waitForCheck = true;
+      setLocationFormObj({
+        ...locationFormObj,
+        isValid: false,
+        errorMessage: 'Please select a location',
+      });
+    }
 
-      if (!priceFormObj.value) {
-        waitForCheck = true;
-        setPriceFormObj({
-          ...priceFormObj,
-          isValid: false,
-          errorMessage: 'Please enter number in price field',
-        });
-      }
+    if (!priceFormObj.value) {
+      waitForCheck = true;
+      setPriceFormObj({
+        ...priceFormObj,
+        isValid: false,
+        errorMessage: 'Please enter number in price field',
+      });
+    }
 
-      if (!descriptionFormObj.value) {
-        setDescriptionFormObj({
-          ...descriptionFormObj,
-          isValid: false,
-          errorMessage: 'Please fill in description field',
-        });
-      }
+    if (!descriptionFormObj.value) {
+      setDescriptionFormObj({
+        ...descriptionFormObj,
+        isValid: false,
+        errorMessage: 'Please fill in description field',
+      });
+    }
 
-      if (
-        !waitForCheck &&
-        imageFormObj.value &&
-        titleFormObj.value &&
-        categoryFormObj.value &&
-        priceFormObj.value &&
-        descriptionFormObj.value
-      ) {
-
+    if (
+      !waitForCheck &&
+      imageFormObj.value &&
+      titleFormObj.value &&
+      categoryFormObj.value &&
+      priceFormObj.value &&
+      descriptionFormObj.value
+    ) {
+      try {
         createListing(listingInfo);
         navigate('/');
+        toastSuccess('Post Created Successfully\nWaiting For Approval');
+      } catch(error) {
+        toastError(error.message);
       }
-    } else {
-      navigate('/Signup');
     }
   }
 
@@ -410,7 +415,11 @@ const Post = () => {
             </Form.Group>
 
             <Form.Group className="text-center">
-              <Button id="postbutton1" variant="primary">
+              <Button
+                id="postbutton1"
+                variant="primary"
+                type="reset"
+              >
                 Cancel
               </Button>
               <Button

@@ -30,31 +30,31 @@ const Messages = () => {
 
   let productId = useParams().productId;
   useEffect(() => {
-    getListingById(productId).then((data) => {
-      let listing = data.data;
-
-      setMessageInfo({
-        ...messageInfo,
-        creatorId: users.find((userData) => userData.email === userInfo.email)
-          ?.user_id,
-        receiverId: listing.seller_id,
-        product: productId,
-        subject: listing.title,
+    if (!userInfo.userId) {
+      navigate('/Login');
+    }
+    else {
+      getListingById(productId).then((data) => {
+        let listing = data.data;
+  
+        setMessageInfo({
+          ...messageInfo,
+          creatorId: users.find((userData) => userData.email === userInfo.email)?.user_id,
+          receiverId: listing.seller_id,
+          product: productId,
+          subject: listing.title,
+        });
       });
-    });
+    }
   }, []);
 
   function onFormSubmit() {
-    if (userInfo.email) {
-      try {
-        createMessage(messageInfo);
-        navigate('/');
-        toastSuccess('Message sent');
-      } catch (error) {
-        toastError(error);
-      }
-    } else {
-      navigate('/Signup');
+    try {
+      createMessage(messageInfo);
+      navigate('/');
+      toastSuccess('Message Sent');
+    } catch(error) {
+      toastError(error.message);
     }
   }
 
@@ -80,7 +80,12 @@ const Messages = () => {
               </Form.Group>
 
               <Form.Group className="text-center">
-                <Button id="cancelButton" className="primary">
+                <Button
+                  id="cancelButton"
+                  className="primary"
+                  role="button"
+                  type="reset"
+                >
                   Cancel{' '}
                 </Button>
 

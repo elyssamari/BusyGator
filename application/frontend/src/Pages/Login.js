@@ -9,7 +9,6 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const setUserInfo = useContext(DataContext)?.setUserInfo;
-  const userInfo = useContext(DataContext)?.userInfo;
 
   // logout the user
   const handleLogout = () => {
@@ -43,15 +42,6 @@ const Login = () => {
     });
   };
 
-  if (userInfo.userId) {
-    return (
-      <div>
-        {`${userInfo.firstName} ${userInfo.lastName}`} is loggged in
-        <button onClick={handleLogout}>logout</button>
-      </div>
-    );
-  } 
-  
   return (
     <>
       <div className="setHeight">

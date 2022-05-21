@@ -53,7 +53,7 @@ const NavBar = () => {
       });
       toastSuccess('Logout Successful');
     } catch(error) {
-      toastError(error);
+      toastError(error.message);
     }
   }
 
@@ -252,7 +252,7 @@ const NavBar = () => {
           <Link id="navlink" className="nav-link" to="/About">
             About Us
           </Link>
-          {(userInfo.email && (
+          {(userInfo.userId && (
             <Link id="navlink" className="nav-link" to="/Login" onClick={handleLogout}>
               Logout
             </Link>

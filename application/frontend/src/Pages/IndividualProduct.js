@@ -63,19 +63,14 @@ const IndividualProduct = () => {
             Date Listed: {getDateString(listing.date_created)}
           </Card.Text>
           <Card.Text id="in-stock">In Stock</Card.Text>
+          <Card.Text className="text-center">
+            <Link to={`/Message/${listing.product_id}`}>
+              <Button id="product_detail_button" variant="primary">
+                Message Seller
+              </Button>
+            </Link>
+          </Card.Text>
         </Card.Body>
-        <Link to="/Messages" className="text-center">
-          <Button id="product_detail_button" variant="primary">
-            Message Seller
-          </Button>
-        </Link>
-        <Card.Text id="product_text" className="text-center">
-          {`Not Logged In?`}
-          <span className="space"></span>
-          <Link to="/Login">Login Here</Link> or
-          <span className="space"></span>
-          <Link to="/Signup">Sign Up Here</Link>
-        </Card.Text>
       </Card>
     </>
   );

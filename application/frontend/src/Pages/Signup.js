@@ -11,10 +11,12 @@ import React, { useState, useContext } from 'react';
 import DataContext from '../DataContext/DataContext';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { toastError, toastSuccess } from '../ToastService';
 import { createUser } from '../services/userService';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const users = useContext(DataContext)?.users;
   const userInfo = useContext(DataContext)?.userInfo;
   const setUserInfo = useContext(DataContext)?.setUserInfo;
 
@@ -215,8 +217,6 @@ const Signup = () => {
   };
 
   const onFormSubmit = (e) => {
-    console.log(userInfo);
-
     e.preventDefault();
     // Prevent form from submitting before all fields are checked
     let waitForCheck = false;
@@ -274,8 +274,16 @@ const Signup = () => {
       passwordFormObj.isValid &&
       confirmPasswordFormObj.isValid
     ) {
-      createUser(userInfo);
-      navigate('/');
+      try {
+        createUser(userInfo).then((data) => {
+          setUserInfo({ ...userInfo, userId: data.data.insertId });
+          toastSuccess('Registration Sucessful');
+        });
+        navigate('/');
+      }
+      catch(error) {
+        toastError(error.message);
+      }
     }
   };
 

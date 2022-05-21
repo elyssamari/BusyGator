@@ -162,6 +162,8 @@ const Post = () => {
     console.log(userInfo);
     // Prevent form from submitting before all fields are checked
     let waitForCheck = false;
+    // Get file size of the image in MB
+    let imageSize = (imageFormObj.value.size / 1024 / 1024);
     //  Check if file is a valid image
     if (
       !imageFormObj.value ||
@@ -172,6 +174,13 @@ const Post = () => {
         ...imageFormObj,
         isValid: false,
         errorMessage: 'Please add an image',
+      });
+    } else if (imageSize > 10) {
+      waitForCheck = true;
+      setImageFormObj({
+        ...imageFormObj,
+        isValid: false,
+        errorMessage: 'Image size too large. Please keep size under 10 MB',
       });
     }
 

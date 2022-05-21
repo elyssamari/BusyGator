@@ -490,3 +490,14 @@ html, body, #app {
   font-weight: 700;
   font-size: large;
 }
+
+.msgCol{
+  background-color: #E8E8E8;
+  margin: 1px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+#msgRow{
+  margin-top: 10px;
+}

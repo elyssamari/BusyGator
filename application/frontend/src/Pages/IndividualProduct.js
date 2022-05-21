@@ -52,25 +52,25 @@ const IndividualProduct = () => {
           <br></br>
           <Card.Text>Price: ${listing.price}</Card.Text>
           <Card.Text>Location: {getLocationName(listing.location)}</Card.Text>
+          <Card.Text id="map-link">
+            {`Don't know where the location is?`}
+            <span className="space"></span>
+            <Link to="/Map">Map</Link>
+          </Card.Text>
           <Card.Text>Description: {listing.description}</Card.Text>
           <Card.Text>Seller: {sellerName}</Card.Text>
           <Card.Text>
             Date Listed: {getDateString(listing.date_created)}
           </Card.Text>
-          <Card.Text>In Stock</Card.Text>
+          <Card.Text id="in-stock">In Stock</Card.Text>
+          <Card.Text className="text-center">
+            <Link to={`/Message/${listing.product_id}`}>
+              <Button id="product_detail_button" variant="primary">
+                Message Seller
+              </Button>
+            </Link>
+          </Card.Text>
         </Card.Body>
-        <Link to="/Messages" className="text-center">
-          <Button id="product_detail_button" variant="primary">
-            Message Seller
-          </Button>
-        </Link>
-        <Card.Text id="product_text" className="text-center">
-          {`Not Logged In?`}
-          <span className="space"></span>
-          <Link to="/Login">Login Here</Link> or
-          <span className="space"></span>
-          <Link to="/Signup"> Sign up Here</Link>
-        </Card.Text>
       </Card>
     </>
   );

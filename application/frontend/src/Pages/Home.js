@@ -110,7 +110,7 @@ const Home = () => {
                 <Card.Text>
                   Date Listed: {getDateString(data.date_created)}
                 </Card.Text>
-                <Card.Text>In Stock</Card.Text>
+                <Card.Text id="in-stock">In Stock</Card.Text>
                 <Card.Text className="text-center">
                   <Link to={`/Product/${data.product_id}`}>
                     <Button variant="outline-dark" className="check-it-out-btn">

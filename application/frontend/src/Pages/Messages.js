@@ -9,12 +9,7 @@
 
 import React, { useEffect, useContext, useState } from 'react';
 import DataContext from '../DataContext/DataContext';
-import { 
-  Card,
-  Button,
-  Form,
-  InputGroup,
-} from 'react-bootstrap';
+import { Card, Button, Form, InputGroup } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { toastError, toastSuccess } from '../ToastService';
 import { createMessage } from '../services/messageService';
@@ -22,7 +17,7 @@ import { getListingById } from '../services/listingService';
 
 const Messages = () => {
   const navigate = useNavigate();
-  const userInfo = useContext(DataContext)?.userInfo;;
+  const userInfo = useContext(DataContext)?.userInfo;
   const users = useContext(DataContext)?.users;
 
   const [messageInfo, setMessageInfo] = useState({
@@ -30,35 +25,36 @@ const Messages = () => {
     receiverId: '',
     product: '',
     subject: '',
-    messageBody: ''
+    messageBody: '',
   });
 
   let productId = useParams().productId;
   useEffect(() => {
-    getListingById(productId).then((data) => {
-      let listing = data.data;
-
-      setMessageInfo({
-        ...messageInfo,
-        creatorId: users.find((userData) => userData.email === userInfo.email)?.user_id,
-        receiverId: listing.seller_id,
-        product: productId,
-        subject: listing.title,
+    if (!userInfo.userId) {
+      navigate('/Login');
+    }
+    else {
+      getListingById(productId).then((data) => {
+        let listing = data.data;
+  
+        setMessageInfo({
+          ...messageInfo,
+          creatorId: users.find((userData) => userData.email === userInfo.email)?.user_id,
+          receiverId: listing.seller_id,
+          product: productId,
+          subject: listing.title,
+        });
       });
-    });
+    }
   }, []);
 
   function onFormSubmit() {
-    if (userInfo.email) {
-      try {
-        createMessage(messageInfo);
-        navigate('/');
-        toastSuccess('Message sent');
-      } catch(error) {
-        toastError(error);
-      }
-    } else {
-      navigate('/Signup');
+    try {
+      createMessage(messageInfo);
+      navigate('/');
+      toastSuccess('Message Sent');
+    } catch(error) {
+      toastError(error.message);
     }
   }
 
@@ -70,37 +66,30 @@ const Messages = () => {
             <h1>Messages</h1>
           </Card.Header>
           <Card.Body>
-            <Form onSubmit={onFormSubmit}>
-              <Form.Label></Form.Label>
+            <Card id="textMessage">
+              <Card.Body id="message-box"> </Card.Body>
+            </Card>
+            <Form>
               <Form.Group>
                 <Form.Control
+                  id="message-text-box"
                   as="textarea"
                   rows={4}
                   placeholder="Click here to write a message"
-                  required
-                  onChange={(e) =>
-                    setMessageInfo({
-                    ...messageInfo,
-                    messageBody: e.target.value,
-                    })
-                  }
                 />
+              </Form.Group>
 
-                <Link
+              <Form.Group className="text-center">
+                <Button
                   id="cancelButton"
-                  to="/"
-                  className="btn btn-primary btn-lg"
+                  className="primary"
                   role="button"
+                  type="reset"
                 >
                   Cancel{' '}
-                </Link>
+                </Button>
 
-                <Button
-                  id="sentMessageButton"
-                  className="btn btn-primary btn-lg"
-                  type="submit"
-                  role="button"
-                >
+                <Button id="sentMessageButton" className="primary">
                   Send Message{' '}
                 </Button>
               </Form.Group>

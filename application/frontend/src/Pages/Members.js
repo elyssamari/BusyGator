@@ -11,6 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ABOUT_ME_DATA } from '../constants';
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
 const Members = () => {
   let { username } = useParams();
@@ -27,17 +28,34 @@ const Members = () => {
       <div className="setHeight">
         <h1 className="hello"> Hello, I am </h1>
         <h1 className="nametitle">{currentUser.fullName || ''}</h1>
-        <p className="profiletext">{currentUser.desc || ''}</p>
-        <img src={currentUser.image || ''} alt={currentUser.alt}></img>
-        <br></br>
-        <Link
-          id="memberbutton"
-          to="/About"
-          className="btn btn-primary btn-lg"
-          role="button"
+
+        <Card
+          style={{ width: '25rem' }}
+          id="product_card"
+          className="card-center"
         >
-          go back
-        </Link>
+          <Card.Img
+            variant="top"
+            id="profile-image"
+            src={currentUser.image || ''}
+            alt={currentUser.alt}
+          />
+          <Card.Body>
+            <Card.Text className="profiletext">
+              {currentUser.desc || ''}
+            </Card.Text>
+
+            <br></br>
+            <Link
+              id="memberbutton"
+              to="/About"
+              className="btn btn-primary btn-md"
+              role="button"
+            >
+              Go Back
+            </Link>
+          </Card.Body>
+        </Card>
       </div>
     </>
   );

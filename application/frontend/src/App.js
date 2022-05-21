@@ -21,10 +21,11 @@ import Post from './Pages/Post';
 import MyPage from './Pages/MyPage';
 import Messages from './Pages/Messages';
 import Members from './Pages/Members';
+import Map from './Pages/Map';
 import IndividualProduct from './Pages/IndividualProduct';
 import { DataProvider } from './DataContext/DataContext';
 import './App.css';
-import ForgetPassword from './Pages/ForgetPassword';
+import ForgotPassword from './Pages/ForgotPassword';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -44,7 +45,8 @@ function App() {
           <Route path="/Product/:productId" element={<IndividualProduct />} />
           <Route path="/About" element={<About />} />
           <Route path="/M1Home" element={<M1Home />} />
-          <Route path="/forgetPassword" element={<ForgetPassword />} />
+          <Route path="/Map" element={<Map />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/about/:username" element={<Members />} />
         </Routes>
         <Footer />

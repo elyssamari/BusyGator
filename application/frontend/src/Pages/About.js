@@ -8,54 +8,87 @@
  */
 
 import React from 'react';
+import { Container, Col, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
     <>
-      <div className="homeheader">
-        <h1 className="about"> About the team. </h1>
-        <h2 className="about">
-          {' '}
-          Software Engineering Class SFSU Spring 2022 Section 3 - Team 4{' '}
-        </h2>
-      </div>
+      <div className="setHeight">
+        <h1 className="homeheader"> About the Team 4: </h1>
 
-      <div className="namelink" id="aboutHolder">
-        <Link className="name1" to="/about/Aaron">
-          Aaron Carlson
-          <p className="title">Back-End Lead</p>{' '}
-        </Link>
+        <Container id="aboutHolder">
+          <Row>
+            <Col xs="auto" md="auto">
+              <Link to="/about/Aaron">
+                <Button className="name1" variant="outline-dark">
+                  <h2>Aaron Carlson</h2>
+                  <p className="title">Back-End Lead</p>{' '}
+                </Button>
+              </Link>
+            </Col>
 
-        <Link className="name1" to="/about/Abdullah">
-          Abdullah Sharaf
-          <p className="title">Front-End</p>{' '}
-        </Link>
+            <Col xs="auto" md="auto">
+              <Link to="/about/Abdullah">
+                <Button className="name1" variant="outline-dark">
+                  <h2>Abdullah Sharaf</h2>
+                  <p className="title">Front-End</p>{' '}
+                </Button>
+              </Link>
+            </Col>
+          </Row>
 
-        <Link className="name1" to="/about/Elyssa">
-          Elyssa Mari Tapawan
-          <p className="title">Front-End Lead</p>{' '}
-        </Link>
+          <Row>
+            <Col xs="auto" md="auto">
+              <Link to="/about/Elyssa">
+                <Button className="name1" variant="outline-dark">
+                  <h2>Elyssa Mari Tapawan</h2>
+                  <p className="title">Front-End Lead</p>{' '}
+                </Button>
+              </Link>
+            </Col>
 
-        <Link className="name1" to="/about/Janvi">
-          Janvi Patel
-          <p className="title">Back-End</p>{' '}
-        </Link>
+            <Col xs="auto" md="auto">
+              <Link to="/about/Janvi">
+                <Button className="name1" variant="outline-dark">
+                  <h2>Janvi Patel</h2>
+                  <p className="title">Back-End</p>{' '}
+                </Button>
+              </Link>
+            </Col>
+          </Row>
 
-        <Link className="name1" to="/about/Samantha">
-          Samantha Saxton-Getty
-          <p className="title">Team Lead</p>{' '}
-        </Link>
+          <Row>
+            <Col xs="auto" md="auto">
+              <Link to="/about/Samantha">
+                <Button className="name1" variant="outline-dark">
+                  <h2>Samantha Saxton-Getty</h2>
+                  <p className="title">Team Lead</p>{' '}
+                </Button>
+              </Link>
+            </Col>
 
-        <Link className="name1" to="/about/Siqi">
-          Siqi Guo
-          <p className="title">Front-End</p>{' '}
-        </Link>
+            <Col xs="auto" md="auto">
+              <Link to="/about/Siqi">
+                <Button className="name1" variant="outline-dark">
+                  <h2>Siqi Guo</h2>
+                  <p className="title">Front-End</p>{' '}
+                </Button>
+              </Link>
+            </Col>
+          </Row>
 
-        <Link className="name1" to="/about/Vishal">
-          Vishal Ramanand Sharma
-          <p className="title">Github Lead</p>
-        </Link>
+          <Row>
+            <Col xs="auto" md="auto">
+              <Link to="/about/Vishal">
+                <Button className="name1" variant="outline-dark">
+                  <h2>Vishal Ramanand Sharma</h2>
+                  <p className="title">Github Lead</p>
+                </Button>
+              </Link>
+            </Col>
+          </Row>
+        </Container>
       </div>
     </>
   );

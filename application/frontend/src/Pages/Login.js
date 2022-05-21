@@ -4,13 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { checkUserCredential } from '../services/userService';
 import { toastError, toastSuccess } from '../ToastService';
 import DataContext from '../DataContext/DataContext';
-
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const setUserInfo = useContext(DataContext)?.setUserInfo;
-  const userInfo = useContext(DataContext)?.userInfo;
 
   // logout the user
   const handleLogout = () => {
@@ -44,15 +42,6 @@ const Login = () => {
     });
   };
 
-  if (userInfo.userId) {
-    return (
-      <div>
-        {`${userInfo.firstName} ${userInfo.lastName}`} is loggged in
-        <button onClick={handleLogout}>logout</button>
-      </div>
-    );
-  }
-
   return (
     <>
       <div className="setHeight">
@@ -69,7 +58,7 @@ const Login = () => {
                 <Form.Label>Email *</Form.Label>
                 <Form.Control
                   value={email}
-                  placeholder="enter a username"
+                  placeholder="Email"
                   onChange={({ target }) => setEmail(target.value)}
                   type="text"
                   className="form-control"
@@ -90,19 +79,15 @@ const Login = () => {
               <Link to="/ForgetPassword">Forgot Password?</Link>
 
               <Form.Group className="text-center">
-                <Button
-                  id="login_signin_button"
-                  variant="primary"
-                  type="submit"
-                >
+                <Button id="login_signin_button" variant="primary" type="submit">
                   Login
                 </Button>
               </Form.Group>
             </Form>
             <Card.Text id="login_signup_text" className="text-center">
-              Already Have an account?
+              Don't have an account?
               <span className="space"></span>
-              <Link to="/Signup">sign up Here</Link>
+              <Link to="/Signup">Sign Up Here</Link>
             </Card.Text>
           </Card.Body>
         </Card>

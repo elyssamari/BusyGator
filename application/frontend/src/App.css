@@ -7,78 +7,78 @@
  * PURPOSE: This file contains the CSS for the application.
  */
 
- .navtext{
+.navtext {
   margin-top: 48px;
-  color:white;
+  color: white;
 }
 
-@media (max-width: 950px){
-  .navtext{
+@media (max-width: 950px) {
+  .navtext {
     font-size: 40px;
   }
 }
 
-@media (max-width: 800px){
-  .navtext{
+@media (max-width: 800px) {
+  .navtext {
     font-size: 35px;
   }
 }
 
-@media (max-width: 1699px){
-  .button-space{
+@media (max-width: 1699px) {
+  .button-space {
     display: block;
   }
 }
 
-.button-space{
+.button-space {
   margin: 20px;
 }
 
-a{
-  text-decoration:none;
+a {
+  text-decoration: none;
   color: white;
 }
 
-a:hover{
-  color:#434652;
-  text-decoration:underline;
+a:hover {
+  color: #434652;
+  text-decoration: underline;
 }
 
-.homeheader{
+.homeheader {
   margin-left: 40px;
   font-size: 40px;
   margin-top: 20px;
   margin-bottom: 40px;
-  color:#434652;
+  color: #434652;
 }
 
-.homep{
-  color:#434652;
+.homep {
+  color: #434652;
   margin-top: 100px;
   margin-left: 55px;
   font-size: 40px;
   text-align: center;
 }
 
-.homep1{
-  color:#434652;
+.homep1 {
+  color: #434652;
   margin-top: 50px;
   margin-left: 55px;
   font-size: 30px;
   text-align: center;
 }
 
-.homep2{
-  color:#434652;
+.homep2 {
+  color: #434652;
   margin-top: 50px;
   margin-left: 55px;
   font-size: 30px;
   text-align: center;
 }
 
-.name1{
+.name1 {
   margin-bottom: 50px;
-  display:inline-block;
+  display: inline-block;
   height: 80px;
   width: 630px;
   border-radius: 25px;
@@ -87,75 +87,75 @@ a:hover{
   margin-left: auto;
 }
 
-@media (max-width: 950px){
-  .img{
-    float:inline-end;
+@media (max-width: 950px) {
+  .img {
+    float: inline-end;
     margin-right: 5%;
   }
-  .profiletext{
-      font-size: 20px;
+  .profiletext {
+    font-size: 20px;
   }
 }
 
-#profile-image{
+#profile-image {
   height: 500px;
   width: 400px;
 }
 
-.title{
+.title {
   margin-top: 2px;
   font-size: 15px;
 }
 
 a.name1:link {
-  color:white;
-  text-decoration:none;
+  color: white;
+  text-decoration: none;
 }
 
-a.name1:visited{
-  color:white;
-  text-decoration:none;
+a.name1:visited {
+  color: white;
+  text-decoration: none;
 }
 
-a.name1:hover{
-  color:#434652;
-  text-decoration:underline;
+a.name1:hover {
+  color: #434652;
+  text-decoration: underline;
 }
 
 a.name2:link {
-  color:#434652;
-  text-decoration:none;
+  color: #434652;
+  text-decoration: none;
 }
 
-a.name2:visited{
-  color:#434652;
-  text-decoration:none;
+a.name2:visited {
+  color: #434652;
+  text-decoration: none;
 }
 
-a.name2:hover{
-  color:#434652;
-  text-decoration:underline;
+a.name2:hover {
+  color: #434652;
+  text-decoration: underline;
 }
 
-a.nav:hover{
-  color:white;
-  text-decoration:underline;
+a.nav:hover {
+  color: white;
+  text-decoration: underline;
 }
 
-.hello{
+.hello {
   font-size: 40px;
-  color:#434652;
+  color: #434652;
   margin-left: 50px;
   margin-top: 50px;
 }
 
-.invalid-tooltip{
-  white-space:pre-wrap;
+.invalid-tooltip {
+  white-space: pre-wrap;
   margin-left: 57px;
   background-color: rgb(220, 53, 69) !important;
 }
 
-.nametitle{
+.nametitle {
   font-weight: 500;
   font-size: 60px;
   margin-left: 50px;
@@ -163,147 +163,153 @@ a.nav:hover{
   margin-bottom: 20px;
 }
 
-.profiletext{
-  color:#434652;
+.profiletext {
+  color: #434652;
   font-weight: 450;
   font-size: 20px;
 }
 
-#navlink{
+#navlink {
   margin: auto;
   color: white;
-  font-size: 17px ;
+  font-size: 17px;
 }
 
-#logo{
+#logo {
   margin-left: 20px;
   margin-right: 20px;
 }
 
-#searchbar{
+#searchbar {
   width: 35vw;
 }
 
-#searchbutton{
-margin-top: auto;
-margin-left: 10px;
+#searchbutton {
+  margin-top: auto;
+  margin-left: 10px;
 }
 
-#cardmargin{
-  margin: 10px;  
+#cardmargin {
+  margin: 10px;
   margin-bottom: 80px;
 }
-#cardmarginRow{
+#cardmarginRow {
   margin: 10px;
 }
 
-#footertext{
-  color:white;
+#footertext {
+  color: white;
   font-size: 15px;
   margin-left: 15px;
   margin-top: 10px;
 }
 
-#footer{
+#footer {
   background-color: #212529;
   width: 100%;
   margin-bottom: 0%;
 }
 
-#root{
+#root {
   position: relative;
   height: 100%;
 }
 
-#login_signupcard{
+#login_signupcard {
   max-width: 600px;
-  margin: 0 auto; 
+  margin: 0 auto;
   margin-top: 25px;
   margin-bottom: 75px;
 }
 
-#product_card{
+#product_card {
   max-width: 600px;
-  margin: 0 auto; 
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+#member_card{
+  max-width: 600px;
+  margin: 0 auto;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-#map_card{
+#map_card {
   max-width: 694px;
-  margin: 0 auto; 
+  margin: 0 auto;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-#messagesCard{
+#messagesCard {
   max-width: 600px;
-  margin: 0 auto; 
+  margin: 0 auto;
   margin-top: 25px;
   border-width: medium;
   margin-bottom: 25px;
   border-radius: 10px;
 }
 
-#textMessage{
+#textMessage {
   background-color: #e9ecef;
 }
 
-#login_signin_button{
+#login_signin_button {
   max-width: 250px;
-  margin: 0 auto; 
+  margin: 0 auto;
   margin-top: 25px;
 }
 
-#login_signup_text{
-  margin:20px;
+#login_signup_text {
+  margin: 20px;
 }
 
-#product_text{
-  margin:20px;
+#product_text {
+  margin: 20px;
 }
 
-.space{
+.space {
   margin: 2px;
 }
 
-#subnavbar{
-  background-color: #232F3E;  
+#subnavbar {
+  background-color: #232f3e;
   height: 50px;
 }
 
-.subNavBarButton{
-  margin-top:auto;
-  margin-bottom:auto;
-  margin: 10px;  
+.subNavBarButton {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin: 10px;
 }
 
-#carddesc{
+#carddesc {
   margin: 10px;
   padding-top: 16px;
 }
 
-#checkbox{
+#checkbox {
   margin-top: 10px;
 }
 
-#posttext{
+#posttext {
   margin-top: 25px;
 }
 
-#postbutton1{
+#postbutton1 {
   width: 100px;
   margin-right: 50px;
   background: gray;
   border-color: gainsboro;
 }
 
-#postbutton2{
+#postbutton2 {
   width: 100px;
   border-color: gainsboro;
 }
 
-#cancelButton{
+#cancelButton {
   width: 100px;
   border-color: gainsboro;
   background-color: gray;
@@ -311,54 +317,54 @@ margin-left: 10px;
   margin-right: 50px;
 }
 
-#sentMessageButton{
+#sentMessageButton {
   width: 150px;
   border-color: gainsboro;
   margin-top: 15px;
 }
 
-#message-text-box{
+#message-text-box {
   margin-top: 25px;
   height: 200px;
 }
 
-#message-box{
+#message-box {
   height: 246px;
 }
 
-#product_detail_button{
+#product_detail_button {
   width: 250px;
-  margin: 0 auto; 
+  margin: 0 auto;
   margin-top: 25px;
 }
 
-#memberbutton{
+#memberbutton {
   margin-left: 40%;
   margin-bottom: 40px;
 }
- #maxWidth100{
+#maxWidth100 {
   max-width: 100px;
 }
 
-.newpost_header{
+.newpost_header {
   padding-left: 15px;
   background-color: rgb(250, 250, 250);
 }
-.newpost_header > h2{
+.newpost_header > h2 {
   font-weight: bold;
 }
-.maxWidth100{
+.maxWidth100 {
   max-width: 100px;
 }
 
-#welcomeCard{
+#welcomeCard {
   max-width: 600px;
   margin: 0 auto;
   margin-top: 25px;
   margin-bottom: 80px;
 }
 
-.foundText{
+.foundText {
   padding: 5px;
   margin-left: 4px;
   height: 37px;
@@ -367,40 +373,45 @@ margin-left: 10px;
   text-align: center;
   border-radius: 5px;
   background: rgb(13, 110, 253);
-  color: white
+  color: white;
 }
 
-.myPageLink{
+.myPageLink {
   cursor: pointer;
 }
 
-@media (max-width: 1200px){
-  .formFlex{
+@media (max-width: 1200px) {
+  .formFlex {
     flex-grow: 1;
   }
 }
 
-.flexWrap{
+.flexWrap {
   flex-wrap: wrap !important;
 }
 
-.footerCol{
+.footerCol {
   padding-bottom: 1rem;
 }
 
-@media (max-width:720px) {
-  #login_signin_button,#product_card,#login_signupcard,#messagesCard,#welcomeCard{
+@media (max-width: 720px) {
+  #login_signin_button,
+  #product_card,
+  #login_signupcard,
+  #messagesCard,
+  #welcomeCard,
+  #member_card {
     margin-left: 12px;
     margin-right: 12px;
   }
 }
 
-#cardHeader{
-margin-bottom: 15px;
+#cardHeader {
+  margin-bottom: 15px;
 }
 
-#msgContent{
-  background-color: #F8F8F8;
+#msgContent {
+  background-color: #f8f8f8;
   width: 300px;
 }
 
@@ -409,99 +420,108 @@ margin-bottom: 15px;
   margin: 10px;
 } */
 
-#messageCard{
+#messageCard {
   /* background-color: #F8F8F8; */
   margin: 10px;
   border-radius: 0px;
 }
 
-#messageText{
+#messageText {
   margin-left: 30px;
   margin-top: 15px;
   margin-bottom: 10px;
   margin-right: 30px;
 }
 
-#postContent{
-  background-color: #F8F8F8;
+#postContent {
+  background-color: #f8f8f8;
   margin: 10px;
   width: 300px;
 }
 
-#navTextCard{
- border-radius: 1px;
- padding-bottom: 0px;
- color: white;
- border-width: 0px;
+#navTextCard {
+  border-radius: 1px;
+  padding-bottom: 0px;
+  color: white;
+  border-width: 0px;
 }
 
-#navText{
+#navText {
   margin-left: 13px;
   padding-top: 10px;
   padding-bottom: 0px;
 }
 
-html, body, #app {
-  height: 100%
+html,
+body,
+#app {
+  height: 100%;
 }
 
-#cardmargin{
+#cardmargin {
   min-height: calc(100% - 262px);
 }
 
-#aboutHolder{
+#aboutHolder {
   min-height: calc(100% - 400px);
 }
 
-.setHeight{
+.setHeight {
   min-height: calc(100% - 238px);
 }
 
-#aboutHolder{
+#aboutHolder {
   min-height: calc(100% - 334px);
 }
 
-.msgCol{
-  background-color: #E8E8E8;
+.msgCol {
+  background-color: #e8e8e8;
   margin: 1px;
   margin-bottom: 5px;
   border-radius: 10px;
 }
 
-#msgRow{
+#msgRow {
   margin-top: 10px;
 }
 
-#map-link{
+#map-link {
   margin-top: -10px;
   font-size: 13px;
 }
 
-#map-image{
+#map-image {
   height: 706px;
   width: 694px;
 }
 
-#forgot-password-text{
+#forgot-password-text {
   margin-top: 35px;
 }
 
-#in-stock{
+#in-stock {
   font-weight: 700;
   font-size: large;
 }
 
-@media (max-width :600px) {
-  .width100{
+@media (max-width: 600px) {
+  .width100 {
+    width: 100% !important;
+  }
+  #profile-image {
     width: 100% !important;
   }
 }
-@media (max-width :460px) {
-  .dropdownfloatRight{
+@media (max-width: 460px) {
+  .dropdownfloatRight {
     float: left !important;
     margin-top: 8px;
   }
+  #member_card {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
-.dropdownfloatRight{
-  float: right!;
+.dropdownfloatRight {
+  float: right !important;
 }

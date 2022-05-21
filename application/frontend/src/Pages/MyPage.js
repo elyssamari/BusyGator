@@ -87,62 +87,70 @@ const MyPage = () => {
               <Col sm={1.5} id="tabContent">
                 <Tab.Content>
                   <Tab.Pane eventKey="msgs">
-                    {messages.length > 0 ? messages.map((data, index) => (
-                      <Card id="messageCard" key={`div_${index}`}>
-                        <Container>
-                          <Row id="msgRow">
-                            <Col className="msgCol text-center">
-                              {getDateString(data.date_created)}
-                            </Col>
-                            <Col className="msgCol text-center">
-                              {getUserName(data.creator_id)}
-                            </Col>
-                            <Col className="msgCol text-center">⇢</Col>
-                            <Col className="msgCol">
-                              {getUserName(data.receiver_id)}
-                            </Col>
-                            <Col className="msgCol text-center">
-                              {(getListingName(data.product) && (
-                                <Link to={`/Product/${data.product}`}>
-                                  {getListingName(data.product)}
-                                </Link>
-                              )) ||
-                                'Post waiting for approval'}
-                            </Col>
-                          </Row>
-                        </Container>
-                        <Card.Text id="messageText">
-                          {data.message_body}
-                        </Card.Text>
-                      </Card>
-                    )) : <h4 className='p-4'>No Messages</h4>}
-                    { }
+                    {messages.length > 0 ? (
+                      messages.map((data, index) => (
+                        <Card id="messageCard" key={`div_${index}`}>
+                          <Container>
+                            <Row id="msgRow">
+                              <Col className="msgCol text-center">
+                                {getDateString(data.date_created)}
+                              </Col>
+                              <Col className="msgCol text-center">
+                                {getUserName(data.creator_id)}
+                              </Col>
+                              <Col className="msgCol text-center">⇢</Col>
+                              <Col className="msgCol">
+                                {getUserName(data.receiver_id)}
+                              </Col>
+                              <Col className="msgCol text-center">
+                                {(getListingName(data.product) && (
+                                  <Link to={`/Product/${data.product}`}>
+                                    {getListingName(data.product)}
+                                  </Link>
+                                )) ||
+                                  'Post waiting for approval'}
+                              </Col>
+                            </Row>
+                          </Container>
+                          <Card.Text id="messageText">
+                            {data.message_body}
+                          </Card.Text>
+                        </Card>
+                      ))
+                    ) : (
+                      <h4 className="p-4">No Messages</h4>
+                    )}
+                    {}
                   </Tab.Pane>
                   <Tab.Pane eventKey="posts">
-                    {userListings.length > 0 ? <Table bordered id="postContent">
-                      <thead>
-                        <tr>
-                          <th width="80%">Post</th>
-                          <th width="20%"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {userListings.map((data, index) => (
-                          <tr key={`div_${index}`}>
-                            <td>
-                              {getListingName(data.product_id) && (
-                                <Link to={`/Product/${data.product_id}`}>
-                                  {getListingName(data.product_id)}
-                                </Link>
-                              )}
-                            </td>
-                            <td>
-                              <Button>Delete Post</Button>
-                            </td>
+                    {userListings.length > 0 ? (
+                      <Table bordered id="postContent">
+                        <thead>
+                          <tr>
+                            <th width="80%">Post</th>
+                            <th width="20%"></th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </Table> : <h4 className='p-4'>No Listings</h4>}
+                        </thead>
+                        <tbody>
+                          {userListings.map((data, index) => (
+                            <tr key={`div_${index}`}>
+                              <td>
+                                {getListingName(data.product_id) && (
+                                  <Link to={`/Product/${data.product_id}`}>
+                                    {getListingName(data.product_id)}
+                                  </Link>
+                                )}
+                              </td>
+                              <td>
+                                <Button>Delete Post</Button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </Table>
+                    ) : (
+                      <h4 className="p-4">No Listings</h4>
+                    )}
                   </Tab.Pane>
                 </Tab.Content>
               </Col>

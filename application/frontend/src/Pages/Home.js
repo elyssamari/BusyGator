@@ -91,41 +91,45 @@ const Home = () => {
         </Col>
       </Row>
       <Row id="cardmargin" xs={1} sm={2} md={3} lg={4} xl={5} className="g-4">
-        {listings && listings.map((data, index) => (
-          <Col key={`div_${index}`}>
-            <Card className="card h-100">
-              <Card.Img
-                src={data.image_thumbnail}
-                className="card-img-top"
-                alt="..."
-              />
-              <Card.Body class="mt-auto" id="carddesc">
-                <Card.Title>Product Title: {data.title} </Card.Title>
-                <Card.Text>Price: ${data.price}</Card.Text>
-                <Card.Text>
-                  Location: {getLocationName(data.location)}
-                </Card.Text>
-                <Card.Text>Description: {data.description}</Card.Text>
-                <Card.Text>Seller: {getSellerName(data.seller_id)}</Card.Text>
-                <Card.Text>
-                  Date Listed: {getDateString(data.date_created)}
-                </Card.Text>
-                <Card.Text id="in-stock">In Stock</Card.Text>
-                <Card.Text className="text-center">
-                  <Link to={`/Product/${data.product_id}`}>
-                    <Button variant="outline-dark" className="check-it-out-btn">
-                      Check it out!
-                    </Button>
-                  </Link>
-                  <span className="button-space"></span>
-                  <Link to={`/Message/${data.product_id}`}>
-                    <Button variant="primary">Message Seller</Button>
-                  </Link>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+        {listings &&
+          listings.map((data, index) => (
+            <Col key={`div_${index}`}>
+              <Card className="card h-100">
+                <Card.Img
+                  src={data.image_thumbnail}
+                  className="card-img-top"
+                  alt="..."
+                />
+                <Card.Body class="mt-auto" id="carddesc">
+                  <Card.Title>Product Title: {data.title} </Card.Title>
+                  <Card.Text>Price: ${data.price}</Card.Text>
+                  <Card.Text>
+                    Location: {getLocationName(data.location)}
+                  </Card.Text>
+                  <Card.Text>Description: {data.description}</Card.Text>
+                  <Card.Text>Seller: {getSellerName(data.seller_id)}</Card.Text>
+                  <Card.Text>
+                    Date Listed: {getDateString(data.date_created)}
+                  </Card.Text>
+                  <Card.Text id="in-stock">In Stock</Card.Text>
+                  <Card.Text className="text-center">
+                    <Link to={`/Product/${data.product_id}`}>
+                      <Button
+                        variant="outline-dark"
+                        className="check-it-out-btn"
+                      >
+                        Check it out!
+                      </Button>
+                    </Link>
+                    <span className="button-space"></span>
+                    <Link to={`/Message/${data.product_id}`}>
+                      <Button variant="primary">Message Seller</Button>
+                    </Link>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
       </Row>
     </>
   );

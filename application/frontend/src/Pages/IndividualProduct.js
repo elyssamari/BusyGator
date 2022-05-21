@@ -45,33 +45,35 @@ const IndividualProduct = () => {
 
   return (
     <>
-      <Card id="product_card" className="card-center">
-        <Card.Img variant="top" src={listing.image} />
-        <Card.Body>
-          <Card.Title>Product Title: {listing.title}</Card.Title>
-          <br></br>
-          <Card.Text>Price: ${listing.price}</Card.Text>
-          <Card.Text>Location: {getLocationName(listing.location)}</Card.Text>
-          <Card.Text id="map-link">
-            {`Don't know where the location is?`}
-            <span className="space"></span>
-            <Link to="/Map">Map</Link>
-          </Card.Text>
-          <Card.Text>Description: {listing.description}</Card.Text>
-          <Card.Text>Seller: {sellerName}</Card.Text>
-          <Card.Text>
-            Date Listed: {getDateString(listing.date_created)}
-          </Card.Text>
-          <Card.Text id="in-stock">In Stock</Card.Text>
-          <Card.Text className="text-center">
-            <Link to={`/Message/${listing.product_id}`}>
-              <Button id="product_detail_button" variant="primary">
-                Message Seller
-              </Button>
-            </Link>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <div className="setHeight">
+        <Card id="product_card" className="card-center">
+          <Card.Img variant="top" src={listing.image} />
+          <Card.Body>
+            <Card.Title>Product Title: {listing.title}</Card.Title>
+            <br></br>
+            <Card.Text>Price: ${listing.price}</Card.Text>
+            <Card.Text>Location: {getLocationName(listing.location)}</Card.Text>
+            <Card.Text id="map-link">
+              {`Don't know where the location is?`}
+              <span className="space"></span>
+              <Link to="/Map">Map</Link>
+            </Card.Text>
+            <Card.Text>Description: {listing.description}</Card.Text>
+            <Card.Text>Seller: {sellerName}</Card.Text>
+            <Card.Text>
+              Date Listed: {getDateString(listing.date_created)}
+            </Card.Text>
+            <Card.Text id="in-stock">In Stock</Card.Text>
+            <Card.Text className="text-center">
+              <Link to={`/Message/${listing.product_id}`}>
+                <Button id="product_detail_button" variant="primary">
+                  Message Seller
+                </Button>
+              </Link>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
     </>
   );
 };

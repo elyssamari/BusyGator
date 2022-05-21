@@ -32,14 +32,14 @@ const Messages = () => {
   useEffect(() => {
     if (!userInfo.userId) {
       navigate('/Login');
-    }
-    else {
+    } else {
       getListingById(productId).then((data) => {
         let listing = data.data;
-  
+
         setMessageInfo({
           ...messageInfo,
-          creatorId: users.find((userData) => userData.email === userInfo.email)?.user_id,
+          creatorId: users.find((userData) => userData.email === userInfo.email)
+            ?.user_id,
           receiverId: listing.seller_id,
           product: productId,
           subject: listing.title,
@@ -53,7 +53,7 @@ const Messages = () => {
       createMessage(messageInfo);
       navigate('/');
       toastSuccess('Message Sent');
-    } catch(error) {
+    } catch (error) {
       toastError(error.message);
     }
   }
@@ -66,7 +66,6 @@ const Messages = () => {
             <h1>Messages</h1>
           </Card.Header>
           <Card.Body>
-            
             <Form>
               <Form.Group>
                 <Form.Control
@@ -82,12 +81,16 @@ const Messages = () => {
                   id="cancelButton"
                   className="primary"
                   role="button"
-                  onClick={()=>navigate('/')}
+                  onClick={() => navigate('/')}
                 >
                   Cancel{' '}
                 </Button>
 
-                <Button id="sentMessageButton" className="primary" onClick={()=>onFormSubmit()}>
+                <Button
+                  id="sentMessageButton"
+                  className="primary"
+                  onClick={() => onFormSubmit()}
+                >
                   Send Message{' '}
                 </Button>
               </Form.Group>

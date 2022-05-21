@@ -31,8 +31,8 @@ const Members = () => {
 
         <Card
           style={{ width: '25rem' }}
-          id="product_card"
-          className="card-center"
+          id="member_card"
+          className="card-center width100"
         >
           <Card.Img
             variant="top"

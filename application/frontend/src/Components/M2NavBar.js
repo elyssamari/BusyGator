@@ -243,8 +243,8 @@ const NavBar = () => {
             </Link>
           )) ||
           <Link id="navlink" className="nav-link" to="/Login">
-              Login/Signup
-            </Link>}
+            Login / Signup
+          </Link>
         </div>
       </Navbar>
     </>

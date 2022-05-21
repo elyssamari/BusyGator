@@ -26,7 +26,7 @@ function DataProvider({ children }) {
   const [totalCount, setTotalCount] = useState(0);
   const [searchParams, setSearchParams] = useState({
     categoryId: null,
-    searchText: null,
+    searchText: "",
     minPrice: null,
     maxPrice: null,
   });

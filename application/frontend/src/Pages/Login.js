@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { checkUserCredential } from '../services/userService';
 import { toastError, toastSuccess } from '../ToastService';
 import DataContext from '../DataContext/DataContext';
-
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -51,8 +50,8 @@ const Login = () => {
         <button onClick={handleLogout}>logout</button>
       </div>
     );
-  }
-
+  } 
+  
   return (
     <>
       <div className="setHeight">

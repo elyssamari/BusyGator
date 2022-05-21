@@ -85,7 +85,7 @@ const Signup = () => {
         setFirstNameFormObj({
           ...firstNameFormObj,
           isValid: false,
-          errorMessage: 'Please fill in last name field',
+          errorMessage: 'Please fill in first name field',
         });
       } else if (!isValidName.test(value)) {
         setFirstNameFormObj({
@@ -281,7 +281,7 @@ const Signup = () => {
         });
         navigate('/');
       }
-      catch(error) {
+      catch (error) {
         toastError(error.message);
       }
     }
@@ -289,106 +289,108 @@ const Signup = () => {
 
   return (
     <>
-      <Card id="login_signupcard" className="card-center">
-        <Card.Header className="text-center">
-          <h1>Sign Up</h1>
-        </Card.Header>
-        <Card.Body>
-          <Card.Text className="text-right">
-            All fields with an asterick (*) are mandatory
-          </Card.Text>
-          <Form onSubmit={onFormSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Email *</Form.Label>
-              <Form.Control
-                type="text"
-                className="form-control"
-                placeholder="e.g: example@mail.sfsu.edu"
-                maxLength="45"
-                isInvalid={!emailFormObj.isValid}
-                onChange={(e) => setFormData('email', e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                {emailFormObj.errorMessage}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>First Name *</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="First Name"
-                aria-label="First name"
-                maxLength="45"
-                isInvalid={!firstNameFormObj.isValid}
-                onChange={(e) => setFormData('firstName', e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                {firstNameFormObj.errorMessage}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Last Name *</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Last Name"
-                aria-label="Last name"
-                maxLength="45"
-                isInvalid={!lastNameFormObj.isValid}
-                onChange={(e) => setFormData('lastName', e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                {lastNameFormObj.errorMessage}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Password *</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                aria-label="Password"
-                maxLength="45"
-                isInvalid={!passwordFormObj.isValid}
-                onChange={(e) => setFormData('password', e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                {passwordFormObj.errorMessage}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Confirm Password *</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm Password"
-                aria-label="Confirm Password"
-                maxLength="45"
-                isInvalid={!confirmPasswordFormObj.isValid}
-                onChange={(e) => setFormData('confirmPassword', e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                {confirmPasswordFormObj.errorMessage}
-              </Form.Control.Feedback>
-            </Form.Group>
-            <input
-              type="checkbox"
-              name="checkbox"
-              value="check"
-              id="agree"
-              required
-            />{' '}
-            I have read and agree to the Terms and Conditions and Privacy Policy
-            <Form.Group className="text-center">
-              <Button id="login_signin_button" variant="primary" type="submit">
-                Sign Up
-              </Button>
-            </Form.Group>
-          </Form>
-          <Card.Text id="login_signup_text" className="text-center">
-            Already have an account?
-            <span className="space"></span>
-            <Link to="/Login">Login Here</Link>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <div className="setHeight">
+        <Card id="login_signupcard" className="card-center">
+          <Card.Header className="text-center">
+            <h1>Sign Up</h1>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text className="text-right">
+              All fields with an asterick (*) are mandatory
+            </Card.Text>
+            <Form onSubmit={onFormSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>Email *</Form.Label>
+                <Form.Control
+                  type="text"
+                  className="form-control"
+                  placeholder="e.g: example@mail.sfsu.edu"
+                  maxLength="45"
+                  isInvalid={!emailFormObj.isValid}
+                  onChange={(e) => setFormData('email', e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {emailFormObj.errorMessage}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>First Name *</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="First Name"
+                  aria-label="First name"
+                  maxLength="45"
+                  isInvalid={!firstNameFormObj.isValid}
+                  onChange={(e) => setFormData('firstName', e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {firstNameFormObj.errorMessage}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Last Name *</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Last Name"
+                  aria-label="Last name"
+                  maxLength="45"
+                  isInvalid={!lastNameFormObj.isValid}
+                  onChange={(e) => setFormData('lastName', e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {lastNameFormObj.errorMessage}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Password *</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  aria-label="Password"
+                  maxLength="45"
+                  isInvalid={!passwordFormObj.isValid}
+                  onChange={(e) => setFormData('password', e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {passwordFormObj.errorMessage}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Confirm Password *</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Confirm Password"
+                  aria-label="Confirm Password"
+                  maxLength="45"
+                  isInvalid={!confirmPasswordFormObj.isValid}
+                  onChange={(e) => setFormData('confirmPassword', e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {confirmPasswordFormObj.errorMessage}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <input
+                type="checkbox"
+                name="checkbox"
+                value="check"
+                id="agree"
+                required
+              />{' '}
+              I have read and agree to the Terms and Conditions and Privacy Policy
+              <Form.Group className="text-center">
+                <Button id="login_signin_button" variant="primary" type="submit">
+                  Sign Up
+                </Button>
+              </Form.Group>
+            </Form>
+            <Card.Text id="login_signup_text" className="text-center">
+              Already have an account?
+              <span className="space"></span>
+              <Link to="/Login">Login Here</Link>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
     </>
   );
 };

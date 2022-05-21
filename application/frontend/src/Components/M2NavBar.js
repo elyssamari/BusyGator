@@ -156,6 +156,7 @@ const NavBar = () => {
   }, [sortAsc]);
 
   const resetResults=()=>{
+    console.log('-----')
     setSearchParams({
     categoryId: null,
     searchText: "",
@@ -163,11 +164,12 @@ const NavBar = () => {
     maxPrice: null,
     });
     getAllListings().then((data) => {
+      console.log(data);
       const { results, totalCount } = data.data;
       setTotalCount(totalCount);
       setListings(sortData(results));
+      navigate('/');
     });
-    navigate('/');
   }
 
   return (

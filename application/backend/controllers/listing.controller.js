@@ -13,6 +13,11 @@ var mime = require('mime-types');
 
 const getAllListings = async (req, res) => {
     try {
+        let totalCount = 0;
+        connection.query(`select count(*) as totalCount 
+        from product where approved = 1;`, (err, res) => {
+            totalCount = res[0].totalCount
+        });
         connection.query('SELECT * from product where approved = 1', (err, results) => {
             let newResults = [];
             for (let index = 0; index < results.length; index++) {
@@ -24,7 +29,10 @@ const getAllListings = async (req, res) => {
                 }
                 newResults.push(obj);
             };
-            res.send(newResults);
+            res.send({
+                totalCount,
+                results: newResults
+            });
             if (err) throw err
         });
     } catch (error) {

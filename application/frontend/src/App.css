@@ -490,3 +490,18 @@ html, body, #app {
   font-weight: 700;
   font-size: large;
 }
+
+@media (max-width :600px) {
+  .width100{
+    width: 100% !important;
+  }
+}
+@media (max-width :460px) {
+  .dropdownfloatRight{
+    float: left !important;
+    margin-top: 8px;
+  }
+}
+.dropdownfloatRight{
+  float: right!;
+}

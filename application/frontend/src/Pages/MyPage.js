@@ -87,7 +87,7 @@ const MyPage = () => {
               <Col sm={1.5} id="tabContent">
                 <Tab.Content>
                   <Tab.Pane eventKey="msgs">
-                    {messages.map((data, index) => (
+                    {messages.length > 0 ? messages.map((data, index) => (
                       <Card id="messageCard" key={`div_${index}`}>
                         <Container>
                           <Row id="msgRow">
@@ -115,10 +115,11 @@ const MyPage = () => {
                           {data.message_body}
                         </Card.Text>
                       </Card>
-                    ))}
+                    )) : <h4 className='p-4'>No Messages</h4>}
+                    { }
                   </Tab.Pane>
                   <Tab.Pane eventKey="posts">
-                    <Table bordered id="postContent">
+                    {userListings.length > 0 ? <Table bordered id="postContent">
                       <thead>
                         <tr>
                           <th width="80%">Post</th>
@@ -141,7 +142,7 @@ const MyPage = () => {
                           </tr>
                         ))}
                       </tbody>
-                    </Table>
+                    </Table> : <h4 className='p-4'>No Listings</h4>}
                   </Tab.Pane>
                 </Tab.Content>
               </Col>

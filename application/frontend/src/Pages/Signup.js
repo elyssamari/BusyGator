@@ -280,8 +280,7 @@ const Signup = () => {
           toastSuccess('Registration Sucessful');
         });
         navigate('/');
-      }
-      catch (error) {
+      } catch (error) {
         toastError(error.message);
       }
     }
@@ -363,7 +362,9 @@ const Signup = () => {
                   aria-label="Confirm Password"
                   maxLength="45"
                   isInvalid={!confirmPasswordFormObj.isValid}
-                  onChange={(e) => setFormData('confirmPassword', e.target.value)}
+                  onChange={(e) =>
+                    setFormData('confirmPassword', e.target.value)
+                  }
                 />
                 <Form.Control.Feedback type="invalid">
                   {confirmPasswordFormObj.errorMessage}
@@ -376,9 +377,14 @@ const Signup = () => {
                 id="agree"
                 required
               />{' '}
-              I have read and agree to the Terms and Conditions and Privacy Policy
+              I have read and agree to the Terms and Conditions and Privacy
+              Policy
               <Form.Group className="text-center">
-                <Button id="login_signin_button" variant="primary" type="submit">
+                <Button
+                  id="login_signin_button"
+                  variant="primary"
+                  type="submit"
+                >
                   Sign Up
                 </Button>
               </Form.Group>

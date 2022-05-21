@@ -52,7 +52,7 @@ const NavBar = () => {
         userId: null,
       });
       toastSuccess('Logout Successful');
-    } catch(error) {
+    } catch (error) {
       toastError(error.message);
     }
   }
@@ -155,22 +155,20 @@ const NavBar = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortAsc]);
 
-  const resetResults=()=>{
-    console.log('-----')
+  const resetResults = () => {
     setSearchParams({
-    categoryId: null,
-    searchText: "",
-    minPrice: null,
-    maxPrice: null,
+      categoryId: null,
+      searchText: '',
+      minPrice: null,
+      maxPrice: null,
     });
     getAllListings().then((data) => {
-      console.log(data);
       const { results, totalCount } = data.data;
       setTotalCount(totalCount);
       setListings(sortData(results));
       navigate('/');
     });
-  }
+  };
 
   return (
     <>
@@ -223,6 +221,7 @@ const NavBar = () => {
               id="searchbar"
               aria-label="Text input with dropdown button"
               placeholder="Search"
+              value={searchParams.searchText || ''}
               isInvalid={searchIsInvalid()}
               onChange={(e) =>
                 setSearchParams({
@@ -255,13 +254,19 @@ const NavBar = () => {
             About Us
           </Link>
           {(userInfo.userId && (
-            <Link id="navlink" className="nav-link" to="/Login" onClick={handleLogout}>
+            <Link
+              id="navlink"
+              className="nav-link"
+              to="/Login"
+              onClick={handleLogout}
+            >
               Logout
             </Link>
-          )) ||
-          <Link id="navlink" className="nav-link" to="/Login">
-            Login / Signup
-          </Link>}
+          )) || (
+            <Link id="navlink" className="nav-link" to="/Login">
+              Login / Signup
+            </Link>
+          )}
         </div>
       </Navbar>
     </>

@@ -75,8 +75,7 @@ const Post = () => {
   useEffect(() => {
     if (userInfo.userId) {
       setListingInfo({ ...listingInfo, sellerID: userInfo.userId });
-    }
-    else {
+    } else {
       navigate('/Login');
     }
   }, [userInfo]);
@@ -240,7 +239,7 @@ const Post = () => {
         createListing(listingInfo);
         navigate('/');
         toastSuccess('Post Created Successfully\nWaiting For Approval');
-      } catch(error) {
+      } catch (error) {
         toastError(error.message);
       }
     }
@@ -248,194 +247,193 @@ const Post = () => {
 
   return (
     <>
-      <Card id="login_signupcard" className="card h-100">
-        <Card.Header className="text-center">
-          <h1>New Post</h1>
-        </Card.Header>
-        <Card.Body>
-          <Card.Text className="text-right">
-            All fields with an asterick (*) are mandatory
-          </Card.Text>
-          <Form>
-            <Form.Group id="" className="mb-3">
-              <Card.Text>Add Product Image *</Card.Text>
-              <Form.Control
-                id="file_button"
-                type="file"
-                // Only accept image files
-                accept="image/*"
-                isInvalid={!imageFormObj.isValid}
-                onChange={(e) => {
-                  setImageFormObj({
-                    ...imageFormObj,
-                    value: e.target.files[0],
-                    isValid: true,
-                    errorMessage: '',
-                  });
-                  setListingInfo({
-                    ...listingInfo,
-                    image: e.target.files[0] || '',
-                  });
-                }}
-              />
-              <Form.Control.Feedback type="invalid">
-                {imageFormObj.errorMessage}
-              </Form.Control.Feedback>
-              <Form.Group id="checkbox" className="mb-3">
-                <Form.Check
-                  type="checkbox"
-                  required
-                  label="Accept User Policy for Uploading Image"
+      <div className="setHeight">
+
+        <Card id="login_signupcard" className="card h-100">
+          <Card.Header className="text-center">
+            <h1>New Post</h1>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text className="text-right">
+              All fields with an asterick (*) are mandatory
+            </Card.Text>
+            <Form>
+              <Form.Group id="" className="mb-3">
+                <Card.Text>Add Product Image *</Card.Text>
+                <Form.Control
+                  id="file_button"
+                  type="file"
+                  // Only accept image files
+                  accept="image/*"
+                  isInvalid={!imageFormObj.isValid}
                   onChange={(e) => {
-                    setAgreementFormObj({
-                      ...agreementFormObj,
-                      value: e.target.checked,
+                    setImageFormObj({
+                      ...imageFormObj,
+                      value: e.target.files[0],
                       isValid: true,
                       errorMessage: '',
                     });
+                    setListingInfo({
+                      ...listingInfo,
+                      image: e.target.files[0] || '',
+                    });
                   }}
                 />
-                {!agreementFormObj.isValid && (
+                <Form.Control.Feedback type="invalid">
+                  {imageFormObj.errorMessage}
+                </Form.Control.Feedback>
+                <Form.Group id="checkbox" className="mb-3">
+                  <Form.Check
+                    type="checkbox"
+                    required
+                    label="Accept User Policy for Uploading Image"
+                    onChange={(e) => {
+                      setAgreementFormObj({
+                        ...agreementFormObj,
+                        value: e.target.checked,
+                        isValid: true,
+                        errorMessage: '',
+                      });
+                    }}
+                  />
+                  {!agreementFormObj.isValid && (
+                    <small className="text-danger">
+                      Please check user policy agreement
+                    </small>
+                  )}
+                </Form.Group>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Product Title *</Form.Label>
+                <Form.Control
+                  type="text"
+                  className="form-control"
+                  placeholder="e.g: Foundations of Computer Science Textbook"
+                  maxLength="45"
+                  isInvalid={!titleFormObj.isValid}
+                  onChange={(e) => setFormData('title', e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {titleFormObj.errorMessage}
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Product Category *</Form.Label>
+                <DropdownButton
+                  id="dropdown-basic-button"
+                  variant="secondary"
+                  title={returnTitle()}
+                >
+                  {categories &&
+                    categories
+                      .filter((elem) => elem.name !== 'All')
+                      .map((category, index) => (
+                        <Dropdown.Item
+                          key={index}
+                          onClick={() => {
+                            setCategoryFormObj({
+                              ...categoryFormObj,
+                              value: category.category_id || '',
+                              isValid: true,
+                              errorMessage: '',
+                            });
+                            setListingInfo({
+                              ...listingInfo,
+                              category: category.category_id || '',
+                            });
+                          }}
+                        >
+                          {category.name}
+                        </Dropdown.Item>
+                      ))}
+                </DropdownButton>
+                {!categoryFormObj.isValid && (
                   <small className="text-danger">
-                    Please check user policy agreement
+                    {categoryFormObj.errorMessage}
                   </small>
                 )}
               </Form.Group>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Product Title *</Form.Label>
-              <Form.Control
-                type="text"
-                className="form-control"
-                placeholder="e.g: Foundations of Computer Science Textbook"
-                maxLength="45"
-                isInvalid={!titleFormObj.isValid}
-                onChange={(e) => setFormData('title', e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                {titleFormObj.errorMessage}
-              </Form.Control.Feedback>
-            </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Product Category *</Form.Label>
-              <DropdownButton
-                id="dropdown-basic-button"
-                variant="secondary"
-                title={returnTitle()}
-              >
-                {categories &&
-                  categories
-                    .filter((elem) => elem.name !== 'All')
-                    .map((category, index) => (
+              <Form.Group className="mb-3">
+                <Form.Label>Product Price *</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="e.g: 200"
+                  aria-label="Price"
+                  maxLength="9"
+                  isInvalid={!priceFormObj.isValid}
+                  onChange={(e) => setFormData('price', e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {priceFormObj.errorMessage}
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Product Pickup Location</Form.Label>
+                <DropdownButton
+                  id="dropdown-basic-button"
+                  variant="secondary"
+                  title={returnLocationTitle()}
+                >
+                  {locations &&
+                    locations.map((location, index) => (
                       <Dropdown.Item
                         key={index}
-                        onClick={() => {
-                          setCategoryFormObj({
-                            ...categoryFormObj,
-                            value: category.category_id || '',
+                        onClick={(e) => {
+                          setLocationFormObj({
+                            ...locationFormObj,
+                            value: location.location_id || '',
                             isValid: true,
                             errorMessage: '',
                           });
                           setListingInfo({
                             ...listingInfo,
-                            category: category.category_id || '',
+                            location: location.location_id || '',
                           });
                         }}
                       >
-                        {category.name}
+                        {location.name}
                       </Dropdown.Item>
                     ))}
-              </DropdownButton>
-              {!categoryFormObj.isValid && (
-                <small className="text-danger">
-                  {categoryFormObj.errorMessage}
-                </small>
-              )}
-            </Form.Group>
+                </DropdownButton>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Product Price *</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="e.g: 200"
-                aria-label="Price"
-                maxLength="9"
-                isInvalid={!priceFormObj.isValid}
-                onChange={(e) => setFormData('price', e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                {priceFormObj.errorMessage}
-              </Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Brief Product Description *</Form.Label>
+                <Form.Control
+                  type="text"
+                  className="form-control"
+                  placeholder="e.g: Textbooks require Author and Edition"
+                  maxLength="120"
+                  isInvalid={!descriptionFormObj.isValid}
+                  onChange={(e) => setFormData('description', e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {descriptionFormObj.errorMessage}
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Product Pickup Location</Form.Label>
-              <DropdownButton
-                id="dropdown-basic-button"
-                variant="secondary"
-                title={returnLocationTitle()}
-              >
-                {locations &&
-                  locations.map((location, index) => (
-                    <Dropdown.Item
-                      key={index}
-                      onClick={(e) => {
-                        setLocationFormObj({
-                          ...locationFormObj,
-                          value: location.location_id || '',
-                          isValid: true,
-                          errorMessage: '',
-                        });
-                        setListingInfo({
-                          ...listingInfo,
-                          location: location.location_id || '',
-                        });
-                      }}
-                    >
-                      {location.name}
-                    </Dropdown.Item>
-                  ))}
-              </DropdownButton>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Brief Product Description *</Form.Label>
-              <Form.Control
-                type="text"
-                className="form-control"
-                placeholder="e.g: Textbooks require Author and Edition"
-                maxLength="120"
-                isInvalid={!descriptionFormObj.isValid}
-                onChange={(e) => setFormData('description', e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                {descriptionFormObj.errorMessage}
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group className="text-center">
-              <Button
-                id="postbutton1"
-                variant="primary"
-                type="reset"
-              >
-                Clear
-              </Button>
-              <Button
-                id="postbutton2"
-                variant="primary"
-                onClick={() => onPostSubmit()}
-              >
-                Post
-              </Button>
-            </Form.Group>
-            <Row className="mt-3 text-center">
-              <Card.Text>May take up to 24 hours to be approved</Card.Text>
-            </Row>
-          </Form>
-        </Card.Body>
-      </Card>
+              <Form.Group className="text-center">
+                <Button id="postbutton1" variant="primary" type="reset">
+                  Clear
+                </Button>
+                <Button
+                  id="postbutton2"
+                  variant="primary"
+                  onClick={() => onPostSubmit()}
+                >
+                  Post
+                </Button>
+              </Form.Group>
+              <Row className="mt-3 text-center">
+                <Card.Text>May take up to 24 hours to be approved</Card.Text>
+              </Row>
+            </Form>
+          </Card.Body>
+        </Card>
+      </div>
     </>
   );
 };

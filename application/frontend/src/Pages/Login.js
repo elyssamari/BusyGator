@@ -79,7 +79,11 @@ const Login = () => {
               <Link to="/ForgotPassword">Forgot Password?</Link>
 
               <Form.Group className="text-center">
-                <Button id="login_signin_button" variant="primary" type="submit">
+                <Button
+                  id="login_signin_button"
+                  variant="primary"
+                  type="submit"
+                >
                   Login
                 </Button>
               </Form.Group>

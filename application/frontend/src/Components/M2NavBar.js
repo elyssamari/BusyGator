@@ -155,6 +155,21 @@ const NavBar = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortAsc]);
 
+  const resetResults=()=>{
+    setSearchParams({
+    categoryId: null,
+    searchText: "",
+    minPrice: null,
+    maxPrice: null,
+    });
+    getAllListings().then((data) => {
+      const { results, totalCount } = data.data;
+      setTotalCount(totalCount);
+      setListings(sortData(results));
+    });
+    navigate('/');
+  }
+
   return (
     <>
       <Card id="navTextCard" bg="dark" variant="dark">
@@ -167,7 +182,7 @@ const NavBar = () => {
       </Card>
       <Navbar bg="dark" className="flexWrap" variant="dark">
         <button
-          onClick={() => navigate('/', { state: { data: '' } })}
+          onClick={() => resetResults()}
           style={{ backgroundColor: 'transparent', border: 'none' }}
         >
           <Navbar.Brand id="logo">
@@ -244,7 +259,7 @@ const NavBar = () => {
           )) ||
           <Link id="navlink" className="nav-link" to="/Login">
             Login / Signup
-          </Link>
+          </Link>}
         </div>
       </Navbar>
     </>

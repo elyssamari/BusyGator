@@ -73,6 +73,8 @@ const Messages = () => {
                   as="textarea"
                   rows={4}
                   placeholder="Click here to write a message"
+                  onChange={(e) => setMessageInfo({ ...messageInfo, messageBody: e.target.value })}
+
                 />
               </Form.Group>
 

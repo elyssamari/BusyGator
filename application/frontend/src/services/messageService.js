@@ -17,5 +17,5 @@ export const getMessagesById = (userId) => {
 };
 
 export const createMessage = (messageInfo) => {
-  return axios.get('/message/createMessage', { params: messageInfo });
+  return axios.post('/message/createMessage', { ...messageInfo });
 };

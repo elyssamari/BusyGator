@@ -85,7 +85,7 @@ const Signup = () => {
         setFirstNameFormObj({
           ...firstNameFormObj,
           isValid: false,
-          errorMessage: 'Please fill in last name field',
+          errorMessage: 'Please fill in first name field',
         });
       } else if (!isValidName.test(value)) {
         setFirstNameFormObj({
@@ -281,7 +281,7 @@ const Signup = () => {
         });
         navigate('/');
       }
-      catch(error) {
+      catch (error) {
         toastError(error.message);
       }
     }

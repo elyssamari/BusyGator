@@ -73,7 +73,7 @@ const Home = () => {
           <DropdownButton
             id="dropdown-item-button"
             title={dropdownText}
-            className="format float-right"
+            className="format dropdownfloatRight"
           >
             {dropDownValues.map((data, index) => (
               <Dropdown.Item as="button" key={index}>
@@ -91,7 +91,7 @@ const Home = () => {
         </Col>
       </Row>
       <Row id="cardmargin" xs={1} sm={2} md={3} lg={4} xl={5} className="g-4">
-        {listings.map((data, index) => (
+        {listings && listings.map((data, index) => (
           <Col key={`div_${index}`}>
             <Card className="card h-100">
               <Card.Img

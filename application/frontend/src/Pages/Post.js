@@ -420,7 +420,7 @@ const Post = () => {
                 variant="primary"
                 type="reset"
               >
-                Cancel
+                Clear
               </Button>
               <Button
                 id="postbutton2"

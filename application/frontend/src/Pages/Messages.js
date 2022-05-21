@@ -66,9 +66,7 @@ const Messages = () => {
             <h1>Messages</h1>
           </Card.Header>
           <Card.Body>
-            <Card id="textMessage">
-              <Card.Body id="message-box"> </Card.Body>
-            </Card>
+            
             <Form>
               <Form.Group>
                 <Form.Control
@@ -84,12 +82,12 @@ const Messages = () => {
                   id="cancelButton"
                   className="primary"
                   role="button"
-                  type="reset"
+                  onClick={()=>navigate('/')}
                 >
                   Cancel{' '}
                 </Button>
 
-                <Button id="sentMessageButton" className="primary">
+                <Button id="sentMessageButton" className="primary" onClick={()=>onFormSubmit()}>
                   Send Message{' '}
                 </Button>
               </Form.Group>

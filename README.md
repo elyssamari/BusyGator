@@ -1,5 +1,8 @@
 # csc648 Repository
 
+## Preview Project
+[![busygators](https://user-images.githubusercontent.com/70128989/207008979-61469415-7cae-4c79-9301-88feed857808.JPG)](https://youtu.be/g2HGHSg_n94)
+
 ## Please when ready add your teams application URL or IP to the repository description. This will help with grading. Teams are expected to keep this value up to date.
 
 ## Please do the following steps before completing Milestone 0.
